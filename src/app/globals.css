@@ -1,0 +1,229 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  margin: 0;
+  background: #f6f2e9;
+  color: #18201d;
+  font-family: var(--font-sans), sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+::selection {
+  background: #f1aa15;
+  color: #18201d;
+}
+
+:focus-visible {
+  outline: 3px solid #f1aa15;
+  outline-offset: 3px;
+}
+
+.solar-font {
+  font-family: var(--font-solar), var(--font-sans), sans-serif;
+}
+
+.page-shell {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.reveal {
+  opacity: 1;
+  transform: none;
+}
+
+.motion-ready .reveal {
+  opacity: 0;
+  transform: translateY(34px);
+}
+
+.grain::after {
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.14;
+  mix-blend-mode: multiply;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 34px 34px;
+}
+
+.mouse-wash {
+  background: radial-gradient(
+    circle at var(--mx, 50%) var(--my, 50%),
+    rgba(255, 255, 255, 0.32),
+    rgba(255, 255, 255, 0.08) 18rem,
+    transparent 36rem
+  );
+}
+
+.solar-heading {
+  font-family: var(--font-solar), var(--font-sans), sans-serif;
+}
+
+
+.feature-card-copy,
+.compact-copy {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+@media (min-width: 640px) {
+  .feature-card-copy {
+    display: block;
+    overflow: visible;
+    -webkit-line-clamp: unset;
+  }
+}
+
+@media (min-width: 1024px) {
+  .compact-copy {
+    -webkit-line-clamp: 3;
+  }
+}
+
+.division-hero-overlay {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(24, 32, 29, 0.34) 0%,
+      rgba(24, 32, 29, 0.5) 42%,
+      rgba(24, 32, 29, 0.84) 100%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(24, 32, 29, 0.82) 0%,
+      rgba(24, 32, 29, 0.48) 54%,
+      rgba(24, 32, 29, 0.18) 100%
+    );
+}
+
+.sub-hero-overlay {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(24, 32, 29, 0.38) 0%,
+      rgba(24, 32, 29, 0.64) 100%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(24, 32, 29, 0.78) 0%,
+      rgba(24, 32, 29, 0.36) 100%
+    );
+}
+.footer-surface {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.footer-surface-realty {
+  background:
+    linear-gradient(135deg, rgba(82, 107, 97, 0.32) 0%, rgba(82, 107, 97, 0) 42%),
+    linear-gradient(180deg, #18201d 0%, #0f1714 100%);
+}
+
+.footer-surface-solar {
+  background:
+    linear-gradient(135deg, rgba(241, 170, 21, 0.24) 0%, rgba(241, 170, 21, 0) 38%),
+    linear-gradient(180deg, #1a2119 0%, #101610 100%);
+}
+
+.group-hero-section {
+  min-height: clamp(680px, 84vh, 900px);
+}
+
+@media (max-width: 480px) {
+  .group-hero-section {
+    min-height: clamp(620px, 82svh, 720px);
+  }
+}
+
+.group-hero-art {
+  background-image: url("/images/milton-group-hero-mobile.webp");
+  background-position: center center;
+  background-size: cover;
+}
+
+.group-hero-overlay {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(24, 32, 29, 0.18) 0%,
+      rgba(24, 32, 29, 0.5) 54%,
+      rgba(24, 32, 29, 0.78) 100%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(24, 32, 29, 0.82) 0%,
+      rgba(24, 32, 29, 0.42) 48%,
+      rgba(24, 32, 29, 0.16) 100%
+    );
+}
+
+@media (min-width: 640px) {
+  .group-hero-art {
+    background-image: url("/images/milton-group-hero-tablet.webp");
+    background-position: center center;
+  }
+}
+
+@media (min-width: 1280px) {
+  .group-hero-art {
+    background-image: url("/images/milton-group-hero-desktop.webp");
+    background-position: center center;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+
+  .motion-ready .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+
