@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
@@ -50,7 +51,18 @@ export function SiteChrome({ division, children }: SiteChromeProps) {
 
 function SiteHeader({ division }: { division: Division }) {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > window.innerHeight * 0.5);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const brandLabel =
+    division === "solar" ? "Solar LLP" : division === "realty" ? "Home LLP" : "Group";
   const groupRoutes: NavItem[] = [
     { href: "/", label: "Group" },
     { href: "/realty-home", label: "Milton Realty" },
@@ -62,29 +74,32 @@ function SiteHeader({ division }: { division: Division }) {
     division === "group"
       ? groupRoutes
       : (divisionRoutes[division] as NavItem[]);
-  const accent =
-    division === "solar"
-      ? "border-solar-500 bg-solar-500 text-ink"
-      : "border-realty-500 bg-realty-700 text-white";
 
   return (
-    <header className="fixed left-0 right-0 top-0 z-40 border-b border-white/18 bg-ink/68 text-white shadow-sm backdrop-blur-xl">
+    <header
+      className={`fixed left-0 right-0 top-0 z-40 border-b text-white shadow-sm transition-colors duration-300 ${
+        scrolled
+          ? "border-black/10 bg-ink"
+          : "border-white/18 bg-ink/68 backdrop-blur-xl"
+      }`}
+    >
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center gap-3" aria-label="Milton Group">
-          <span className={`flex h-11 w-11 items-center justify-center rounded-lg border ${accent}`}>
-            MG
+        <Link href="/" className="flex min-w-0 items-center gap-3" aria-label="Milton Group">
+          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-white/18 bg-white/90 p-1.5 shadow-sm backdrop-blur-sm">
+            <Image
+              src="/images/logos/milton-building-mark.svg"
+              alt=""
+              width={290}
+              height={348}
+              priority
+              className="h-full w-auto object-contain"
+            />
           </span>
-          <span>
+          <span className="min-w-0">
             <span className="block text-sm font-semibold uppercase tracking-[0.28em]">
               Milton
             </span>
-            <span className="block text-xs text-white/68">
-              {division === "realty"
-                ? "Realty"
-                : division === "solar"
-                  ? "Solar"
-                  : "Group"}
-            </span>
+            <span className="block text-xs text-white/68">{brandLabel}</span>
           </span>
         </Link>
 
@@ -93,8 +108,11 @@ function SiteHeader({ division }: { division: Division }) {
             <div key={item.href} className="group relative">
               <Link
                 href={item.href}
-                className={`inline-flex min-h-10 items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium transition hover:bg-white/12 ${
-                  pathname === item.href ? "bg-white/14 text-white" : "text-white/76"
+                aria-current={pathname === item.href ? "page" : undefined}
+                className={`inline-flex min-h-10 items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium transition ${
+                  pathname === item.href
+                    ? "bg-white text-ink shadow-sm font-semibold"
+                    : "text-white/76 hover:bg-white/12 hover:text-white"
                 }`}
               >
                 {item.label}
@@ -143,7 +161,12 @@ function SiteHeader({ division }: { division: Division }) {
                 <Link
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className="block rounded-lg px-3 py-3 text-sm font-medium text-white/84 hover:bg-white/10"
+                  aria-current={pathname === item.href ? "page" : undefined}
+                  className={`block rounded-lg px-3 py-3 text-sm transition ${
+                    pathname === item.href
+                      ? "bg-white font-semibold text-ink shadow-sm"
+                      : "font-medium text-white/84 hover:bg-white/10"
+                  }`}
                 >
                   {item.label}
                 </Link>
@@ -198,28 +221,28 @@ function SiteFooter({ division }: { division: Division }) {
       <div className="relative mx-auto max-w-7xl px-4 pb-16 pt-8 sm:px-6 sm:pb-12 sm:pt-10 xl:px-8 xl:py-12">
         <div className="grid gap-6 lg:grid-cols-[0.86fr_1.34fr_0.9fr] xl:gap-10">
           <div className="max-w-md">
-          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-white/58">
-            Milton Group
-          </p>
-          <h2 className="mt-2 font-display text-2xl leading-tight sm:mt-3 lg:text-3xl">
-            {division === "solar"
-              ? "Energy work with a human handover."
-              : division === "realty"
-                ? "Property decisions with room to breathe."
-                : "Realty and solar, held under one roof."}
-          </h2>
-          <p className="mt-3 hidden max-w-sm text-sm leading-6 text-white/64 sm:block">
-            {division === "group"
-              ? "Milton Group connects property advisory and solar EPC through one parent identity."
-              : `Part of Milton Group. Return to the parent hub from any ${division} page.`}
-          </p>
-          <Link
-            href="/"
-            className="mt-5 hidden rounded-lg border border-white/18 px-4 py-2 text-sm font-semibold text-white/82 transition hover:bg-white/10 lg:inline-flex"
-          >
-            Group Home
-          </Link>
-        </div>
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-white/58">
+              Milton Group
+            </p>
+            <h2 className="mt-2 font-display text-2xl leading-tight sm:mt-3 lg:text-3xl">
+              {division === "solar"
+                ? "Energy work with a human handover."
+                : division === "realty"
+                  ? "Property decisions with room to breathe."
+                  : "Realty and solar, held under one roof."}
+            </h2>
+            <p className="mt-3 hidden max-w-sm text-sm leading-6 text-white/64 sm:block">
+              {division === "group"
+                ? "Milton Group connects property advisory and solar EPC through one parent identity."
+                : `Part of Milton Group. Return to the parent hub from any ${division} page.`}
+            </p>
+            <Link
+              href="/"
+              className="mt-5 hidden rounded-lg border border-white/18 px-4 py-2 text-sm font-semibold text-white/82 transition hover:bg-white/10 lg:inline-flex"
+            >
+              Group Home
+            </Link>
+          </div>
           <div>
           <h3 className="text-xs font-semibold uppercase tracking-[0.22em] text-white/52">
             Contact

@@ -35,6 +35,17 @@ import {
   SolutionTabs
 } from "@/components/InteractiveSections";
 
+const divisionLogos = {
+  realty: {
+    src: "/images/logos/milton-home-llp-logo.svg",
+    alt: "Milton Home LLP"
+  },
+  solar: {
+    src: "/images/logos/milton-solar-llp-logo.svg",
+    alt: "Milton Solar LLP"
+  }
+} as const;
+
 export function GroupHome() {
   return (
     <>
@@ -436,7 +447,11 @@ function Hero({
         >
           {title}
         </h1>
-        <div className={`mt-8 flex max-w-4xl flex-col gap-6 lg:flex-row lg:items-end lg:justify-between ${isGroup ? "pr-14 sm:pr-0" : ""}`}>
+        <div
+          className={`mt-8 flex max-w-4xl flex-col gap-6 ${
+            isGroup ? "pr-14 sm:pr-0" : "lg:flex-row lg:items-end lg:justify-between"
+          }`}
+        >
           <p data-hero-reveal className="max-w-2xl text-base leading-7 text-white/76 sm:text-lg">
             {text}
           </p>
@@ -450,9 +465,14 @@ function Hero({
             </Link>
             <Link
               href={secondary.href}
-              className="inline-flex min-h-12 items-center justify-center rounded-lg border border-white/30 px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-white/12"
+              className={
+                isGroup
+                  ? "inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-white px-5 py-3 text-sm font-semibold text-ink transition hover:-translate-y-0.5 hover:bg-solar-100"
+                  : "inline-flex min-h-12 items-center justify-center rounded-lg border border-white/30 px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-white/12"
+              }
             >
               {secondary.label}
+              {isGroup ? <ArrowRight size={17} aria-hidden="true" /> : null}
             </Link>
           </div>
         </div>
@@ -784,6 +804,8 @@ function StoryBand({
   text: string;
   points: string[];
 }) {
+  const logo = divisionLogos[division];
+
   return (
     <section className="bg-paper px-4 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-20">
       <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr]">
@@ -796,6 +818,15 @@ function StoryBand({
             Story
           </p>
           <h2 className="mt-3 font-display text-3xl leading-tight text-ink sm:text-5xl">{title}</h2>
+          <div className="mt-6 inline-flex rounded-lg border border-ink/10 bg-white p-4 shadow-sm">
+            <Image
+              src={logo.src}
+              alt={logo.alt}
+              width={468}
+              height={588}
+              className="h-32 w-auto object-contain sm:h-40"
+            />
+          </div>
         </div>
         <div className="reveal">
           <p className="text-lg leading-8 text-ink/68">{text}</p>
@@ -869,12 +900,18 @@ function ContactBand({ division }: { division: Exclude<Division, "group"> }) {
     division === "realty"
       ? ["Property brief", "Site visit", "Advisor callback"]
       : ["Bill review", "Site survey", "Quote callback"];
+  const accentText = division === "realty" ? "text-realty-500" : "text-solar-700";
+  const accentIcon = division === "realty" ? "text-realty-700" : "text-solar-700";
+  const panelClass =
+    division === "realty"
+      ? "border-realty-500/20 bg-realty-50"
+      : "border-solar-500/25 bg-solar-50";
 
   return (
     <section className="bg-paper px-4 py-7 sm:px-6 sm:py-14 lg:px-8 lg:py-20">
-      <div className="mx-auto grid max-w-7xl gap-4 sm:gap-6 md:grid-cols-[0.95fr_1.05fr] md:items-start lg:gap-8">
+      <div className="mx-auto grid max-w-7xl gap-4 sm:gap-6 md:grid-cols-[0.95fr_1.05fr] md:items-stretch lg:gap-8">
         <div className="reveal order-1 rounded-lg border border-ink/10 bg-white p-4 shadow-sm sm:p-6 lg:order-2 lg:p-8">
-          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-ink/42">
+          <p className={`text-xs font-semibold uppercase tracking-[0.28em] ${accentText}`}>
             Enquiry
           </p>
           <h2 className="mt-3 font-display text-3xl leading-tight text-ink sm:text-4xl">
@@ -893,15 +930,15 @@ function ContactBand({ division }: { division: Exclude<Division, "group"> }) {
             <div className="mt-3 grid gap-2 text-sm font-medium text-ink/68 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
               {responseSteps.map((step) => (
                 <div key={step} className="flex items-center gap-2">
-                  <BadgeCheck size={16} className="shrink-0 text-realty-700" aria-hidden="true" />
+                  <BadgeCheck size={16} className={`shrink-0 ${accentIcon}`} aria-hidden="true" />
                   <span>{step}</span>
                 </div>
               ))}
             </div>
           </div>
         </div>
-        <div className="reveal order-2 rounded-lg border border-ink/10 bg-white p-4 shadow-sm sm:p-6 lg:order-1 lg:p-8">
-          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-ink/42">
+        <div className={`reveal order-2 rounded-lg border p-4 shadow-sm sm:p-6 lg:order-1 lg:p-8 ${panelClass}`}>
+          <p className={`text-xs font-semibold uppercase tracking-[0.28em] ${accentText}`}>
             Contact
           </p>
           <h2 className="mt-3 font-display text-3xl leading-tight text-ink sm:text-5xl">
@@ -911,21 +948,21 @@ function ContactBand({ division }: { division: Exclude<Division, "group"> }) {
             <div className="flex flex-wrap gap-2">
               <Link
                 href={contact.phoneHref}
-                className="inline-flex min-h-10 items-center gap-2 rounded-lg border border-ink/10 px-3 py-2 font-semibold text-ink transition hover:bg-ink hover:text-white"
+                className="inline-flex min-h-10 items-center gap-2 rounded-lg border border-ink/10 bg-white px-3 py-2 font-semibold text-ink shadow-sm transition hover:bg-ink hover:text-white"
               >
                 <Phone size={16} aria-hidden="true" />
                 {contact.phone}
               </Link>
               <Link
                 href={contact.emailHref}
-                className="inline-flex min-h-10 items-center gap-2 rounded-lg border border-ink/10 px-3 py-2 font-semibold text-ink transition hover:bg-ink hover:text-white"
+                className="inline-flex min-h-10 items-center gap-2 rounded-lg border border-ink/10 bg-white px-3 py-2 font-semibold text-ink shadow-sm transition hover:bg-ink hover:text-white"
               >
                 <Mail size={16} aria-hidden="true" />
                 {contact.email}
               </Link>
             </div>
-            <div className="grid gap-3">
-              <div>
+            <div className="grid gap-2 sm:grid-cols-2">
+              <div className="rounded-lg border border-ink/10 bg-white p-3">
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-ink/42">
                   Branch Office
                 </p>
@@ -934,7 +971,7 @@ function ContactBand({ division }: { division: Exclude<Division, "group"> }) {
                   <span>{contact.branchOffice}</span>
                 </p>
               </div>
-              <div>
+              <div className="rounded-lg border border-ink/10 bg-white p-3">
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-ink/42">
                   Corporate Office
                 </p>
