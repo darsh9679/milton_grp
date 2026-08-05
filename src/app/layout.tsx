@@ -21,6 +21,9 @@ const solarAlt = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || "https://milton-grp.vercel.app"
+  ),
   title: {
     default: "Milton Group | Realty and Solar",
     template: "%s | Milton Group"

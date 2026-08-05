@@ -452,34 +452,56 @@ export const solarProducts = [
 
 export const realtyArticles = [
   {
-    category: "Buying Guide",
-    title: "How to compare Mumbai micro-markets without getting lost in price per sq ft",
+    slug: "satara-hingani",
+    category: "Township Living",
+    title: "Satara Hingani: A New Address for Sustainable Living",
+    eyebrow: "Residential Township",
+    location: "Satara, Maharashtra",
+    date: "August 04, 2026",
+    readingTime: "5 min read",
+    image: "/images/realty-blog/satara-hingani/cover.png",
+    imageAlt: "Satara Hingani residential township with bungalow, gardens, and evening lighting",
     excerpt:
-      "A buyer-first framework for weighing access, supply, floor plans, and long-term resale depth.",
-    date: "July 18, 2026"
+      "A 350-acre residential destination planned around mini bungalows, solar-ready living, open landscapes, and everyday community convenience.",
+    highlights: ["350-acre township", "5,000 mini bungalows", "Solar-ready homes"],
+    body: [
+      "Imagine waking up every morning to fresh mountain air, expansive open landscapes, and the peaceful sounds of nature, while still enjoying the comforts of a thoughtfully planned modern township. Satara Hingani is a one-of-a-kind residential destination that brings together luxury, sustainability, and convenience in a way that redefines modern living.",
+      "Located at a prime position near the Pandharpur-Maswad Highway, the project offers excellent connectivity while allowing residents to enjoy a serene lifestyle away from the congestion and noise of the city. It is designed for people who want calm surroundings without feeling disconnected from essential access.",
+      "Spread across an impressive 350 acres, Satara Hingani has been envisioned as a self-sustained township featuring 5,000 luxurious 1 BHK mini bungalows. Every bungalow has been carefully designed to maximize comfort, functionality, and natural light, making it an ideal choice for young professionals, families, retirees, weekend homeowners, and investors alike.",
+      "One of the defining features of Satara Hingani is its strong commitment to green and sustainable living. The township incorporates a solar energy concept, where every bungalow is designed to support solar panel integration. This promotes clean, renewable energy while reducing electricity costs and creating long-term savings for residents.",
+      "Beyond beautiful homes, Satara Hingani has been planned as a complete lifestyle destination where everyday necessities are within easy reach. The township includes landscaped gardens, walking paths, children's play areas, open recreational spaces, a grocery store for daily essentials, and a medical clinic for timely healthcare access.",
+      "Nature is at the heart of the Satara Hingani experience. Wide internal roads, lush green landscapes, open spaces, and scenic surroundings create a calm and refreshing environment that encourages healthier living. Residents can enjoy morning walks, evenings in maintained gardens, and a peaceful atmosphere that is becoming rare in fast-paced urban life.",
+      "From an investment perspective, Satara Hingani presents a strong opportunity. Satara is steadily emerging as one of Maharashtra's promising growth corridors, supported by improving infrastructure, enhanced road connectivity, and increasing demand for quality residential developments.",
+      "Whether you are searching for your first home, a peaceful weekend retreat, a retirement destination, or a secure real estate investment, Satara Hingani offers a lifestyle that balances comfort, nature, and modern amenities. It is more than a residential project; it is a thoughtfully crafted community where every detail supports a healthier, greener, and more fulfilling future."
+    ]
   },
   {
-    category: "Coastal Homes",
-    title: "Versova and Konkan: two very different versions of coastal value",
+    slug: "cine-mall-vadodara",
+    category: "Commercial Landmark",
+    title: "Cine Mall, Vadodara: The City's Premier Lifestyle and Entertainment Destination",
+    eyebrow: "Retail and Entertainment",
+    location: "Vadodara, Gujarat",
+    date: "August 04, 2026",
+    readingTime: "5 min read",
+    image: "/images/realty-blog/cine-mall-vadodara/cover.png",
+    imageAlt: "Cine Mall Vadodara exterior with glass facade and evening lights",
     excerpt:
-      "Lifestyle demand, rental depth, and second-home intent behave differently across these locations.",
-    date: "July 09, 2026"
-  },
-  {
-    category: "Land",
-    title: "What to verify before buying NA plots near growth corridors",
-    excerpt:
-      "A clear due-diligence checklist before you evaluate land in Satara, Shirdi, or hill-town belts.",
-    date: "June 26, 2026"
-  },
-  {
-    category: "Investment",
-    title: "Kalyan's case for practical MMR ownership",
-    excerpt:
-      "Transit, ticket size, and rental demand make the suburb a useful lens for value-led investors.",
-    date: "June 11, 2026"
+      "A modern commercial landmark combining retail, multiplex entertainment, dining, visibility, and strong urban footfall.",
+    highlights: ["Prime commercial road", "Luxury multiplex", "Retail and food court"],
+    body: [
+      "In the heart of Vadodara, where the city thrives with business, culture, and modern living, stands Cine Mall: a landmark that has transformed the way people shop, dine, and entertain themselves. Strategically located on one of the city's busiest commercial streets, Cine Mall is more than a shopping centre; it is a vibrant lifestyle destination where contemporary architecture meets world-class experiences.",
+      "Its prime location, premium retail offerings, luxurious entertainment facilities, and dynamic ambience make it one of Vadodara's most influential commercial landmarks. The development has been shaped to serve shoppers, families, professionals, visitors, and investors who understand the value of high-visibility urban destinations.",
+      "Designed with a striking modern architectural facade, Cine Mall commands attention from the moment you arrive. The elegant glass frontage, clean contemporary lines, spacious interiors, and thoughtfully designed public areas create a sophisticated environment that reflects the aspirations of today's urban lifestyle.",
+      "Shopping at Cine Mall is an experience in itself. Home to renowned national and international retail brands, the mall offers an exciting mix of fashion, lifestyle, beauty, electronics, and everyday essentials under one roof. Visitors can explore trends, shop for premium products, or spend a relaxed day with family and friends in an environment that balances luxury with convenience.",
+      "Entertainment takes centre stage with the mall's luxurious multiplex theatre. Advanced projection systems, premium seating, exceptional acoustics, and a modern viewing environment transform every movie into a memorable occasion. Whether it is a blockbuster, a family outing, or a weekend escape, the theatre offers entertainment at its finest.",
+      "No lifestyle destination is complete without exceptional dining, and Cine Mall delivers through its vibrant food court. With restaurants, cafes, and quick-service outlets, the food court caters to every palate, from local favourites to international cuisines. A quick coffee, casual lunch, or family dinner can comfortably become part of the visit.",
+      "One of Cine Mall's greatest strengths is its strategic location. Positioned on one of Vadodara's busiest and most prominent roads, the mall enjoys strong visibility and seamless connectivity from every corner of the city. Surrounded by residential neighbourhoods, commercial offices, educational institutions, and business hubs, it attracts a diverse audience throughout the day.",
+      "As Vadodara continues to grow into a thriving metropolitan city, Cine Mall remains a symbol of its modern aspirations: bringing together luxury retail, premium entertainment, fine dining, and architectural excellence in one iconic destination."
+    ]
   }
 ];
+
+export type RealtyArticle = (typeof realtyArticles)[number];
 
 export const solarArticles = [
   {

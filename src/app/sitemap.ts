@@ -1,8 +1,8 @@
 import type { MetadataRoute } from "next";
-import { pageSlugs } from "@/lib/data";
+import { pageSlugs, realtyArticles } from "@/lib/data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://www.miltongroup.in";
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://milton-grp.vercel.app";
   return [
     {
       url: baseUrl,
@@ -10,6 +10,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     ...pageSlugs.map((slug) => ({
       url: `${baseUrl}/${slug}`,
+      lastModified: new Date()
+    })),
+    ...realtyArticles.map((article) => ({
+      url: `${baseUrl}/realty-blog/${article.slug}`,
       lastModified: new Date()
     }))
   ];

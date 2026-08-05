@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import {
   X,
   SlidersHorizontal,
@@ -699,6 +700,131 @@ export function ArticleGrid({ division }: { division: "realty" | "solar" }) {
   const categories = [all, ...Array.from(new Set(articles.map((item) => item.category)))];
   const visible = articles.filter((item) => category === all || item.category === category);
 
+  if (division === "realty") {
+    const realtyVisible = visible as typeof realtyArticles;
+
+    return (
+      <section
+        className="relative overflow-hidden bg-[#f7f3ea] px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-24"
+        id="blog"
+      >
+        <div className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-white to-transparent" />
+        <div className="relative mx-auto max-w-[1180px]">
+          <div className="reveal grid gap-6 border-b border-ink/10 pb-7 sm:gap-8 sm:pb-10 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-end">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-realty-500">
+                Milton Realty Blog
+              </p>
+              <h2 className="mt-3 max-w-[14ch] break-words font-display text-3xl leading-tight text-ink sm:max-w-3xl sm:text-5xl">
+                Project stories with a sharper property lens.
+              </h2>
+              <p className="mt-4 max-w-[34ch] break-words text-base leading-7 text-ink/62 sm:max-w-2xl">
+                Read the thinking behind Milton&apos;s residential, township, and commercial
+                opportunities before the enquiry conversation begins.
+              </p>
+            </div>
+            <div className="grid grid-cols-2 gap-3 text-ink sm:max-w-sm lg:ml-auto">
+              <div className="rounded-lg border border-ink/10 bg-white/76 p-4 shadow-sm">
+                <p className="text-2xl font-bold leading-none">{realtyVisible.length}</p>
+                <p className="mt-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-ink/48">
+                  Current notes
+                </p>
+              </div>
+              <div className="rounded-lg border border-ink/10 bg-white/76 p-4 shadow-sm">
+                <p className="text-2xl font-bold leading-none">5</p>
+                <p className="mt-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-ink/48">
+                  Minute reads
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-10 space-y-10 sm:mt-14 sm:space-y-12 lg:space-y-16">
+            {realtyVisible.map((article, index) => {
+              const reverse = index % 2 === 1;
+
+              return (
+                <article key={article.slug} className="reveal group">
+                  <div
+                    className={`grid items-center ${
+                      reverse
+                        ? "lg:grid-cols-[420px_1fr] xl:grid-cols-[470px_1fr]"
+                        : "lg:grid-cols-[1fr_420px] xl:grid-cols-[1fr_470px]"
+                    }`}
+                  >
+                    <Link
+                      href={`/realty-blog/${article.slug}`}
+                      className={`relative block overflow-hidden rounded-lg bg-ink shadow-soft ${
+                        reverse ? "lg:order-2" : "lg:order-1"
+                      }`}
+                      aria-label={`Read ${article.title}`}
+                    >
+                      <Image
+                        src={article.image}
+                        alt={article.imageAlt}
+                        width={1400}
+                        height={620}
+                        sizes="(min-width: 1280px) 1170px, 100vw"
+                        className="aspect-[16/9] h-auto w-full object-cover transition duration-700 group-hover:scale-105 sm:aspect-[16/8] lg:aspect-[16/7.6]"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-ink/34 via-ink/4 to-transparent" />
+                      <span className="absolute left-4 top-4 rounded-full border border-white/24 bg-ink/50 px-3 py-1 text-xs font-semibold text-white/84 backdrop-blur-sm">
+                        0{index + 1}
+                      </span>
+                    </Link>
+
+                    <div
+                      className={`relative z-10 mx-3 -mt-10 sm:mx-8 lg:mx-0 lg:mt-0 ${
+                        reverse
+                          ? "lg:order-1 lg:-mr-16 lg:justify-self-end"
+                          : "lg:order-2 lg:-ml-16"
+                      }`}
+                      data-blog-panel={reverse ? "left" : "right"}
+                    >
+                      <div className="rounded-lg border border-white/10 bg-ink p-5 text-white shadow-[0_28px_90px_rgba(24,32,29,0.25)] sm:p-7 lg:w-[420px] xl:w-[470px]">
+                        <div className="flex flex-wrap items-center gap-2 break-words text-[10px] font-semibold uppercase tracking-[0.16em] text-white/52 sm:text-[11px] sm:tracking-[0.18em]">
+                          <span>{article.category}</span>
+                          <span className="h-1 w-1 rounded-full bg-white/30" />
+                          <span>{article.readingTime}</span>
+                        </div>
+                        <h3 className="mt-3 break-words font-display text-2xl leading-tight text-white sm:mt-4 sm:text-4xl">
+                          {article.title}
+                        </h3>
+                        <p className="mt-3 text-[11px] font-semibold uppercase tracking-[0.14em] text-white/45">
+                          Date : {article.date}
+                        </p>
+                        <p className="mt-4 break-words text-sm leading-7 text-white/76 sm:mt-5 sm:text-base">
+                          {article.excerpt}
+                        </p>
+                        <div className="mt-4 flex flex-wrap gap-2 sm:mt-5">
+                          {article.highlights.map((highlight) => (
+                            <span
+                              key={highlight}
+                              className="rounded-full border border-white/16 bg-white/7 px-3 py-1 text-xs font-semibold text-white/78"
+                            >
+                              {highlight}
+                            </span>
+                          ))}
+                        </div>
+                        <Link
+                          href={`/realty-blog/${article.slug}`}
+                          className="mt-7 inline-flex min-h-11 items-center justify-center gap-3 rounded-full bg-white px-5 text-sm font-bold text-ink transition hover:-translate-y-0.5 hover:bg-solar-500"
+                        >
+                          Read More
+                          <ArrowRight size={17} aria-hidden="true" />
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="bg-paper px-4 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-20" id="blog">
       <div className="mx-auto max-w-7xl">
@@ -762,4 +888,3 @@ export function ArticleGrid({ division }: { division: "realty" | "solar" }) {
     </section>
   );
 }
-

@@ -165,29 +165,13 @@ function RealtyPage({ kind }: { kind: string }) {
   if (kind === "about") {
     return (
       <>
-        <SubHero
-          division="realty"
-          title="A property desk built around trust, timing, and local reading."
-          text="Milton Realty's role is to reduce noise in high-stakes property decisions: what to see, what to ignore, what to verify, and when to move."
-          image={heroImages.interior}
-        />
-        <StoryBand
-          division="realty"
-          title="The founding story is intentionally practical."
-          text="Milton Realty grew from the repeat work of families, sellers, and investors who needed someone to translate local property signals into clear next steps. The brand now sits under Milton Group with a wider asset view: homes, land, second homes, and the energy systems that increasingly support them."
-          points={[
-            "Advisory that starts with purpose before inventory.",
-            "Locality-specific guidance across city and non-city assets.",
-            "A preference for fewer, sharper options over crowded shortlists."
-          ]}
-        />
-        <TeamBand division="realty" />
+        <RealtyAboutExperience />
         <ClosingCta
           division="realty"
-          title="A quieter property conversation starts here."
-          text="Share what you are solving for and the Realty team can shape the right next step."
+          title="Begin a property conversation with context."
+          text="Share your requirement, location preference, budget, or project interest and Milton Realty can route the right next step."
           href="/realty-contact"
-          label="Contact Realty"
+          label="Start an Enquiry"
         />
       </>
     );
@@ -214,7 +198,7 @@ function RealtyPage({ kind }: { kind: string }) {
           division="realty"
           title="Realty reading for buyers, owners, and investors."
           text="Micro-market thinking, land checks, second-home logic, and practical property literacy."
-          image={heroImages.field}
+          image="/images/realty-blog/article-hero-banner.png"
         />
         <ArticleGrid division="realty" />
       </>
@@ -512,15 +496,510 @@ function SubHero({
         </p>
         <h1
           data-hero-reveal
-          className={`mt-4 max-w-5xl text-balance ${headingClass} text-3xl font-semibold leading-[1.12] sm:mt-5 sm:text-5xl sm:leading-tight lg:text-7xl`}
+          className={`mt-4 max-w-5xl break-words text-balance ${headingClass} text-3xl font-semibold leading-[1.12] sm:mt-5 sm:text-5xl sm:leading-tight lg:text-7xl`}
         >
           {title}
         </h1>
-        <p data-hero-reveal className="mt-6 max-w-2xl text-base leading-7 text-white/74">
+        <p data-hero-reveal className="mt-6 max-w-2xl break-words text-base leading-7 text-white/74">
           {text}
         </p>
       </div>
     </section>
+  );
+}
+
+function RealtyAboutExperience() {
+  const legacyStats = [
+    ["40", "Years of legacy", "+", "Relationship-led property work across residences, land, and long-term advisory."],
+    ["2", "Flagship towers", "", "Stardeous at Tardeo and Anthea at Versova anchor the Mumbai story."],
+    ["5000", "Homes planned", "+", "A township-scale ambition connected to the Satara Hingani footprint."],
+    ["7", "Corridors read", "", "Mumbai, MMR, Satara, Ratnagiri, Shirdi, Mahabaleshwar, and growth belts."]
+  ];
+  const pillars = [
+    {
+      title: "Vision",
+      paragraphs: [
+        "To become the inspiring leaders and growth catalyst of the nation. We, the Milton Group, are admired for sustainability practices, innovative solutions, and superior business performance. We aim to maximize the potential for your investments.",
+        "Through new residential projects, we envision a future of luxury and vertical living that will transform urban life. We promote creative, eco-friendly, and supportive high-rise communities that make better use of available space and improve the quality of urban and rural life."
+      ]
+    },
+    {
+      title: "Mission",
+      paragraphs: [
+        "We aim for societal development and upliftment in co-operation with the government. Under our CSR initiative, Milton Group is looking forward to coming up with better housing plans targeting both the privileged and underprivileged sectors of society.",
+        "Our seasoned team draws up plans that fit the affordability and housing needs of the nation, as per individual requirements. We, the Milton Group, take the honour of raising a complete world that brings fulfillment to life, and will continue creating a better experience in every aspect of life.",
+        "We will continue to be a brand that people trust - a brand of commitment, care, and faith."
+      ]
+    }
+  ];
+  const founder = {
+    name: "Chiranjiv Vaghani",
+    role: "Founder and Chairman, Milton Realty",
+    image: "/images/realty-about/html-reference-04.jpg",
+    paragraphs: [
+      "Mr. Chiranjiv Vaghani is a distinguished entrepreneur, investor, and real estate visionary based in Mumbai, India, with over four decades of experience in real estate development, strategic investments, and business leadership.",
+      "He graduated from Bombay University in 1976, majoring in Statistics and Economics, and further enhanced his leadership expertise by completing the Advanced Management Program at Harvard Business School.",
+      "Having successfully led landmark residential, commercial, hospitality, and mixed-use projects across India, he is widely recognized for his expertise in investment structuring, project execution, and value creation.",
+      "His vision, integrity, and commitment to excellence continue to drive Milton Realty's growth, innovation, and reputation as a trusted name in the real estate industry."
+    ]
+  };
+  const directors = [
+    {
+      name: "Vinay Vaghani",
+      role: "Director, Milton Real Estate",
+      image: "/images/realty-about/html-reference-05.jpg",
+      muted: false
+    },
+    {
+      name: "Mubarak Shaikh",
+      role: "Director, Milton Realty",
+      image: "/images/realty-about/html-reference-06.jpg",
+      muted: true
+    },
+    {
+      name: "Dinesh Bhandari",
+      role: "Director, Milton Realty",
+      image: "/images/realty-about/html-reference-07.jpg",
+      muted: true
+    }
+  ];
+  const milestones = [
+    {
+      label: "Foundations",
+      title: "Where the name was built",
+      text: "Baroda, Bangalore, and Matunga shaped the early development memory behind the Milton Realty name.",
+      image: "/images/realty-about/html-reference-14.jpg"
+    },
+    {
+      label: "Tardeo, South Mumbai",
+      title: "Stardeous",
+      text: "A South Mumbai residential address positioned around privacy, address value, and long-horizon confidence.",
+      image: "/images/realty-about/html-reference-09.jpg"
+    },
+    {
+      label: "Versova, Mumbai",
+      title: "Anthea",
+      text: "A western-suburb story shaped by beach proximity, social infrastructure, and elevated urban living.",
+      image: "/images/realty-about/html-reference-01.jpg"
+    },
+    {
+      label: "Satara, Mahabaleshwar, Shirdi",
+      title: "Expanding footprint",
+      text: "Purpose-planned townships, second homes, and land opportunities expand the footprint beyond Mumbai.",
+      image: "/images/realty-about/html-reference-13.jpg"
+    },
+    {
+      label: "Today",
+      title: "A lasting name",
+      text: "Two generations of leadership continue the work across homes, land, advisory, and investment conversations.",
+      image: "/images/milton-group-hero-desktop.webp"
+    }
+  ];
+  const projects = [
+    {
+      title: "Stardeous",
+      place: "Tardeo, South Mumbai",
+      image: "/images/realty-about/html-reference-09.jpg",
+      text:
+        "A high-value city residence story for buyers who want address strength, discretion, and connected urban access."
+    },
+    {
+      title: "Anthea",
+      place: "Versova, Mumbai",
+      image: "/images/realty-about/html-reference-01.jpg",
+      text:
+        "A coastal western-suburb project story built around lifestyle access, metro connectivity, and social infrastructure."
+    }
+  ];
+  const gallery = [
+    ["Present project", "Anthea, Versova", "/images/realty-about/html-reference-01.jpg"],
+    ["Present project", "Stardeous, Tardeo", "/images/realty-about/html-reference-09.jpg"],
+    ["Land bank", "Satara footprint", "/images/realty-about/html-reference-13.jpg"],
+    ["Past project", "Cine Mall, Vadodara", "/images/realty-about/html-reference-14.jpg"],
+    ["Second homes", "Bungalow living", "/images/realty-about/html-reference-15.jpg"],
+    ["Present project", "Anthea evening view", "/images/realty-about/html-reference-16.jpg"]
+  ];
+  const values = [
+    ["Trust", "A clear brief, verified context, and patient advice before a shortlist is pushed."],
+    ["Value", "Property guidance measured by fit, timing, documentation, and long-term use."],
+    ["Excellence", "Premium service discipline for both high-value residences and budget-sensitive decisions."]
+  ];
+
+  return (
+    <>
+      <section className="relative flex min-h-[76svh] items-end overflow-hidden px-4 pb-10 pt-28 text-white sm:px-6 sm:pb-14 sm:pt-36 lg:min-h-[88vh] lg:px-8">
+        <Image
+          src="/images/realty-about/html-reference-01.jpg"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-[58%_center]"
+        />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_24%,rgba(246,242,233,0.12),transparent_28%),linear-gradient(180deg,rgba(24,32,29,0.28)_0%,rgba(24,32,29,0.7)_64%,rgba(15,23,20,0.94)_100%),linear-gradient(90deg,rgba(24,32,29,0.9)_0%,rgba(24,32,29,0.52)_48%,rgba(24,32,29,0.12)_100%)]" />
+        <div className="relative z-10 mx-auto w-full max-w-7xl">
+          <p data-hero-reveal className="text-xs font-semibold uppercase tracking-[0.32em] text-white/68">
+            Residential - Plots - Lands
+          </p>
+          <h1
+            data-hero-reveal
+            className="mt-4 max-w-5xl text-balance font-display text-4xl font-semibold leading-[1.02] sm:mt-5 sm:text-6xl lg:text-8xl"
+          >
+            Over 40 years of building trust.
+          </h1>
+          <div className="mt-7 flex max-w-5xl flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+            <p data-hero-reveal className="max-w-2xl text-base leading-7 text-white/76 sm:text-lg">
+              Quality living for every budget, from landmark Mumbai residences to planned townships, plots, and second-home opportunities across Maharashtra.
+            </p>
+            <div data-hero-reveal className="flex flex-wrap gap-3">
+              <Link
+                href="#realty-profile"
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-white px-5 py-3 text-sm font-semibold text-ink transition hover:-translate-y-0.5 hover:bg-realty-100"
+              >
+                Our Story
+                <ArrowRight size={17} aria-hidden="true" />
+              </Link>
+              <Link
+                href="/realty-contact"
+                className="inline-flex min-h-12 items-center justify-center rounded-lg border border-white/32 px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-white/12"
+              >
+                Get in Touch
+              </Link>
+            </div>
+          </div>
+          <div className="mt-8 grid max-w-4xl grid-cols-2 gap-2 sm:grid-cols-4">
+            {legacyStats.map(([value, label, suffix]) => (
+              <div key={label} data-hero-reveal className="border border-white/12 bg-white/8 p-3 backdrop-blur-sm">
+                <p className="font-display text-3xl leading-none sm:text-4xl" data-counter={value} data-suffix={suffix}>
+                  {value}
+                  {suffix}
+                </p>
+                <p className="mt-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-white/58">{label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="realty-profile" className="bg-paper px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
+          <div data-about-image className="relative min-h-[340px] overflow-hidden rounded-lg bg-ink shadow-soft sm:min-h-[520px]">
+            <Image
+              src="/images/realty-about/html-reference-02.jpg"
+              alt="Milton Realty property landscape"
+              fill
+              sizes="(min-width: 1024px) 44vw, 100vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-ink/62 via-ink/8 to-transparent" />
+            <div className="absolute bottom-4 left-4 max-w-[240px] rounded-lg border border-white/18 bg-white/12 p-4 text-white backdrop-blur-md sm:bottom-6 sm:left-6 sm:max-w-xs sm:p-5">
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/60">
+                Milton Realty
+              </p>
+              <p className="mt-2 font-display text-3xl leading-none">Trust first. Transaction second.</p>
+            </div>
+          </div>
+          <div data-about-panel="right">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-realty-500">
+              The profile
+            </p>
+            <h2 className="mt-3 max-w-3xl font-display text-3xl leading-tight text-ink sm:text-5xl">
+              A real estate desk with memory, restraint, and local reading.
+            </h2>
+            <div className="mt-5 space-y-4 text-base leading-8 text-ink/66 sm:text-lg sm:leading-9">
+              <p>
+                Milton Realty has built a distinguished legacy spanning over 40 years, with experience across premium real estate, value housing, land, second homes, and long-term property relationships.
+              </p>
+              <p>
+                The work is intentionally grounded: understand the family or investor brief, read the locality, verify the asset, and move only when the decision has enough clarity.
+              </p>
+            </div>
+            <div className="mt-7 grid gap-3 sm:grid-cols-3">
+              {["40+ years", "Chiranjiv Vaghani", "Mumbai, India"].map((item) => (
+                <div key={item} className="rounded-lg border border-ink/10 bg-white p-4 shadow-sm">
+                  <Sparkles size={18} className="text-realty-700" aria-hidden="true" />
+                  <p className="mt-3 text-sm font-semibold text-ink">{item}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-paper px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+        <div className="mx-auto max-w-7xl">
+          <div data-about-panel="left" className="max-w-3xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-realty-500">
+              What drives us
+            </p>
+            <h2 className="mt-3 font-sans text-4xl font-black uppercase leading-none text-ink sm:text-6xl">
+              Mission & Vision
+            </h2>
+          </div>
+          <div className="mt-9 grid gap-8 lg:grid-cols-2 lg:gap-14">
+            {pillars.map((pillar, index) => (
+              <article
+                key={pillar.title}
+                data-about-panel={index === 0 ? "left" : "right"}
+                className="border-t-2 border-realty-500/28 pt-5"
+              >
+                <p className="text-xs font-bold uppercase tracking-[0.22em] text-realty-700">
+                  {pillar.title}
+                </p>
+                <div className="mt-5 space-y-4 text-sm leading-7 text-ink/68 sm:text-base sm:leading-8">
+                  {pillar.paragraphs.map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="scroll-mt-24 bg-paper px-4 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-12">
+        <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[0.42fr_0.58fr] lg:items-center lg:gap-12">
+          <div data-about-panel="left">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-realty-500">
+              Leadership
+            </p>
+            <h2 className="mt-2 font-display text-3xl font-semibold leading-tight text-ink sm:text-4xl">
+              Founder & Chairman
+            </h2>
+            <div data-about-image className="relative mt-5 h-[min(92vw,430px)] w-full overflow-hidden bg-ink shadow-soft sm:h-[500px] lg:h-[440px] 2xl:h-[500px]">
+              <Image
+                src={founder.image}
+                alt={`${founder.name}, ${founder.role}`}
+                fill
+                sizes="(min-width: 1024px) 420px, 100vw"
+                className="object-cover object-top"
+              />
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/72 to-transparent p-4 text-white">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-white/66">
+                  Over four decades
+                </p>
+                <p className="mt-1 font-display text-2xl leading-none sm:text-3xl">
+                  Real estate leadership
+                </p>
+              </div>
+            </div>
+          </div>
+          <article data-about-panel="right" className="max-w-[60ch]">
+            <div className="border-b border-ink/12 pb-4 sm:pb-5">
+              <h3 className="font-sans text-2xl font-semibold leading-tight text-ink sm:text-4xl lg:text-[2.15rem]">
+                {founder.name}
+              </h3>
+              <p className="mt-2 text-base font-medium text-realty-500">
+                {founder.role}
+              </p>
+            </div>
+            <div className="mt-5 space-y-3 text-[15px] leading-7 text-ink/68 sm:text-base sm:leading-8 lg:text-[15px] lg:leading-7">
+              {founder.paragraphs.map((paragraph, index) => (
+                <p
+                  key={paragraph}
+                  className={index === 0 ? "text-base font-medium leading-8 text-ink/86 sm:text-[17px] sm:leading-8" : ""}
+                >
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+            <Link
+              href="/chiranjiv-vaghani"
+              className="mt-6 inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-ink px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-realty-700"
+            >
+              View full profile
+              <ArrowRight size={16} aria-hidden="true" />
+            </Link>
+          </article>
+        </div>
+      </section>
+
+      <section className="bg-[#ede1cf] px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+        <div className="mx-auto max-w-7xl">
+          <div data-about-panel="left" className="max-w-3xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-realty-500">
+              The board
+            </p>
+            <h2 className="mt-3 font-sans text-4xl font-black uppercase leading-none text-ink sm:text-6xl">
+              Board of Directors
+            </h2>
+          </div>
+          <div className="mt-9 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {directors.map((director) => (
+              <article
+                key={director.name}
+                data-about-gallery
+                className="group"
+              >
+                <div className="relative aspect-[4/4.35] overflow-hidden bg-ink shadow-sm">
+                  <Image
+                    src={director.image}
+                    alt={director.name}
+                    fill
+                    sizes="(min-width: 1024px) 31vw, (min-width: 640px) 50vw, 100vw"
+                    className={`object-cover object-top transition duration-700 group-hover:scale-105 ${
+                      director.muted ? "opacity-55 grayscale sepia" : ""
+                    }`}
+                  />
+                  {director.muted ? <div className="absolute inset-0 bg-paper/32" /> : null}
+                </div>
+                <div className="mt-4 flex items-start justify-between gap-4">
+                  <div>
+                    <h3 className="text-base font-bold text-ink">{director.name}</h3>
+                    <p className="mt-1 text-xs leading-5 text-ink/55">{director.role}</p>
+                  </div>
+                  <span className="mt-1 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-ink/7 text-ink transition group-hover:translate-x-1 group-hover:bg-ink group-hover:text-white">
+                    <ArrowRight size={14} aria-hidden="true" />
+                  </span>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-ink px-4 py-12 text-white sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+        <div className="mx-auto max-w-7xl">
+          <div data-about-panel="left" className="max-w-3xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-white/50">
+              The journey
+            </p>
+            <h2 className="mt-3 font-display text-3xl leading-tight sm:text-5xl">
+              Milestones of a legacy.
+            </h2>
+          </div>
+          <div className="relative mt-10">
+            <div className="absolute left-4 top-0 hidden h-full w-px bg-white/12 md:block lg:left-1/2" />
+            <div data-about-timeline-line className="absolute left-4 top-0 hidden w-px bg-realty-100 md:block lg:left-1/2" />
+            <div className="grid gap-5">
+              {milestones.map((milestone, index) => (
+                <article
+                  key={milestone.title}
+                  data-about-milestone
+                  className={`relative grid gap-4 rounded-lg border border-white/12 bg-white/7 p-4 backdrop-blur-sm sm:p-5 lg:w-[calc(50%-2rem)] ${
+                    index % 2 === 0 ? "lg:mr-auto" : "lg:ml-auto"
+                  }`}
+                >
+                  <span className={`absolute top-5 hidden h-3 w-3 rotate-45 border border-realty-100 bg-ink md:block ${index % 2 === 0 ? "-right-[2.42rem]" : "-left-[2.42rem]"}`} />
+                  <div className="relative aspect-[16/8] overflow-hidden rounded-lg bg-white/10">
+                    <Image
+                      src={milestone.image}
+                      alt=""
+                      fill
+                      sizes="(min-width: 1024px) 44vw, 100vw"
+                      className="object-cover transition duration-700 hover:scale-105"
+                    />
+                  </div>
+                  <div>
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-white/45">{milestone.label}</p>
+                    <h3 className="mt-2 font-display text-2xl leading-tight sm:text-3xl">{milestone.title}</h3>
+                    <p className="mt-3 text-sm leading-6 text-white/62">{milestone.text}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-paper px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+        <div className="mx-auto max-w-7xl">
+          <div data-about-panel="left" className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-realty-500">
+                Flagship developments
+              </p>
+              <h2 className="mt-3 max-w-3xl font-display text-3xl leading-tight text-ink sm:text-5xl">
+                Project stories that explain the standard.
+              </h2>
+            </div>
+            <Link href="/realty-listings" className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-ink px-4 text-sm font-semibold text-white transition hover:-translate-y-0.5">
+              View Listings
+              <ArrowRight size={16} aria-hidden="true" />
+            </Link>
+          </div>
+          <div className="mt-8 grid gap-5 lg:grid-cols-2">
+            {projects.map((project, index) => (
+              <article key={project.title} data-about-panel={index === 0 ? "left" : "right"} className="overflow-hidden rounded-lg border border-ink/10 bg-white shadow-sm">
+                <div className="relative aspect-[16/10] overflow-hidden bg-ink">
+                  <Image
+                    src={project.image}
+                    alt=""
+                    fill
+                    sizes="(min-width: 1024px) 50vw, 100vw"
+                    className="object-cover transition duration-700 hover:scale-105"
+                  />
+                </div>
+                <div className="p-5 sm:p-7">
+                  <p className="text-xs font-semibold uppercase tracking-[0.22em] text-realty-500">{project.place}</p>
+                  <h3 className="mt-3 font-display text-3xl leading-tight text-ink sm:text-4xl">{project.title}</h3>
+                  <p className="mt-4 text-sm leading-7 text-ink/64 sm:text-base">{project.text}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+        <div className="mx-auto max-w-7xl">
+          <div data-about-panel="left" className="max-w-3xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-realty-500">
+              Past and present
+            </p>
+            <h2 className="mt-3 font-display text-3xl leading-tight text-ink sm:text-5xl">
+              A gallery of the footprint.
+            </h2>
+          </div>
+          <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {gallery.map(([category, title, image], index) => (
+              <article
+                key={`${category}-${title}`}
+                data-about-gallery
+                className={`group relative min-h-[240px] overflow-hidden rounded-lg bg-ink text-white shadow-sm sm:min-h-[320px] ${
+                  index === 0 ? "lg:row-span-2 lg:min-h-[520px]" : ""
+                }`}
+              >
+                <Image
+                  src={image}
+                  alt=""
+                  fill
+                  sizes="(min-width: 1024px) 33vw, 100vw"
+                  className="object-cover transition duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-ink/82 via-ink/10 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/55">{category}</p>
+                  <h3 className="mt-2 font-display text-2xl leading-tight sm:text-3xl">{title}</h3>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-realty-900 px-4 py-12 text-white sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+        <div className="mx-auto max-w-7xl">
+          <div data-about-panel="left" className="mx-auto max-w-4xl text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-white/46">
+              Why invest with Milton
+            </p>
+            <h2 className="mt-3 font-display text-3xl leading-tight sm:text-5xl">
+              Building trust. Creating value. Delivering excellence.
+            </h2>
+          </div>
+          <div className="mt-8 grid gap-px overflow-hidden rounded-lg border border-white/12 bg-white/12 md:grid-cols-3">
+            {values.map(([title, text]) => (
+              <article key={title} data-about-panel="up" className="bg-realty-900 p-5 sm:p-7">
+                <ShieldCheck size={22} className="text-realty-100" aria-hidden="true" />
+                <h3 className="mt-5 font-display text-3xl leading-tight">{title}</h3>
+                <p className="mt-3 text-sm leading-6 text-white/62">{text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
 
@@ -1214,10 +1693,3 @@ function DivisionRouteCard({
     </Link>
   );
 }
-
-
-
-
-
-
-
