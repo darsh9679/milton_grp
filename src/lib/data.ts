@@ -170,7 +170,6 @@ export const divisionRoutes = {
     { href: "/realty-about", label: "About" },
     { href: "/realty-listings", label: "Listings" },
     { href: "/realty-blog", label: "Blog" },
-    { href: "/realty-channel-partner", label: "Channel Partner" },
     { href: "/realty-contact", label: "Contact" },
     { href: "/solar-home", label: "Milton Solar" }
   ],
@@ -503,6 +502,74 @@ export const realtyArticles = [
 
 export type RealtyArticle = (typeof realtyArticles)[number];
 
+export const realtyDirectors = [
+  {
+    slug: "vinay-vaghani",
+    href: "/realty-directors/vinay-vaghani",
+    name: "Vinay Vaghani",
+    role: "Director | Milton Real Estate",
+    cardRole: "Director, Milton Real Estate",
+    image: "/images/realty-about/html-reference-05.jpg",
+    imageAlt: "Mr. Vinay Vaghani, Director of Milton Real Estate",
+    position: "center 42%",
+    summary:
+      "A seasoned real estate professional with over 15 years of experience across investments, acquisitions, development, and strategic business management.",
+    paragraphs: [
+      "Mr. Vinay Vaghani is a seasoned real estate professional with over 15 years of experience in real estate investments, land acquisitions, property development, and strategic business management. As the Director of Milton Real Estate, he has successfully led large-scale residential, commercial, industrial, and plotted development projects, with expertise in end-to-end transaction management, contract negotiations, portfolio management, and equity investments.",
+      "His strong market knowledge, strategic vision, and analytical approach have enabled him to identify high-value investment opportunities and deliver sustainable growth for clients and stakeholders. Before leading Milton Real Estate, he gained valuable experience with G Corp Realty Pvt. Ltd. and Principal Asset Management, where he built a solid foundation in real estate transactions, investment analysis, and market research.",
+      "Recognized for his integrity, leadership, and customer-centric approach, Mr. Vaghani continues to drive Milton Real Estate with a commitment to transparency, innovation, and delivering long-term value through trusted and quality real estate developments."
+    ]
+  },
+  {
+    slug: "mubarak-shaikh",
+    href: "/realty-directors/mubarak-shaikh",
+    name: "Mubarak Shaikh",
+    role: "Director | Milton Realty",
+    cardRole: "Director, Milton Realty",
+    image: "/images/realty-about/html-reference-06.jpg",
+    imageAlt: "Mr. Mubarak Shaikh, Director of Milton Realty",
+    position: "center center",
+    summary:
+      "A real estate professional shaped by perseverance, land investment expertise, and a deep belief in transparent long-term value creation.",
+    quote:
+      "Success is not defined by where you begin, but by the determination with which you continue your journey.",
+    paragraphs: [
+      "Mr. Mubarak Shaikh's journey is a true testament to perseverance, resilience, and an unwavering belief in hard work. Like many aspiring entrepreneurs, his early academic years were modest, but his determination to build something meaningful set him apart from the very beginning. Rather than following a conventional path, he chose to learn through real-world experiences, embracing every challenge as an opportunity to grow.",
+      "In the early stages of his entrepreneurial career, Mr. Shaikh explored multiple business ventures across different sectors. While these ventures provided invaluable experience, they did not deliver the long-term vision and fulfillment he was seeking. Instead of viewing these challenges as setbacks, he transformed them into stepping stones, gaining practical knowledge in business operations, market understanding, and strategic decision-making.",
+      "His life took a defining turn when he entered the world of land and plot investments. Recognizing the immense potential of real estate, Mr. Shaikh dedicated himself to understanding every aspect of the industry, from land acquisition and legal due diligence to market trends, investment strategies, and long-term value creation. Through years of relentless dedication, continuous learning, and on-ground experience, he established himself as a trusted name in land investments. His ability to identify opportunities, understand market dynamics, and create value for investors earned him widespread respect, making him a specialist in the field.",
+      "After building extensive expertise and a strong reputation in the real estate sector, Mr. Mubarak Shaikh joined hands with Milton Real Estate under the visionary leadership of Mr. Chiranjiv Vaghani. This partnership was built not merely on business objectives, but on a shared vision of creating lasting value, transparency, and trust in the real estate industry.",
+      "Mr. Shaikh holds Mr. Chiranjiv Vaghani in the highest regard, considering him not only a mentor but also a father figure whose wisdom, leadership, and values have greatly influenced his professional journey. Together, they have cultivated a relationship founded on mutual respect, trust, and a shared commitment to excellence. Their collaboration reflects the spirit of a family working toward a common vision of delivering exceptional real estate opportunities.",
+      "Today, Mr. Mubarak Shaikh continues to play a pivotal role in the growth of Milton Real Estate, bringing his deep market knowledge, strategic thinking, and unwavering dedication to every project. His journey from humble beginnings to becoming a respected real estate professional stands as an inspiration to aspiring entrepreneurs, proving that success is achieved through perseverance, continuous learning, and an uncompromising commitment to one's vision."
+    ]
+  },
+  {
+    slug: "dinesh-bhandari",
+    href: "/realty-directors/dinesh-bhandari",
+    name: "Dinesh Bhandari",
+    role: "Director | Milton Realty",
+    cardRole: "Director, Milton Realty",
+    image: "/images/realty-about/html-reference-07.jpg",
+    imageAlt: "Mr. Dinesh Bhandari, Director of Milton Realty",
+    position: "center center",
+    summary:
+      "An entrepreneur, investor, and business leader with over two decades of experience across trading, electronics, investments, philanthropy, and real estate.",
+    quote:
+      "Leadership is not measured by the businesses you build, but by the trust you earn, the lives you touch, and the legacy you leave behind.",
+    paragraphs: [
+      "Mr. Dinesh Bhandari is a distinguished entrepreneur, investor, and business leader whose journey is built on a strong foundation of integrity, perseverance, and visionary leadership. Born and raised in South Mumbai, he inherited his entrepreneurial spirit from his father, who introduced him to the values of business, ethics, and hard work at an early age.",
+      "In 2003, he officially entered the world of business through the trading industry, where he gained extensive experience in market operations, strategic planning, and customer relationship management. His dedication, discipline, and commitment to excellence earned him a reputation as a dependable and forward-thinking businessman.",
+      "Driven by a vision to establish his own enterprise, Mr. Bhandari founded Myricc Electronics in 2013, where he serves as the Director and Chief Executive Officer. Under his leadership, Myricc Electronics has grown into a respected name in the electronics industry, known for delivering quality products, innovative solutions, and customer-centric services.",
+      "Beyond his achievements in business, Mr. Bhandari is widely admired for his generous nature and strong commitment to social responsibility. Believing that true success is measured by the positive impact one creates, he actively supports initiatives focused on children's welfare, education, charitable causes, and community development.",
+      "Through various charitable contributions and philanthropic efforts, he continues to give back to society, reflecting his compassionate outlook and belief in creating opportunities for those in need.",
+      "In 2020, Mr. Bhandari expanded his business interests into the real estate sector as a strategic investor. Recognizing the immense potential of land and plotted developments, he began investing in premium land parcels and real estate assets, gradually building a strong understanding of the industry's long-term value and growth potential.",
+      "His journey in real estate led him to Milton Real Estate, where he joined hands with Mr. Chiranjiv Vaghani, a respected industry veteran whose leadership and vision have inspired him immensely. More than a business association, their relationship is built on mutual respect, unwavering trust, shared values, and a family-like bond. Mr. Bhandari regards Mr. Vaghani not only as a mentor but also as a cherished family member, believing that their partnership is founded on loyalty, transparency, and a common vision of creating lasting value through Milton Real Estate.",
+      "Today, with over two decades of entrepreneurial experience spanning trading, electronics, strategic investments, philanthropy, and real estate, Mr. Dinesh Bhandari continues to lead with passion, integrity, and innovation. His commitment to excellence, coupled with his people-first approach and long-term vision, continues to contribute significantly to the growth and success of every venture he undertakes."
+    ]
+  }
+] as const;
+
+export type RealtyDirector = (typeof realtyDirectors)[number];
+
 export const solarArticles = [
   {
     category: "Solar Smart",
@@ -534,18 +601,19 @@ export const realtyWhy: Array<{
 }> = [
   {
     icon: Home,
-    title: "Buying",
-    text: "Shortlisted homes and land options are compared by locality, paperwork, lifestyle, and resale logic."
+    title: "Purchase",
+    text: "Find the right property with expert insights, legal clarity, market intelligence, and long-term value."
   },
   {
     icon: BadgeIndianRupee,
-    title: "Selling",
-    text: "Owners get pricing clarity, sharper positioning, and buyer handling that protects negotiation quality."
+    title: "Strategic Selling",
+    text:
+      "Expert strategies that elevate your property's market appeal.\nHelping you secure the best value with complete confidence."
   },
   {
     icon: Users,
-    title: "Renting",
-    text: "Families and investors get practical guidance on tenant profiles, commute, furnishing, and lease fit."
+    title: "Property Advisory",
+    text: "Expert guidance backed by market insights, legal clarity, and informed decision-making."
   }
 ];
 
@@ -588,13 +656,13 @@ export const testimonials = {
   realty: [
     {
       quote:
-        "Milton gave us a shortlist that felt edited, not dumped. Every visit had a reason behind it.",
-      name: "A western suburbs homebuyer"
+        "Every visit felt closer to 'This is the one.'",
+      name: "Homebuyer, Western Mumbai"
     },
     {
       quote:
-        "The team helped us position our land parcel for the right buyer profile instead of chasing noise.",
-      name: "Land owner, Satara"
+        "The right strategy brought the right buyer at the right value",
+      name: "Landowner, Satara"
     }
   ],
   solar: [
@@ -681,31 +749,37 @@ export const valueCards = [
   {
     icon: ShieldCheck,
     title: "Two divisions, clean routing",
-    text: "Realty and Solar keep their own enquiry paths while staying visibly part of Milton Group."
+    text:
+      "Real estate continues to be one of the most reliable ways to build wealth, just as renewable energy defines the future ahead. Our Real Estate Division identifies and develops locations with strong growth potential, helping investors gain from long-term appreciation and secure ownership, while our Solar Energy Division helps homeowners, businesses, industries, and institutions cut electricity costs and build a cleaner environment."
   },
   {
     icon: MapPin,
     title: "Maharashtra-grounded",
-    text: "The site anchors itself in Mumbai, MMR, Satara, Konkan, Shirdi, and western India energy demand."
+    text:
+      "महाराष्ट्राच्या प्रगतीसोबत, आपल्या भविष्याची मजबूत पायाभरणी\nBuilding Maharashtra's Future Through Smart Investments and Sustainable Energy\n\nMaharashtra is one of India's fastest-growing states, driven by expanding infrastructure, industrial growth, urban development, and increasing demand for sustainable living. We are proud to contribute to this growth through our two core divisions: Real Estate and Solar Energy."
   },
   {
     icon: Leaf,
     title: "Built asset mindset",
-    text: "Homes, land, rooftops, and operating buildings are treated as durable long-term decisions."
+    text:
+      "We believe true wealth is created by building valuable assets and cultivating the mindset to grow them. Every successful journey begins with a vision, informed decisions, and investments that stand the test of time."
   },
   {
     icon: PlugZap,
     title: "Human-led conversion",
-    text: "Every product, property, and quote path sends context to the right team instead of forcing a generic form."
+    text:
+      "Every enquiry is guided by real people, not automated forms. Property, product, and quote paths connect you directly to the right team, so every conversation starts with context, not a blank form."
   },
   {
     icon: Lightbulb,
     title: "Useful interactions",
-    text: "Calculators, filters, reveal states, and enquiry context support decision-making instead of decorating it."
+    text:
+      "From calculators to smart filters, every interactive element on this site is designed to inform your decisions, never just for show."
   },
   {
     icon: Trees,
-    title: "Growth without sprawl",
-    text: "The parent identity gives both divisions room to expand without siloed navigation or duplicated content."
+    title: "Growth Without Sprawl",
+    text:
+      "Growth Without Sprawl is our guiding philosophy, a commitment to developing communities, creating lasting assets, and delivering clean energy solutions that respect people, resources, and the environment.\n\nOur approach is deliberate, strategic, and sustainable. Every project is chosen for its long-term potential, every investment is guided by careful planning, and every partnership is built on trust."
   }
 ];

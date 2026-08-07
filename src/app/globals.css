@@ -61,6 +61,10 @@ button {
   text-wrap: balance;
 }
 
+summary::-webkit-details-marker {
+  display: none;
+}
+
 .reveal {
   opacity: 1;
   transform: none;

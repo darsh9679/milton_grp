@@ -3,6 +3,7 @@ import Link from "next/link";
 import {
   ArrowRight,
   BadgeCheck,
+  ChevronDown,
   Handshake,
   Mail,
   MapPin,
@@ -18,6 +19,7 @@ import {
   heroImages,
   pageInfo,
   processSteps,
+  realtyDirectors,
   realtyListings,
   realtyWhy,
   solarWhy,
@@ -29,7 +31,9 @@ import {
 import { LeadForm } from "@/components/LeadForm";
 import {
   ArticleGrid,
+  FootprintGallery,
   ListingsExplorer,
+  MilestoneScroller,
   ProductCatalog,
   SolarSavingsCalculator,
   SolutionTabs
@@ -53,7 +57,7 @@ export function GroupHome() {
         division="group"
         kicker="Milton Group"
         title="Property, energy, and the long life of built assets."
-        text="Milton Group brings together two independently operating divisions: Milton Realty for property decisions and Milton Solar for rooftop energy, EPC, products, and maintenance."
+        text="Great investments are ones whose value only grows with time. We bring together real estate and clean energy to help individuals, families, and investors build assets that are resilient, sustainable, and made to last."
         image={heroImages.group}
         primary={{ href: "/realty-home", label: "Enter Realty" }}
         secondary={{ href: "/solar-home", label: "Enter Solar" }}
@@ -65,27 +69,41 @@ export function GroupHome() {
               One parent, two clear paths
             </p>
             <h2 className="mt-3 font-display text-3xl leading-tight text-ink sm:text-5xl">
-              A shared Milton identity, without blurring the work.
+              Great things start with the right piece of land.
             </h2>
-            <p className="mt-5 text-base leading-7 text-ink/64">
-              Realty and Solar need different rhythms, proof points, and conversion
-              paths. This hub keeps both divisions connected while preserving the
-              visual and operational clarity each one needs.
-            </p>
+            <div className="mt-5 space-y-4 text-base leading-7 text-ink/64">
+              <p>
+                As a trusted name in residential plot development, we are committed
+                to building premium plotted communities that bring together nature,
+                connectivity, and modern infrastructure.
+              </p>
+              <p>
+                Whether your goal is to build your dream home, secure a smart
+                investment, or create a lasting legacy for your family, our
+                thoughtfully planned residential plots offer the ideal opportunity.
+                Every project is delivered with transparency, quality, and
+                long-term value in mind, ensuring complete peace of mind for every
+                customer.
+              </p>
+            </div>
           </div>
           <div className="mt-8 grid gap-4 sm:mt-10 sm:gap-5 lg:grid-cols-2">
             <DivisionRouteCard
               title="Milton Realty"
               href="/realty-home"
               image={heroImages.realty}
-              text="Mumbai flats, MMR value corridors, Satara land, Ratnagiri coast, Shirdi plots, and hill-town second homes."
+              text="We believe great things start with the right piece of land. As a trusted name in residential plot development, we are committed to building premium plotted communities that bring together nature, connectivity, and modern infrastructure."
               tone="realty"
             />
             <DivisionRouteCard
               title="Milton Solar"
               href="/solar-home"
               image={heroImages.solar}
-              text="Residential rooftop, commercial EPC, industrial systems, AMC, solar products, franchise, and subsidy guidance."
+              text={`Solar rooftop systems for homes and businesses
+Commercial and industrial solar solutions
+Solar project consultation, installation, and maintenance
+
+By bringing these two complementary industries together, we deliver solutions that elevate both the quality of living and the quality of the environment.`}
               tone="solar"
             />
           </div>
@@ -101,7 +119,7 @@ export function GroupHome() {
         division="group"
         kicker="Parent brand"
         title="Every path returns to Milton Group."
-        text="The architecture keeps the two divisions cross-linked from header, footer, floating actions, and conversion flows. A visitor can move from property to solar without losing the parent identity or being forced through a generic enquiry path."
+        text="Welcome to our parent company portal, the strategic anchor uniting pioneering ventures in Solar Energy and Real Estate. We believe that the spaces we build and the energy that powers them are fundamentally connected. By pairing visionary property development with cutting-edge renewable solutions, we engineer ecosystems designed to thrive for generations."
         image={heroImages.interior}
         cta={{ href: "/realty-listings", label: "Browse Realty Listings" }}
         secondary={{ href: "/solar-shop", label: "View Solar Shop" }}
@@ -127,15 +145,15 @@ function RealtyPage({ kind }: { kind: string }) {
         <Hero
           division="realty"
           kicker="Milton Realty"
-          title="Real estate decisions, edited with care."
-          text="Property advisory across Mumbai, MMR, Satara, Ratnagiri, Shirdi, and hill-town second-home belts, built around clarity before commitment."
+          title="Real estate decisions, curated with distinction."
+          text="Trusted property advisory where expertise meets clarity, empowering every real estate decision with confidence."
           image={heroImages.realty}
           primary={{ href: "/realty-listings", label: "View Listings" }}
           secondary={{ href: "/realty-contact", label: "Talk to an Advisor" }}
         />
         <FeatureGrid
           kicker="Why Milton Realty"
-          title="Buying, selling, and renting handled as three different decisions."
+          title="Where expertise, trust, and strategy come together to create exceptional real estate experiences."
           cards={realtyWhy}
           division="realty"
         />
@@ -143,9 +161,9 @@ function RealtyPage({ kind }: { kind: string }) {
         <StatsBand
           division="realty"
           stats={[
-            ["148", "Properties in active review", ""],
-            ["7", "Cities and corridors covered", ""],
-            ["12", "Years of advisory memory", "+"]
+            ["111", "Properties in active review", ""],
+            ["7", "Presence Across States & Countries", "+"],
+            ["40", "Years of advisory memory", "+"]
           ]}
         />
         <ProcessBand division="realty" />
@@ -153,8 +171,9 @@ function RealtyPage({ kind }: { kind: string }) {
         <FaqBand division="realty" />
         <ClosingCta
           division="realty"
-          title="Bring us the decision, not just the budget."
-          text="Milton Realty can start from a property name, a locality, a resale target, or a family brief."
+          kicker="Let's Build Your Next Chapter"
+          title="Because every great investment begins with trusted advice."
+          text="Every successful property decision starts with understanding your goals. Let's begin with yours."
           href="/realty-contact"
           label="Start a Realty Enquiry"
         />
@@ -182,8 +201,10 @@ function RealtyPage({ kind }: { kind: string }) {
       <>
         <SubHero
           division="realty"
-          title="Listings grounded in Milton's real Maharashtra footprint."
-          text="Filter flats, land, and bungalow opportunities across Mumbai, Kalyan, Satara, Ratnagiri, Shirdi, and the Mahabaleshwar belt."
+          title="Discover Places with Purpose. Invest in Opportunities with Potential."
+          text={`Every project we present is carefully selected for its location, connectivity, legal clarity, and long-term growth prospects. Whether you're looking to build your dream home, secure a future investment, or diversify your portfolio, our projects are designed to deliver lasting value.
+
+We focus on developments that combine strategic planning, strong infrastructure potential, and the confidence of transparent transaction.`}
           image={heroImages.coastline}
         />
         <ListingsExplorer />
@@ -500,7 +521,7 @@ function SubHero({
         >
           {title}
         </h1>
-        <p data-hero-reveal className="mt-6 max-w-2xl break-words text-base leading-7 text-white/74">
+        <p data-hero-reveal className="mt-6 max-w-2xl whitespace-pre-line break-words text-base leading-7 text-white/74">
           {text}
         </p>
       </div>
@@ -543,26 +564,6 @@ function RealtyAboutExperience() {
       "His vision, integrity, and commitment to excellence continue to drive Milton Realty's growth, innovation, and reputation as a trusted name in the real estate industry."
     ]
   };
-  const directors = [
-    {
-      name: "Vinay Vaghani",
-      role: "Director, Milton Real Estate",
-      image: "/images/realty-about/html-reference-05.jpg",
-      muted: false
-    },
-    {
-      name: "Mubarak Shaikh",
-      role: "Director, Milton Realty",
-      image: "/images/realty-about/html-reference-06.jpg",
-      muted: true
-    },
-    {
-      name: "Dinesh Bhandari",
-      role: "Director, Milton Realty",
-      image: "/images/realty-about/html-reference-07.jpg",
-      muted: true
-    }
-  ];
   const milestones = [
     {
       label: "Foundations",
@@ -612,12 +613,12 @@ function RealtyAboutExperience() {
     }
   ];
   const gallery = [
-    ["Present project", "Anthea, Versova", "/images/realty-about/html-reference-01.jpg"],
-    ["Present project", "Stardeous, Tardeo", "/images/realty-about/html-reference-09.jpg"],
-    ["Land bank", "Satara footprint", "/images/realty-about/html-reference-13.jpg"],
-    ["Past project", "Cine Mall, Vadodara", "/images/realty-about/html-reference-14.jpg"],
-    ["Second homes", "Bungalow living", "/images/realty-about/html-reference-15.jpg"],
-    ["Present project", "Anthea evening view", "/images/realty-about/html-reference-16.jpg"]
+    { category: "Present project", title: "Anthea, Versova", image: "/images/realty-about/html-reference-01.jpg" },
+    { category: "Present project", title: "Stardeous, Tardeo", image: "/images/realty-about/html-reference-09.jpg" },
+    { category: "Land bank", title: "Satara footprint", image: "/images/realty-about/html-reference-13.jpg" },
+    { category: "Past project", title: "Cine Mall, Vadodara", image: "/images/realty-about/html-reference-14.jpg" },
+    { category: "Second homes", title: "Bungalow living", image: "/images/realty-about/html-reference-15.jpg" },
+    { category: "Present project", title: "Anthea evening view", image: "/images/realty-about/html-reference-16.jpg" }
   ];
   const values = [
     ["Trust", "A clear brief, verified context, and patient advice before a shortlist is pushed."],
@@ -758,15 +759,15 @@ function RealtyAboutExperience() {
       </section>
 
       <section className="scroll-mt-24 bg-paper px-4 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-12">
-        <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[0.42fr_0.58fr] lg:items-center lg:gap-12">
-          <div data-about-panel="left">
+        <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[0.42fr_0.58fr] lg:items-stretch lg:gap-12">
+          <div data-about-panel="left" className="flex flex-col lg:h-full">
             <p className="text-xs font-semibold uppercase tracking-[0.28em] text-realty-500">
               Leadership
             </p>
             <h2 className="mt-2 font-display text-3xl font-semibold leading-tight text-ink sm:text-4xl">
               Founder & Chairman
             </h2>
-            <div data-about-image className="relative mt-5 h-[min(92vw,430px)] w-full overflow-hidden bg-ink shadow-soft sm:h-[500px] lg:h-[440px] 2xl:h-[500px]">
+            <div data-about-image className="relative mt-5 aspect-square w-full overflow-hidden bg-ink shadow-soft sm:aspect-[3/4] lg:aspect-auto lg:h-auto lg:flex-1">
               <Image
                 src={founder.image}
                 alt={`${founder.name}, ${founder.role}`}
@@ -814,45 +815,45 @@ function RealtyAboutExperience() {
         </div>
       </section>
 
-      <section className="bg-[#ede1cf] px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
-        <div className="mx-auto max-w-7xl">
-          <div data-about-panel="left" className="max-w-3xl">
+      <section id="realty-directors" className="scroll-mt-24 bg-[#f8f7f2] px-5 py-10 sm:px-6 sm:py-12 lg:px-8">
+        <div className="mx-auto max-w-[1180px]">
+          <div data-about-panel="left" className="max-w-2xl">
             <p className="text-xs font-semibold uppercase tracking-[0.28em] text-realty-500">
               The board
             </p>
-            <h2 className="mt-3 font-sans text-4xl font-black uppercase leading-none text-ink sm:text-6xl">
-              Board of Directors
+            <h2 className="mt-3 font-sans text-[2rem] font-black uppercase leading-none text-ink sm:text-4xl lg:text-[2.85rem]">
+              <span className="block sm:inline">Board of</span>{" "}
+              <span className="block sm:inline">Directors</span>
             </h2>
           </div>
-          <div className="mt-9 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {directors.map((director) => (
-              <article
-                key={director.name}
+          <div className="mt-8 grid grid-cols-2 gap-x-4 gap-y-8 md:grid-cols-3 md:gap-8 lg:gap-10">
+            {realtyDirectors.map((director) => (
+              <Link
+                key={director.slug}
+                href={director.href}
                 data-about-gallery
-                className="group"
+                className="group min-w-0"
               >
-                <div className="relative aspect-[4/4.35] overflow-hidden bg-ink shadow-sm">
+                <div className="relative aspect-square overflow-hidden rounded-md bg-[#ece7dc] sm:aspect-[1.04/1] md:aspect-auto md:h-[clamp(220px,24vw,315px)]">
                   <Image
                     src={director.image}
-                    alt={director.name}
+                    alt={director.imageAlt}
                     fill
-                    sizes="(min-width: 1024px) 31vw, (min-width: 640px) 50vw, 100vw"
-                    className={`object-cover object-top transition duration-700 group-hover:scale-105 ${
-                      director.muted ? "opacity-55 grayscale sepia" : ""
-                    }`}
+                    sizes="(min-width: 1024px) 360px, (min-width: 768px) 30vw, 48vw"
+                    style={{ objectPosition: director.position }}
+                    className="object-cover transition duration-700 group-hover:scale-[1.035]"
                   />
-                  {director.muted ? <div className="absolute inset-0 bg-paper/32" /> : null}
                 </div>
-                <div className="mt-4 flex items-start justify-between gap-4">
-                  <div>
-                    <h3 className="text-base font-bold text-ink">{director.name}</h3>
-                    <p className="mt-1 text-xs leading-5 text-ink/55">{director.role}</p>
+                <div className="mt-3 flex items-start justify-between gap-2 sm:mt-4 sm:gap-3 md:mt-5 md:gap-4">
+                  <div className="min-w-0">
+                    <h3 className="text-sm font-semibold leading-tight tracking-[-0.01em] text-ink sm:text-base lg:text-2xl">{director.name}</h3>
+                    <p className="mt-1.5 text-[11px] leading-4 text-ink/60 sm:text-xs md:mt-2 md:text-sm md:leading-5 lg:text-[15px]">{director.cardRole}</p>
                   </div>
-                  <span className="mt-1 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-ink/7 text-ink transition group-hover:translate-x-1 group-hover:bg-ink group-hover:text-white">
-                    <ArrowRight size={14} aria-hidden="true" />
+                  <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-end text-ink transition duration-300 group-hover:translate-x-1.5 group-hover:text-realty-700 sm:h-6 sm:w-6 md:h-8 md:w-8">
+                    <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 lg:h-[23px] lg:w-[23px]" strokeWidth={1.6} aria-hidden="true" />
                   </span>
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
         </div>
@@ -868,37 +869,7 @@ function RealtyAboutExperience() {
               Milestones of a legacy.
             </h2>
           </div>
-          <div className="relative mt-10">
-            <div className="absolute left-4 top-0 hidden h-full w-px bg-white/12 md:block lg:left-1/2" />
-            <div data-about-timeline-line className="absolute left-4 top-0 hidden w-px bg-realty-100 md:block lg:left-1/2" />
-            <div className="grid gap-5">
-              {milestones.map((milestone, index) => (
-                <article
-                  key={milestone.title}
-                  data-about-milestone
-                  className={`relative grid gap-4 rounded-lg border border-white/12 bg-white/7 p-4 backdrop-blur-sm sm:p-5 lg:w-[calc(50%-2rem)] ${
-                    index % 2 === 0 ? "lg:mr-auto" : "lg:ml-auto"
-                  }`}
-                >
-                  <span className={`absolute top-5 hidden h-3 w-3 rotate-45 border border-realty-100 bg-ink md:block ${index % 2 === 0 ? "-right-[2.42rem]" : "-left-[2.42rem]"}`} />
-                  <div className="relative aspect-[16/8] overflow-hidden rounded-lg bg-white/10">
-                    <Image
-                      src={milestone.image}
-                      alt=""
-                      fill
-                      sizes="(min-width: 1024px) 44vw, 100vw"
-                      className="object-cover transition duration-700 hover:scale-105"
-                    />
-                  </div>
-                  <div>
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-white/45">{milestone.label}</p>
-                    <h3 className="mt-2 font-display text-2xl leading-tight sm:text-3xl">{milestone.title}</h3>
-                    <p className="mt-3 text-sm leading-6 text-white/62">{milestone.text}</p>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
+          <MilestoneScroller milestones={milestones} />
         </div>
       </section>
 
@@ -951,29 +922,8 @@ function RealtyAboutExperience() {
               A gallery of the footprint.
             </h2>
           </div>
-          <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {gallery.map(([category, title, image], index) => (
-              <article
-                key={`${category}-${title}`}
-                data-about-gallery
-                className={`group relative min-h-[240px] overflow-hidden rounded-lg bg-ink text-white shadow-sm sm:min-h-[320px] ${
-                  index === 0 ? "lg:row-span-2 lg:min-h-[520px]" : ""
-                }`}
-              >
-                <Image
-                  src={image}
-                  alt=""
-                  fill
-                  sizes="(min-width: 1024px) 33vw, 100vw"
-                  className="object-cover transition duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-ink/82 via-ink/10 to-transparent" />
-                <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5">
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/55">{category}</p>
-                  <h3 className="mt-2 font-display text-2xl leading-tight sm:text-3xl">{title}</h3>
-                </div>
-              </article>
-            ))}
+          <div className="mt-8">
+            <FootprintGallery items={gallery} />
           </div>
         </div>
       </section>
@@ -1044,7 +994,7 @@ function FeatureGrid({
                     {card.title}
                   </h3>
                 </div>
-                <p className="feature-card-copy mt-2 text-[12px] leading-5 text-ink/62 sm:mt-4 sm:text-sm sm:leading-6">{card.text}</p>
+                <p className="feature-card-copy mt-2 whitespace-pre-line text-[12px] leading-5 text-ink/62 sm:mt-4 sm:text-sm sm:leading-6">{card.text}</p>
               </article>
             );
           })}
@@ -1064,7 +1014,7 @@ function ListingPreview() {
               Featured listings
             </p>
             <h2 className="mt-3 max-w-3xl font-display text-3xl leading-tight sm:text-5xl">
-              One listing, one scene, one reason to enquire.
+              Discover opportunities worth your attention.
             </h2>
           </div>
           <Link
@@ -1138,6 +1088,12 @@ function StatsBand({
 }
 
 function ProcessBand({ division }: { division: Exclude<Division, "group"> }) {
+  const kicker = division === "realty" ? "The Milton Way" : "Process";
+  const title =
+    division === "realty"
+      ? "A seamless journey, thoughtfully designed to guide every property decision with clarity & confidence."
+      : "A short sequence because the work is actually sequential.";
+
   return (
     <section className="bg-paper px-4 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-20">
       <div className="mx-auto max-w-7xl">
@@ -1147,10 +1103,10 @@ function ProcessBand({ division }: { division: Exclude<Division, "group"> }) {
               division === "solar" ? "text-solar-700" : "text-realty-500"
             }`}
           >
-            Process
+            {kicker}
           </p>
           <h2 className="mt-3 font-display text-3xl leading-tight text-ink sm:text-5xl">
-            A short sequence because the work is actually sequential.
+            {title}
           </h2>
         </div>
         <div className="mt-6 grid grid-cols-2 gap-3 sm:mt-10 sm:gap-5 md:grid-cols-3">
@@ -1201,6 +1157,11 @@ function TestimonialsBand({ division }: { division: Exclude<Division, "group"> }
 }
 
 function FaqBand({ division }: { division: Exclude<Division, "group"> }) {
+  const title =
+    division === "realty"
+      ? "Everything Worth Knowing."
+      : "Questions worth answering before the form.";
+
   return (
     <section className="bg-paper px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-20" id="faqs">
       <div className="mx-auto max-w-4xl">
@@ -1213,14 +1174,19 @@ function FaqBand({ division }: { division: Exclude<Division, "group"> }) {
             FAQ
           </p>
           <h2 className="mt-3 font-display text-3xl leading-tight text-ink sm:text-5xl">
-            Questions worth answering before the form.
+            {title}
           </h2>
         </div>
         <div className="mt-8 divide-y divide-ink/10 rounded-lg border border-ink/10 bg-white">
           {faqs[division].map((item) => (
             <details key={item.q} className="group p-4 open:bg-white sm:p-5">
-              <summary className="cursor-pointer list-none text-base font-semibold text-ink">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-base font-semibold text-ink">
                 {item.q}
+                <ChevronDown
+                  size={18}
+                  aria-hidden="true"
+                  className="shrink-0 text-ink/48 transition-transform duration-300 group-open:rotate-180"
+                />
               </summary>
               <p className="mt-4 text-sm leading-6 text-ink/64">{item.a}</p>
             </details>
@@ -1233,12 +1199,14 @@ function FaqBand({ division }: { division: Exclude<Division, "group"> }) {
 
 function ClosingCta({
   division,
+  kicker = "Next step",
   title,
   text,
   href,
   label
 }: {
   division: Exclude<Division, "group">;
+  kicker?: string;
   title: string;
   text: string;
   href: string;
@@ -1253,7 +1221,7 @@ function ClosingCta({
       <div className="reveal mx-auto flex max-w-7xl flex-col gap-6 md:flex-row md:items-end md:justify-between">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.28em] text-ink/42">
-            Next step
+            {kicker}
           </p>
           <h2 className="mt-3 max-w-3xl font-display text-3xl leading-tight text-ink sm:text-5xl">
             {title}
@@ -1633,7 +1601,7 @@ function SplitBand({
             {kicker}
           </p>
           <h2 className="mt-3 font-display text-3xl leading-tight text-ink sm:text-5xl">{title}</h2>
-          <p className="mt-5 text-base leading-7 text-ink/64">{text}</p>
+          <p className="mt-5 whitespace-pre-line text-base leading-7 text-ink/64">{text}</p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               href={cta.href}
@@ -1685,7 +1653,7 @@ function DivisionRouteCard({
       />
       <span className="absolute inset-x-0 bottom-0 p-5 sm:p-8">
         <span className="font-display text-2xl leading-tight sm:text-4xl lg:text-5xl">{title}</span>
-        <span className="compact-copy mt-2 block max-w-md text-sm leading-6 text-white/72 sm:mt-4">{text}</span>
+        <span className="compact-copy mt-2 block max-w-md whitespace-pre-line text-sm leading-6 text-white/72 sm:mt-4">{text}</span>
         <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold">
           Enter division <ArrowRight size={17} aria-hidden="true" />
         </span>

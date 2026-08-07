@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import gsap from "gsap";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, X } from "lucide-react";
 import { heroImages } from "@/lib/data";
 
 const storageKey = "milton-division-chooser-seen";
@@ -79,8 +79,16 @@ export function DivisionChooser() {
       aria-modal="true"
       aria-labelledby="division-chooser-title"
     >
-      <div className="w-full max-w-5xl rounded-lg border border-white/16 bg-paper p-4 shadow-soft sm:p-6">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+      <div className="relative w-full max-w-5xl rounded-lg border border-white/16 bg-paper p-4 shadow-soft sm:p-6">
+        <button
+          type="button"
+          onClick={() => dismiss()}
+          aria-label="Close"
+          className="absolute right-3 top-3 inline-flex h-9 w-9 items-center justify-center rounded-full text-ink/50 transition hover:bg-ink/8 hover:text-ink sm:right-4 sm:top-4"
+        >
+          <X size={18} aria-hidden="true" />
+        </button>
+        <div className="flex flex-col gap-4 pr-10 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-ink/48">
               Milton Group

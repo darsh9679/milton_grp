@@ -12,7 +12,6 @@ import {
   Mail,
   MapPin,
   Menu,
-  MessageCircle,
   Phone,
   Send,
   Twitter,
@@ -27,6 +26,20 @@ type SiteChromeProps = {
   division: Division;
   children: React.ReactNode;
 };
+
+function WhatsAppIcon({ size = 18 }: { size?: number }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path d="M12.01 2C6.48 2 2 6.48 2 12.01c0 1.87.5 3.65 1.45 5.23L2 22l4.9-1.42a9.94 9.94 0 0 0 5.11 1.4h.01c5.53 0 10.01-4.48 10.01-10.01C22.02 6.48 17.54 2 12.01 2Zm5.86 14.29c-.25.7-1.23 1.28-2 1.44-.55.11-1.26.2-3.65-.78-2.86-1.18-4.7-4.08-4.85-4.27-.14-.19-1.16-1.54-1.16-2.94s.72-2.08.98-2.37c.25-.28.54-.35.72-.35.18 0 .36 0 .52.01.17.01.39-.06.6.47.25.6.83 2.06.9 2.21.07.15.11.32.02.51-.09.19-.14.31-.28.47-.14.16-.29.36-.42.48-.14.13-.28.28-.13.55.16.28.7 1.17 1.51 1.9 1.04.94 1.9 1.24 2.18 1.38.28.14.44.12.61-.07.16-.19.7-.82.89-1.1.19-.28.37-.23.62-.14.25.09 1.61.77 1.89.91.28.14.46.21.53.33.07.12.07.68-.18 1.38Z" />
+    </svg>
+  );
+}
 
 type NavItem = {
   href: string;
@@ -52,6 +65,7 @@ export function SiteChrome({ division, children }: SiteChromeProps) {
 function SiteHeader({ division }: { division: Division }) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [expandedMobileItem, setExpandedMobileItem] = useState<string | null>(null);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -142,7 +156,10 @@ function SiteHeader({ division }: { division: Division }) {
           aria-expanded={open}
           aria-controls="mobile-nav"
           className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-white/18 text-white lg:hidden"
-          onClick={() => setOpen((value) => !value)}
+          onClick={() => {
+            setOpen((value) => !value);
+            setExpandedMobileItem(null);
+          }}
         >
           {open ? <X size={21} aria-hidden="true" /> : <Menu size={21} aria-hidden="true" />}
           <span className="sr-only">Toggle navigation</span>
@@ -158,19 +175,42 @@ function SiteHeader({ division }: { division: Division }) {
           <div className="grid gap-1">
             {routes.map((item) => (
               <div key={item.href}>
-                <Link
-                  href={item.href}
-                  onClick={() => setOpen(false)}
-                  aria-current={pathname === item.href ? "page" : undefined}
-                  className={`block rounded-lg px-3 py-3 text-sm transition ${
-                    pathname === item.href
-                      ? "bg-white font-semibold text-ink shadow-sm"
-                      : "font-medium text-white/84 hover:bg-white/10"
-                  }`}
-                >
-                  {item.label}
-                </Link>
-                {item.children ? (
+                <div className="flex items-center gap-1">
+                  <Link
+                    href={item.href}
+                    onClick={() => setOpen(false)}
+                    aria-current={pathname === item.href ? "page" : undefined}
+                    className={`block flex-1 rounded-lg px-3 py-3 text-sm transition ${
+                      pathname === item.href
+                        ? "bg-white font-semibold text-ink shadow-sm"
+                        : "font-medium text-white/84 hover:bg-white/10"
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                  {item.children ? (
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setExpandedMobileItem((current) =>
+                          current === item.href ? null : item.href
+                        )
+                      }
+                      aria-expanded={expandedMobileItem === item.href}
+                      aria-label={`Toggle ${item.label} submenu`}
+                      className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-white/70 transition hover:bg-white/10 hover:text-white"
+                    >
+                      <ChevronDown
+                        size={16}
+                        aria-hidden="true"
+                        className={`transition-transform ${
+                          expandedMobileItem === item.href ? "rotate-180" : ""
+                        }`}
+                      />
+                    </button>
+                  ) : null}
+                </div>
+                {item.children && expandedMobileItem === item.href ? (
                   <div className="ml-3 grid gap-1 border-l border-white/10 pl-3">
                     {item.children.map((child) => (
                       <Link
@@ -328,7 +368,7 @@ function SiteFooter({ division }: { division: Division }) {
                 className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/14 bg-white/8 transition hover:bg-white/14 hover:text-white"
                 aria-label="WhatsApp Milton Group"
               >
-                <MessageCircle size={18} aria-hidden="true" />
+                <WhatsAppIcon size={18} />
               </Link>
             </div>
           </div>
@@ -364,14 +404,14 @@ function FloatingActions({ division }: { division: Division }) {
       <Link
         href={`https://wa.me/${contact.whatsapp}?text=${encodeURIComponent(text)}`}
         target="_blank"
-        className="floating-action inline-flex h-11 w-11 items-center justify-center rounded-lg bg-[#1f9d62] text-white opacity-0 shadow-soft transition hover:-translate-y-0.5 hover:bg-[#187d4f] sm:h-12 sm:w-12"
+        className="floating-action inline-flex h-11 w-11 items-center justify-center rounded-lg bg-[#25D366] text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-[#1eb858] sm:h-12 sm:w-12"
         aria-label="Open WhatsApp enquiry"
       >
-        <MessageCircle size={18} aria-hidden="true" />
+        <WhatsAppIcon size={20} />
       </Link>
       <Link
         href={contact.contactHref}
-        className="floating-action inline-flex h-11 w-11 items-center justify-center rounded-lg bg-ink text-white opacity-0 shadow-soft transition hover:-translate-y-0.5 hover:bg-realty-700 sm:h-12 sm:w-12"
+        className="floating-action inline-flex h-11 w-11 items-center justify-center rounded-lg bg-ink text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-realty-700 sm:h-12 sm:w-12"
         aria-label="Open enquiry form"
       >
         <Mail size={18} aria-hidden="true" />
