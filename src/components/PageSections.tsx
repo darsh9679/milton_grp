@@ -817,7 +817,7 @@ function RealtyAboutExperience() {
                 data-about-gallery
                 className="group min-w-0"
               >
-                <div className="relative aspect-square overflow-hidden rounded-md bg-[#ece7dc] sm:aspect-[1.04/1] md:aspect-auto md:h-[clamp(220px,24vw,315px)]">
+                <div className="relative aspect-[4/5] overflow-hidden rounded-md bg-[#ece7dc] sm:aspect-[5/5.6] md:aspect-auto md:h-[clamp(260px,27vw,360px)]">
                   <Image
                     src={director.image}
                     alt={director.imageAlt}

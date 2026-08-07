@@ -24,7 +24,7 @@ export function RealtyDirectorProfile({ director }: RealtyDirectorProfileProps) 
         <section className="mt-8 grid gap-8 lg:grid-cols-[0.43fr_0.57fr] lg:gap-16 xl:gap-20">
           <figure
             data-about-image
-            className="relative aspect-[4/5] overflow-hidden rounded-md bg-[#ece7dc] shadow-sm lg:sticky lg:top-28 lg:self-start"
+            className="relative aspect-[4/5] overflow-hidden rounded-md bg-[#ece7dc] shadow-sm lg:sticky lg:top-28 lg:aspect-auto lg:h-[calc(100vh-9rem)] lg:max-h-[760px] lg:self-start"
           >
             <Image
               src={director.image}
