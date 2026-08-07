@@ -601,19 +601,18 @@ export const realtyWhy: Array<{
 }> = [
   {
     icon: Home,
-    title: "Purchase",
-    text: "Find the right property with expert insights, legal clarity, market intelligence, and long-term value."
+    title: "Buying",
+    text: "Shortlisted homes and land options are compared by locality, paperwork, lifestyle, and resale logic."
   },
   {
     icon: BadgeIndianRupee,
-    title: "Strategic Selling",
-    text:
-      "Expert strategies that elevate your property's market appeal.\nHelping you secure the best value with complete confidence."
+    title: "Selling",
+    text: "Owners get pricing clarity, sharper positioning, and buyer handling that protects negotiation quality."
   },
   {
     icon: Users,
-    title: "Property Advisory",
-    text: "Expert guidance backed by market insights, legal clarity, and informed decision-making."
+    title: "Renting",
+    text: "Families and investors get practical guidance on tenant profiles, commute, furnishing, and lease fit."
   }
 ];
 
@@ -656,13 +655,13 @@ export const testimonials = {
   realty: [
     {
       quote:
-        "Every visit felt closer to 'This is the one.'",
-      name: "Homebuyer, Western Mumbai"
+        "Milton gave us a shortlist that felt edited, not dumped. Every visit had a reason behind it.",
+      name: "A western suburbs homebuyer"
     },
     {
       quote:
-        "The right strategy brought the right buyer at the right value",
-      name: "Landowner, Satara"
+        "The team helped us position our land parcel for the right buyer profile instead of chasing noise.",
+      name: "Land owner, Satara"
     }
   ],
   solar: [
@@ -749,37 +748,31 @@ export const valueCards = [
   {
     icon: ShieldCheck,
     title: "Two divisions, clean routing",
-    text:
-      "Real estate continues to be one of the most reliable ways to build wealth, just as renewable energy defines the future ahead. Our Real Estate Division identifies and develops locations with strong growth potential, helping investors gain from long-term appreciation and secure ownership, while our Solar Energy Division helps homeowners, businesses, industries, and institutions cut electricity costs and build a cleaner environment."
+    text: "Realty and Solar keep their own enquiry paths while staying visibly part of Milton Group."
   },
   {
     icon: MapPin,
     title: "Maharashtra-grounded",
-    text:
-      "महाराष्ट्राच्या प्रगतीसोबत, आपल्या भविष्याची मजबूत पायाभरणी\nBuilding Maharashtra's Future Through Smart Investments and Sustainable Energy\n\nMaharashtra is one of India's fastest-growing states, driven by expanding infrastructure, industrial growth, urban development, and increasing demand for sustainable living. We are proud to contribute to this growth through our two core divisions: Real Estate and Solar Energy."
+    text: "The site anchors itself in Mumbai, MMR, Satara, Konkan, Shirdi, and western India energy demand."
   },
   {
     icon: Leaf,
     title: "Built asset mindset",
-    text:
-      "We believe true wealth is created by building valuable assets and cultivating the mindset to grow them. Every successful journey begins with a vision, informed decisions, and investments that stand the test of time."
+    text: "Homes, land, rooftops, and operating buildings are treated as durable long-term decisions."
   },
   {
     icon: PlugZap,
     title: "Human-led conversion",
-    text:
-      "Every enquiry is guided by real people, not automated forms. Property, product, and quote paths connect you directly to the right team, so every conversation starts with context, not a blank form."
+    text: "Every product, property, and quote path sends context to the right team instead of forcing a generic form."
   },
   {
     icon: Lightbulb,
     title: "Useful interactions",
-    text:
-      "From calculators to smart filters, every interactive element on this site is designed to inform your decisions, never just for show."
+    text: "Calculators, filters, reveal states, and enquiry context support decision-making instead of decorating it."
   },
   {
     icon: Trees,
-    title: "Growth Without Sprawl",
-    text:
-      "Growth Without Sprawl is our guiding philosophy, a commitment to developing communities, creating lasting assets, and delivering clean energy solutions that respect people, resources, and the environment.\n\nOur approach is deliberate, strategic, and sustainable. Every project is chosen for its long-term potential, every investment is guided by careful planning, and every partnership is built on trust."
+    title: "Growth without sprawl",
+    text: "The parent identity gives both divisions room to expand without siloed navigation or duplicated content."
   }
 ];

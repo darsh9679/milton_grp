@@ -57,7 +57,7 @@ export function GroupHome() {
         division="group"
         kicker="Milton Group"
         title="Property, energy, and the long life of built assets."
-        text="Great investments are ones whose value only grows with time. We bring together real estate and clean energy to help individuals, families, and investors build assets that are resilient, sustainable, and made to last."
+        text="Milton Group brings together two independently operating divisions: Milton Realty for property decisions and Milton Solar for rooftop energy, EPC, products, and maintenance."
         image={heroImages.group}
         primary={{ href: "/realty-home", label: "Enter Realty" }}
         secondary={{ href: "/solar-home", label: "Enter Solar" }}
@@ -69,41 +69,27 @@ export function GroupHome() {
               One parent, two clear paths
             </p>
             <h2 className="mt-3 font-display text-3xl leading-tight text-ink sm:text-5xl">
-              Great things start with the right piece of land.
+              A shared Milton identity, without blurring the work.
             </h2>
-            <div className="mt-5 space-y-4 text-base leading-7 text-ink/64">
-              <p>
-                As a trusted name in residential plot development, we are committed
-                to building premium plotted communities that bring together nature,
-                connectivity, and modern infrastructure.
-              </p>
-              <p>
-                Whether your goal is to build your dream home, secure a smart
-                investment, or create a lasting legacy for your family, our
-                thoughtfully planned residential plots offer the ideal opportunity.
-                Every project is delivered with transparency, quality, and
-                long-term value in mind, ensuring complete peace of mind for every
-                customer.
-              </p>
-            </div>
+            <p className="mt-5 text-base leading-7 text-ink/64">
+              Realty and Solar need different rhythms, proof points, and conversion
+              paths. This hub keeps both divisions connected while preserving the
+              visual and operational clarity each one needs.
+            </p>
           </div>
           <div className="mt-8 grid gap-4 sm:mt-10 sm:gap-5 lg:grid-cols-2">
             <DivisionRouteCard
               title="Milton Realty"
               href="/realty-home"
               image={heroImages.realty}
-              text="We believe great things start with the right piece of land. As a trusted name in residential plot development, we are committed to building premium plotted communities that bring together nature, connectivity, and modern infrastructure."
+              text="Mumbai flats, MMR value corridors, Satara land, Ratnagiri coast, Shirdi plots, and hill-town second homes."
               tone="realty"
             />
             <DivisionRouteCard
               title="Milton Solar"
               href="/solar-home"
               image={heroImages.solar}
-              text={`Solar rooftop systems for homes and businesses
-Commercial and industrial solar solutions
-Solar project consultation, installation, and maintenance
-
-By bringing these two complementary industries together, we deliver solutions that elevate both the quality of living and the quality of the environment.`}
+              text="Residential rooftop, commercial EPC, industrial systems, AMC, solar products, franchise, and subsidy guidance."
               tone="solar"
             />
           </div>
@@ -119,7 +105,7 @@ By bringing these two complementary industries together, we deliver solutions th
         division="group"
         kicker="Parent brand"
         title="Every path returns to Milton Group."
-        text="Welcome to our parent company portal, the strategic anchor uniting pioneering ventures in Solar Energy and Real Estate. We believe that the spaces we build and the energy that powers them are fundamentally connected. By pairing visionary property development with cutting-edge renewable solutions, we engineer ecosystems designed to thrive for generations."
+        text="The architecture keeps the two divisions cross-linked from header, footer, floating actions, and conversion flows. A visitor can move from property to solar without losing the parent identity or being forced through a generic enquiry path."
         image={heroImages.interior}
         cta={{ href: "/realty-listings", label: "Browse Realty Listings" }}
         secondary={{ href: "/solar-shop", label: "View Solar Shop" }}
@@ -145,15 +131,15 @@ function RealtyPage({ kind }: { kind: string }) {
         <Hero
           division="realty"
           kicker="Milton Realty"
-          title="Real estate decisions, curated with distinction."
-          text="Trusted property advisory where expertise meets clarity, empowering every real estate decision with confidence."
+          title="Real estate decisions, edited with care."
+          text="Property advisory across Mumbai, MMR, Satara, Ratnagiri, Shirdi, and hill-town second-home belts, built around clarity before commitment."
           image={heroImages.realty}
           primary={{ href: "/realty-listings", label: "View Listings" }}
           secondary={{ href: "/realty-contact", label: "Talk to an Advisor" }}
         />
         <FeatureGrid
           kicker="Why Milton Realty"
-          title="Where expertise, trust, and strategy come together to create exceptional real estate experiences."
+          title="Buying, selling, and renting handled as three different decisions."
           cards={realtyWhy}
           division="realty"
         />
@@ -161,9 +147,9 @@ function RealtyPage({ kind }: { kind: string }) {
         <StatsBand
           division="realty"
           stats={[
-            ["111", "Properties in active review", ""],
-            ["7", "Presence Across States & Countries", "+"],
-            ["40", "Years of advisory memory", "+"]
+            ["148", "Properties in active review", ""],
+            ["7", "Cities and corridors covered", ""],
+            ["12", "Years of advisory memory", "+"]
           ]}
         />
         <ProcessBand division="realty" />
@@ -171,9 +157,8 @@ function RealtyPage({ kind }: { kind: string }) {
         <FaqBand division="realty" />
         <ClosingCta
           division="realty"
-          kicker="Let's Build Your Next Chapter"
-          title="Because every great investment begins with trusted advice."
-          text="Every successful property decision starts with understanding your goals. Let's begin with yours."
+          title="Bring us the decision, not just the budget."
+          text="Milton Realty can start from a property name, a locality, a resale target, or a family brief."
           href="/realty-contact"
           label="Start a Realty Enquiry"
         />
@@ -201,10 +186,8 @@ function RealtyPage({ kind }: { kind: string }) {
       <>
         <SubHero
           division="realty"
-          title="Discover Places with Purpose. Invest in Opportunities with Potential."
-          text={`Every project we present is carefully selected for its location, connectivity, legal clarity, and long-term growth prospects. Whether you're looking to build your dream home, secure a future investment, or diversify your portfolio, our projects are designed to deliver lasting value.
-
-We focus on developments that combine strategic planning, strong infrastructure potential, and the confidence of transparent transaction.`}
+          title="Listings grounded in Milton's real Maharashtra footprint."
+          text="Filter flats, land, and bungalow opportunities across Mumbai, Kalyan, Satara, Ratnagiri, Shirdi, and the Mahabaleshwar belt."
           image={heroImages.coastline}
         />
         <ListingsExplorer />
@@ -521,7 +504,7 @@ function SubHero({
         >
           {title}
         </h1>
-        <p data-hero-reveal className="mt-6 max-w-2xl whitespace-pre-line break-words text-base leading-7 text-white/74">
+        <p data-hero-reveal className="mt-6 max-w-2xl break-words text-base leading-7 text-white/74">
           {text}
         </p>
       </div>
@@ -994,7 +977,7 @@ function FeatureGrid({
                     {card.title}
                   </h3>
                 </div>
-                <p className="feature-card-copy mt-2 whitespace-pre-line text-[12px] leading-5 text-ink/62 sm:mt-4 sm:text-sm sm:leading-6">{card.text}</p>
+                <p className="feature-card-copy mt-2 text-[12px] leading-5 text-ink/62 sm:mt-4 sm:text-sm sm:leading-6">{card.text}</p>
               </article>
             );
           })}
@@ -1014,7 +997,7 @@ function ListingPreview() {
               Featured listings
             </p>
             <h2 className="mt-3 max-w-3xl font-display text-3xl leading-tight sm:text-5xl">
-              Discover opportunities worth your attention.
+              One listing, one scene, one reason to enquire.
             </h2>
           </div>
           <Link
@@ -1088,12 +1071,6 @@ function StatsBand({
 }
 
 function ProcessBand({ division }: { division: Exclude<Division, "group"> }) {
-  const kicker = division === "realty" ? "The Milton Way" : "Process";
-  const title =
-    division === "realty"
-      ? "A seamless journey, thoughtfully designed to guide every property decision with clarity & confidence."
-      : "A short sequence because the work is actually sequential.";
-
   return (
     <section className="bg-paper px-4 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-20">
       <div className="mx-auto max-w-7xl">
@@ -1103,10 +1080,10 @@ function ProcessBand({ division }: { division: Exclude<Division, "group"> }) {
               division === "solar" ? "text-solar-700" : "text-realty-500"
             }`}
           >
-            {kicker}
+            Process
           </p>
           <h2 className="mt-3 font-display text-3xl leading-tight text-ink sm:text-5xl">
-            {title}
+            A short sequence because the work is actually sequential.
           </h2>
         </div>
         <div className="mt-6 grid grid-cols-2 gap-3 sm:mt-10 sm:gap-5 md:grid-cols-3">
@@ -1157,11 +1134,6 @@ function TestimonialsBand({ division }: { division: Exclude<Division, "group"> }
 }
 
 function FaqBand({ division }: { division: Exclude<Division, "group"> }) {
-  const title =
-    division === "realty"
-      ? "Everything Worth Knowing."
-      : "Questions worth answering before the form.";
-
   return (
     <section className="bg-paper px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-20" id="faqs">
       <div className="mx-auto max-w-4xl">
@@ -1174,7 +1146,7 @@ function FaqBand({ division }: { division: Exclude<Division, "group"> }) {
             FAQ
           </p>
           <h2 className="mt-3 font-display text-3xl leading-tight text-ink sm:text-5xl">
-            {title}
+            Questions worth answering before the form.
           </h2>
         </div>
         <div className="mt-8 divide-y divide-ink/10 rounded-lg border border-ink/10 bg-white">
@@ -1199,14 +1171,12 @@ function FaqBand({ division }: { division: Exclude<Division, "group"> }) {
 
 function ClosingCta({
   division,
-  kicker = "Next step",
   title,
   text,
   href,
   label
 }: {
   division: Exclude<Division, "group">;
-  kicker?: string;
   title: string;
   text: string;
   href: string;
@@ -1221,7 +1191,7 @@ function ClosingCta({
       <div className="reveal mx-auto flex max-w-7xl flex-col gap-6 md:flex-row md:items-end md:justify-between">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.28em] text-ink/42">
-            {kicker}
+            Next step
           </p>
           <h2 className="mt-3 max-w-3xl font-display text-3xl leading-tight text-ink sm:text-5xl">
             {title}
@@ -1601,7 +1571,7 @@ function SplitBand({
             {kicker}
           </p>
           <h2 className="mt-3 font-display text-3xl leading-tight text-ink sm:text-5xl">{title}</h2>
-          <p className="mt-5 whitespace-pre-line text-base leading-7 text-ink/64">{text}</p>
+          <p className="mt-5 text-base leading-7 text-ink/64">{text}</p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               href={cta.href}
@@ -1653,7 +1623,7 @@ function DivisionRouteCard({
       />
       <span className="absolute inset-x-0 bottom-0 p-5 sm:p-8">
         <span className="font-display text-2xl leading-tight sm:text-4xl lg:text-5xl">{title}</span>
-        <span className="compact-copy mt-2 block max-w-md whitespace-pre-line text-sm leading-6 text-white/72 sm:mt-4">{text}</span>
+        <span className="compact-copy mt-2 block max-w-md text-sm leading-6 text-white/72 sm:mt-4">{text}</span>
         <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold">
           Enter division <ArrowRight size={17} aria-hidden="true" />
         </span>
