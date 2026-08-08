@@ -235,6 +235,13 @@ function SiteHeader({ division }: { division: Division }) {
 
 function SiteFooter({ division }: { division: Division }) {
   const contact = contactConfig[division];
+  const officeCards =
+    division === "solar"
+      ? [{ label: "Solar Office", address: contact.branchOffice }]
+      : [
+          { label: "Branch Office", address: contact.branchOffice },
+          { label: "Corporate Office", address: contact.corporateOffice }
+        ];
   const socialLinks = [
     { href: "#", label: "Facebook", Icon: Facebook },
     { href: "#", label: "Instagram", Icon: Instagram },
@@ -304,25 +311,22 @@ function SiteFooter({ division }: { division: Division }) {
                 {contact.email}
               </Link>
             </div>
-            <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
-              <div className="rounded-lg border border-white/10 bg-white/5 p-3">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/42">
-                  Branch Office
-                </p>
-                <p className="mt-1 flex gap-2">
-                  <MapPin className="mt-0.5 shrink-0 text-white/44" size={15} aria-hidden="true" />
-                  <span>{contact.branchOffice}</span>
-                </p>
-              </div>
-              <div className="rounded-lg border border-white/10 bg-white/5 p-3">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/42">
-                  Corporate Office
-                </p>
-                <p className="mt-1 flex gap-2">
-                  <MapPin className="mt-0.5 shrink-0 text-white/44" size={15} aria-hidden="true" />
-                  <span>{contact.corporateOffice}</span>
-                </p>
-              </div>
+            <div
+              className={`grid gap-2 ${
+                officeCards.length > 1 ? "sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2" : ""
+              }`}
+            >
+              {officeCards.map((office) => (
+                <div key={office.label} className="rounded-lg border border-white/10 bg-white/5 p-3">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/42">
+                    {office.label}
+                  </p>
+                  <p className="mt-1 flex gap-2">
+                    <MapPin className="mt-0.5 shrink-0 text-white/44" size={15} aria-hidden="true" />
+                    <span>{office.address}</span>
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -419,6 +423,5 @@ function FloatingActions({ division }: { division: Division }) {
     </div>
   );
 }
-
 
 

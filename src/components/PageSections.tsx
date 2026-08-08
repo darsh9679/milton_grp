@@ -4,7 +4,6 @@ import {
   ArrowRight,
   BadgeCheck,
   ChevronDown,
-  Handshake,
   Mail,
   MapPin,
   MapPinned,
@@ -38,17 +37,6 @@ import {
   SolarSavingsCalculator,
   SolutionTabs
 } from "@/components/InteractiveSections";
-
-const divisionLogos = {
-  realty: {
-    src: "/images/logos/milton-home-llp-logo.svg",
-    alt: "Milton Home LLP"
-  },
-  solar: {
-    src: "/images/logos/milton-solar-llp-logo.svg",
-    alt: "Milton Solar LLP"
-  }
-} as const;
 
 export function GroupHome() {
   return (
@@ -282,23 +270,7 @@ function SolarPage({ kind }: { kind: string }) {
   if (kind === "about") {
     return (
       <>
-        <SubHero
-          division="solar"
-          title="A solar team shaped around practical adoption."
-          text="Milton Solar exists to make rooftop power feel legible: bill, roof, system, subsidy, installation, maintenance."
-          image={heroImages.roof}
-        />
-        <StoryBand
-          division="solar"
-          title="The story begins where energy decisions get stuck."
-          text="Most buyers do not reject solar because they dislike clean power; they pause because system size, subsidy steps, roof readiness, and payback are hard to connect. Milton Solar is positioned to close that gap through clear estimation, site-led engineering, and accountable support after commissioning."
-          points={[
-            "Savings conversations anchored in actual monthly bills.",
-            "EPC delivery that respects roof structure and site operations.",
-            "A product and franchise model that routes every lead to a human quote."
-          ]}
-        />
-        <TeamBand division="solar" />
+        <SolarAboutExperience />
         <ClosingCta
           division="solar"
           title="Clarity is the first solar product."
@@ -936,6 +908,434 @@ function RealtyAboutExperience() {
   );
 }
 
+function SolarAboutExperience() {
+  const legacyStats = [
+    ["1", "Solar desk", "", "Residential, commercial, product, subsidy, and AMC conversations routed through one team."],
+    ["4", "Core paths", "", "Rooftop EPC, commercial systems, solar products, and long-term maintenance."],
+    ["68", "Avg. bill reduction", "%", "Planning starts with practical savings assumptions before system selection."],
+    ["24", "Support mindset", "x7", "Every enquiry is handled with installation, service, and after-care context."]
+  ];
+  const pillars = [
+    {
+      title: "Vision",
+      paragraphs: [
+        "To make clean energy adoption practical, transparent, and financially useful for homes, businesses, institutions, and future-ready communities.",
+        "Milton Solar envisions rooftops and operating buildings as energy assets, where every panel installed is supported by clear calculation, responsible engineering, and dependable service."
+      ]
+    },
+    {
+      title: "Mission",
+      paragraphs: [
+        "We simplify solar decisions by connecting electricity bills, roof conditions, subsidy eligibility, product choice, installation planning, and maintenance into one guided process.",
+        "Our mission is to help customers reduce electricity costs, improve energy independence, and invest in systems that are sized honestly for their actual usage.",
+        "We continue to build a solar brand defined by practical advice, accountable delivery, and long-term support after commissioning."
+      ]
+    }
+  ];
+  const founder = {
+    name: "Chiranjiv Vaghani",
+    role: "Founder and Chairman, Milton Realty",
+    image: "/images/solar-about/html-reference-04.jpg",
+    paragraphs: [
+      "Mr. Chiranjiv Vaghani is a distinguished entrepreneur, investor, and real estate visionary based in Mumbai, India, with over four decades of experience in real estate development, strategic investments, and business leadership.",
+      "He graduated from Bombay University in 1976, majoring in Statistics and Economics, and further enhanced his leadership expertise by completing the Advanced Management Program at Harvard Business School.",
+      "Having successfully led landmark residential, commercial, hospitality, and mixed-use projects across India, he is widely recognized for his expertise in investment structuring, project execution, and value creation.",
+      "His vision, integrity, and commitment to excellence continue to drive Milton Realty's growth, innovation, and reputation as a trusted name in the real estate industry."
+    ]
+  };
+  const solarDirectors = realtyDirectors.map((director) => ({
+    ...director,
+    image: director.image.replace("/images/realty-about/", "/images/solar-about/")
+  }));
+  const milestones = [
+    {
+      label: "Assessment",
+      title: "Bill-led feasibility",
+      text: "Solar planning begins with the monthly bill, roof area, load profile, and realistic generation assumptions.",
+      image: heroImages.roof
+    },
+    {
+      label: "Engineering",
+      title: "System sizing",
+      text: "Panels, inverter, mounting, wiring, safety, subsidy path, and payback are brought into one proposal.",
+      image: "/images/solar-shop/solar-power-5kw/02.jpg"
+    },
+    {
+      label: "Execution",
+      title: "Clean installation",
+      text: "Site work is coordinated around roof safety, operation continuity, metering, commissioning, and handover.",
+      image: heroImages.solar
+    },
+    {
+      label: "After-care",
+      title: "AMC support",
+      text: "Generation checks, cleaning rhythm, inverter review, and fault response protect the system after commissioning.",
+      image: "/images/solar-shop/solar-inverter/02.jpg"
+    },
+    {
+      label: "Growth",
+      title: "Local solar adoption",
+      text: "Franchise and product paths help local demand move from enquiry to informed quote conversations.",
+      image: "/images/solar-shop/solar-water-pump/01.jpg"
+    }
+  ];
+  const projects = [
+    {
+      title: "Residential Rooftop",
+      place: "Homes and societies",
+      image: heroImages.roof,
+      text:
+        "Bill-led rooftop planning with subsidy guidance, net-metering support, inverter selection, and clean handover."
+    },
+    {
+      title: "Commercial Solar",
+      place: "Business and industrial roofs",
+      image: heroImages.solar,
+      text:
+        "EPC planning for operating buildings where daytime consumption, roof safety, monitoring, and payback matter."
+    }
+  ];
+  const gallery = [
+    { category: "EPC", title: "On-grid solar plant", image: "/images/solar-shop/solar-power-5kw/01.jpg" },
+    { category: "Residential", title: "Hybrid home system", image: "/images/solar-shop/hybrid-home-system/01.jpg" },
+    { category: "Agriculture", title: "Solar water pump", image: "/images/solar-shop/solar-water-pump/01.jpg" },
+    { category: "Lighting", title: "Solar street light", image: "/images/solar-shop/semi-integrated-street-light/01.jpg" },
+    { category: "Security", title: "Solar flood light", image: "/images/solar-shop/solar-flood-200/01.jpg" },
+    { category: "Products", title: "Grid-tied inverter", image: "/images/solar-shop/solar-inverter/01.jpg" }
+  ];
+  const values = [
+    ["Calculation", "Every proposal begins with real usage, practical sizing, and savings logic."],
+    ["Engineering", "Roof, shade, safety, metering, inverter, and cable routing are treated as one system."],
+    ["Support", "Commissioning is not the finish line; monitoring, AMC, and service keep the asset healthy."]
+  ];
+
+  return (
+    <>
+      <section className="relative flex min-h-[76svh] items-end overflow-hidden px-4 pb-10 pt-28 text-white sm:px-6 sm:pb-14 sm:pt-36 lg:min-h-[88vh] lg:px-8">
+        <Image
+          src={heroImages.solar}
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-[52%_center]"
+        />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_24%,rgba(255,239,186,0.16),transparent_30%),linear-gradient(180deg,rgba(24,32,29,0.24)_0%,rgba(24,32,29,0.66)_62%,rgba(15,23,20,0.95)_100%),linear-gradient(90deg,rgba(24,32,29,0.9)_0%,rgba(24,32,29,0.52)_48%,rgba(24,32,29,0.12)_100%)]" />
+        <div className="relative z-10 mx-auto w-full max-w-7xl">
+          <p data-hero-reveal className="text-xs font-semibold uppercase tracking-[0.32em] text-white/68">
+            Rooftop - EPC - Maintenance
+          </p>
+          <h1
+            data-hero-reveal
+            className="mt-4 max-w-5xl text-balance solar-heading text-4xl font-semibold leading-[1.02] sm:mt-5 sm:text-6xl lg:text-8xl"
+          >
+            Solar decisions built on real numbers.
+          </h1>
+          <div className="mt-7 flex max-w-5xl flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+            <p data-hero-reveal className="max-w-2xl text-base leading-7 text-white/76 sm:text-lg">
+              From home rooftops to commercial systems, Milton Solar turns electricity bills, roofs, products, and maintenance into a clear adoption path.
+            </p>
+            <div data-hero-reveal className="flex flex-wrap gap-3">
+              <Link
+                href="#solar-profile"
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-white px-5 py-3 text-sm font-semibold text-ink transition hover:-translate-y-0.5 hover:bg-solar-100"
+              >
+                Our Story
+                <ArrowRight size={17} aria-hidden="true" />
+              </Link>
+              <Link
+                href="/solar-contact"
+                className="inline-flex min-h-12 items-center justify-center rounded-lg border border-white/32 px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-white/12"
+              >
+                Get in Touch
+              </Link>
+            </div>
+          </div>
+          <div className="mt-8 grid max-w-4xl grid-cols-2 gap-2 sm:grid-cols-4">
+            {legacyStats.map(([value, label, suffix]) => (
+              <div key={label} data-hero-reveal className="border border-white/12 bg-white/8 p-3 backdrop-blur-sm">
+                <p className="solar-heading text-3xl font-semibold leading-none sm:text-4xl" data-counter={value} data-suffix={suffix}>
+                  {value}
+                  {suffix}
+                </p>
+                <p className="mt-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-white/58">{label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="solar-profile" className="bg-paper px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
+          <div data-about-image className="relative min-h-[340px] overflow-hidden rounded-lg bg-ink shadow-soft sm:min-h-[520px]">
+            <Image
+              src={heroImages.roof}
+              alt="Milton Solar rooftop installation"
+              fill
+              sizes="(min-width: 1024px) 44vw, 100vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-ink/62 via-ink/8 to-transparent" />
+            <div className="absolute bottom-4 left-4 max-w-[240px] rounded-lg border border-white/18 bg-white/12 p-4 text-white backdrop-blur-md sm:bottom-6 sm:left-6 sm:max-w-xs sm:p-5">
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/60">
+                Milton Solar
+              </p>
+              <p className="mt-2 solar-heading text-3xl font-semibold leading-none">Calculate first. Install second.</p>
+            </div>
+          </div>
+          <div data-about-panel="right">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-solar-700">
+              The profile
+            </p>
+            <h2 className="mt-3 max-w-3xl font-display text-3xl leading-tight text-ink sm:text-5xl">
+              A solar desk built for clarity before commitment.
+            </h2>
+            <div className="mt-5 space-y-4 text-base leading-8 text-ink/66 sm:text-lg sm:leading-9">
+              <p>
+                Milton Solar helps customers understand whether solar makes sense for their bill, roof, usage pattern, subsidy eligibility, and long-term maintenance expectations.
+              </p>
+              <p>
+                The work is intentionally practical: read the site, calculate the system, explain the economics, install responsibly, and stay available after commissioning.
+              </p>
+            </div>
+            <div className="mt-7 grid gap-3 sm:grid-cols-3">
+              {["Bill-led sizing", "EPC discipline", "AMC support"].map((item) => (
+                <div key={item} className="rounded-lg border border-ink/10 bg-white p-4 shadow-sm">
+                  <SunMedium size={18} className="text-solar-700" aria-hidden="true" />
+                  <p className="mt-3 text-sm font-semibold text-ink">{item}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-paper px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+        <div className="mx-auto max-w-7xl">
+          <div data-about-panel="left" className="max-w-3xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-solar-700">
+              What drives us
+            </p>
+            <h2 className="mt-3 font-sans text-4xl font-black uppercase leading-none text-ink sm:text-6xl">
+              Mission & Vision
+            </h2>
+          </div>
+          <div className="mt-9 grid gap-8 lg:grid-cols-2 lg:gap-14">
+            {pillars.map((pillar, index) => (
+              <article
+                key={pillar.title}
+                data-about-panel={index === 0 ? "left" : "right"}
+                className="border-t-2 border-solar-500/35 pt-5"
+              >
+                <p className="text-xs font-bold uppercase tracking-[0.22em] text-solar-700">
+                  {pillar.title}
+                </p>
+                <div className="mt-5 space-y-4 text-sm leading-7 text-ink/68 sm:text-base sm:leading-8">
+                  {pillar.paragraphs.map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="scroll-mt-24 bg-paper px-4 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-12">
+        <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[0.42fr_0.58fr] lg:items-stretch lg:gap-12">
+          <div data-about-panel="left" className="flex flex-col lg:h-full">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-solar-700">
+              Leadership
+            </p>
+            <h2 className="mt-2 font-display text-3xl font-semibold leading-tight text-ink sm:text-4xl">
+              Founder & Chairman
+            </h2>
+            <div data-about-image className="relative mt-5 aspect-square w-full overflow-hidden bg-ink shadow-soft sm:aspect-[3/4] lg:aspect-auto lg:h-auto lg:flex-1">
+              <Image
+                src={founder.image}
+                alt={`${founder.name}, ${founder.role}`}
+                fill
+                sizes="(min-width: 1024px) 420px, 100vw"
+                className="object-cover object-top"
+              />
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/72 to-transparent p-4 text-white">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-white/66">
+                  Over four decades
+                </p>
+                <p className="mt-1 font-display text-2xl leading-none sm:text-3xl">
+                  Real estate leadership
+                </p>
+              </div>
+            </div>
+          </div>
+          <article data-about-panel="right" className="max-w-[60ch]">
+            <div className="border-b border-ink/12 pb-4 sm:pb-5">
+              <h3 className="font-sans text-2xl font-semibold leading-tight text-ink sm:text-4xl lg:text-[2.15rem]">
+                {founder.name}
+              </h3>
+              <p className="mt-2 text-base font-medium text-solar-700">
+                {founder.role}
+              </p>
+            </div>
+            <div className="mt-5 space-y-3 text-[15px] leading-7 text-ink/68 sm:text-base sm:leading-8 lg:text-[15px] lg:leading-7">
+              {founder.paragraphs.map((paragraph, index) => (
+                <p
+                  key={paragraph}
+                  className={index === 0 ? "text-base font-medium leading-8 text-ink/86 sm:text-[17px] sm:leading-8" : ""}
+                >
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+            <Link
+              href="/chiranjiv-vaghani"
+              className="mt-6 inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-ink px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-solar-700"
+            >
+              View full profile
+              <ArrowRight size={16} aria-hidden="true" />
+            </Link>
+          </article>
+        </div>
+      </section>
+
+      <section id="solar-directors" className="scroll-mt-24 bg-[#f8f7f2] px-5 py-10 sm:px-6 sm:py-12 lg:px-8">
+        <div className="mx-auto max-w-[1180px]">
+          <div data-about-panel="left" className="max-w-2xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-solar-700">
+              The board
+            </p>
+            <h2 className="mt-3 font-sans text-[2rem] font-black uppercase leading-none text-ink sm:text-4xl lg:text-[2.85rem]">
+              <span className="block sm:inline">Board of</span>{" "}
+              <span className="block sm:inline">Directors</span>
+            </h2>
+          </div>
+          <div className="mt-8 grid grid-cols-2 gap-x-4 gap-y-8 md:grid-cols-3 md:gap-8 lg:gap-10">
+            {solarDirectors.map((director) => (
+              <Link
+                key={director.slug}
+                href={director.href}
+                data-about-gallery
+                className="group min-w-0"
+              >
+                <div className="relative aspect-[4/5] overflow-hidden rounded-md bg-[#ece7dc] sm:aspect-[5/5.6] md:aspect-auto md:h-[clamp(260px,27vw,360px)]">
+                  <Image
+                    src={director.image}
+                    alt={director.imageAlt}
+                    fill
+                    sizes="(min-width: 1024px) 360px, (min-width: 768px) 30vw, 48vw"
+                    style={{ objectPosition: director.position }}
+                    className="object-cover transition duration-700 group-hover:scale-[1.035]"
+                  />
+                </div>
+                <div className="mt-3 flex items-start justify-between gap-2 sm:mt-4 sm:gap-3 md:mt-5 md:gap-4">
+                  <div className="min-w-0">
+                    <h3 className="text-sm font-semibold leading-tight tracking-[-0.01em] text-ink sm:text-base lg:text-2xl">{director.name}</h3>
+                    <p className="mt-1.5 text-[11px] leading-4 text-ink/60 sm:text-xs md:mt-2 md:text-sm md:leading-5 lg:text-[15px]">{director.cardRole}</p>
+                  </div>
+                  <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-end text-ink transition duration-300 group-hover:translate-x-1.5 group-hover:text-solar-700 sm:h-6 sm:w-6 md:h-8 md:w-8">
+                    <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 lg:h-[23px] lg:w-[23px]" strokeWidth={1.6} aria-hidden="true" />
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-ink px-4 py-12 text-white sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+        <div className="mx-auto max-w-7xl">
+          <div data-about-panel="left" className="max-w-3xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-white/50">
+              The journey
+            </p>
+            <h2 className="mt-3 font-display text-3xl leading-tight sm:text-5xl">
+              From enquiry to energy asset.
+            </h2>
+          </div>
+          <MilestoneScroller milestones={milestones} />
+        </div>
+      </section>
+
+      <section className="bg-paper px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+        <div className="mx-auto max-w-7xl">
+          <div data-about-panel="left" className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-solar-700">
+                Flagship solutions
+              </p>
+              <h2 className="mt-3 max-w-3xl font-display text-3xl leading-tight text-ink sm:text-5xl">
+                Solar paths that explain the standard.
+              </h2>
+            </div>
+            <Link href="/solar-solutions" className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-ink px-4 text-sm font-semibold text-white transition hover:-translate-y-0.5">
+              View Solutions
+              <ArrowRight size={16} aria-hidden="true" />
+            </Link>
+          </div>
+          <div className="mt-8 grid gap-5 lg:grid-cols-2">
+            {projects.map((project, index) => (
+              <article key={project.title} data-about-panel={index === 0 ? "left" : "right"} className="overflow-hidden rounded-lg border border-ink/10 bg-white shadow-sm">
+                <div className="relative aspect-[16/10] overflow-hidden bg-ink">
+                  <Image
+                    src={project.image}
+                    alt=""
+                    fill
+                    sizes="(min-width: 1024px) 50vw, 100vw"
+                    className="object-cover transition duration-700 hover:scale-105"
+                  />
+                </div>
+                <div className="p-5 sm:p-7">
+                  <p className="text-xs font-semibold uppercase tracking-[0.22em] text-solar-700">{project.place}</p>
+                  <h3 className="mt-3 font-display text-3xl leading-tight text-ink sm:text-4xl">{project.title}</h3>
+                  <p className="mt-4 text-sm leading-7 text-ink/64 sm:text-base">{project.text}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+        <div className="mx-auto max-w-7xl">
+          <div data-about-panel="left" className="max-w-3xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-solar-700">
+              Systems and products
+            </p>
+            <h2 className="mt-3 font-display text-3xl leading-tight text-ink sm:text-5xl">
+              A gallery of the solar footprint.
+            </h2>
+          </div>
+          <div className="mt-8">
+            <FootprintGallery items={gallery} />
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-solar-900 px-4 py-12 text-white sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+        <div className="mx-auto max-w-7xl">
+          <div data-about-panel="left" className="mx-auto max-w-4xl text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-white/46">
+              Why choose Milton Solar
+            </p>
+            <h2 className="mt-3 font-display text-3xl leading-tight sm:text-5xl">
+              Clear calculations. Careful installation. Dependable support.
+            </h2>
+          </div>
+          <div className="mt-8 grid gap-px overflow-hidden rounded-lg border border-white/12 bg-white/12 md:grid-cols-3">
+            {values.map(([title, text]) => (
+              <article key={title} data-about-panel="up" className="bg-solar-900 p-5 sm:p-7">
+                <ShieldCheck size={22} className="text-solar-100" aria-hidden="true" />
+                <h3 className="mt-5 font-display text-3xl leading-tight">{title}</h3>
+                <p className="mt-3 text-sm leading-6 text-white/62">{text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
+
 function FeatureGrid({
   kicker,
   title,
@@ -1210,109 +1610,20 @@ function ClosingCta({
   );
 }
 
-function StoryBand({
-  division,
-  title,
-  text,
-  points
-}: {
-  division: Exclude<Division, "group">;
-  title: string;
-  text: string;
-  points: string[];
-}) {
-  const logo = divisionLogos[division];
-
-  return (
-    <section className="bg-paper px-4 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-20">
-      <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr]">
-        <div className="reveal">
-          <p
-            className={`text-xs font-semibold uppercase tracking-[0.28em] ${
-              division === "solar" ? "text-solar-700" : "text-realty-500"
-            }`}
-          >
-            Story
-          </p>
-          <h2 className="mt-3 font-display text-3xl leading-tight text-ink sm:text-5xl">{title}</h2>
-          <div className="mt-6 inline-flex rounded-lg border border-ink/10 bg-white p-4 shadow-sm">
-            <Image
-              src={logo.src}
-              alt={logo.alt}
-              width={468}
-              height={588}
-              className="h-32 w-auto object-contain sm:h-40"
-            />
-          </div>
-        </div>
-        <div className="reveal">
-          <p className="text-lg leading-8 text-ink/68">{text}</p>
-          <div className="mt-8 grid gap-3">
-            {points.map((point) => (
-              <div
-                key={point}
-                className="flex gap-3 rounded-lg border border-ink/10 bg-white p-4"
-              >
-                <BadgeCheck
-                  size={20}
-                  className={division === "solar" ? "text-solar-700" : "text-realty-700"}
-                  aria-hidden="true"
-                />
-                <p className="text-sm leading-6 text-ink/66">{point}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function TeamBand({ division }: { division: Exclude<Division, "group"> }) {
-  const roles =
-    division === "solar"
-      ? ["Energy Advisor", "EPC Engineer", "Subsidy and DISCOM Coordinator"]
-      : ["Property Advisor", "Locality Research Lead", "Transaction Coordinator"];
-  return (
-    <section className="bg-white px-4 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-20">
-      <div className="mx-auto max-w-7xl">
-        <div className="reveal max-w-3xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-ink/42">
-            Team
-          </p>
-          <h2 className="mt-3 font-display text-3xl leading-tight text-ink sm:text-5xl">
-            Small expert teams around one accountable point of contact.
-          </h2>
-        </div>
-        <div className="mt-6 grid grid-cols-2 gap-3 sm:mt-10 sm:gap-5 md:grid-cols-3">
-          {roles.map((role) => (
-            <article
-              key={role}
-              className="reveal rounded-lg border border-ink/10 bg-paper p-3 sm:p-6"
-            >
-              <div
-                className={`inline-flex h-10 w-10 items-center justify-center rounded-lg sm:h-12 sm:w-12 ${
-                  division === "solar" ? "bg-solar-100" : "bg-realty-100"
-                }`}
-              >
-                <Handshake size={22} aria-hidden="true" />
-              </div>
-              <h3 className="mt-3 font-display text-xl leading-snug text-ink sm:mt-5 sm:text-3xl sm:leading-tight">{role}</h3>
-              <p className="feature-card-copy mt-2 text-[12px] leading-5 text-ink/62 sm:mt-4 sm:text-sm sm:leading-6">
-                A named role in the workflow so clients know who is responsible for
-                advice, documentation, coordination, and next-step clarity.
-              </p>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function ContactBand({ division }: { division: Exclude<Division, "group"> }) {
   const contact = contactConfig[division];
-  const mapAddress = division === "realty" ? contact.branchOffice : contact.corporateOffice;
+  const mapAddress =
+    division === "realty" ? contact.branchOffice : contact.mapQuery || contact.branchOffice;
+  const mapSrc =
+    contact.mapEmbedSrc ||
+    `https://www.google.com/maps?q=${encodeURIComponent(mapAddress)}&output=embed`;
+  const officeCards =
+    division === "solar"
+      ? [{ label: "Solar Office", address: contact.branchOffice }]
+      : [
+          { label: "Branch Office", address: contact.branchOffice },
+          { label: "Corporate Office", address: contact.corporateOffice }
+        ];
   const responseSteps =
     division === "realty"
       ? ["Property brief", "Site visit", "Advisor callback"]
@@ -1378,32 +1689,25 @@ function ContactBand({ division }: { division: Exclude<Division, "group"> }) {
                 {contact.email}
               </Link>
             </div>
-            <div className="grid gap-2 sm:grid-cols-2">
-              <div className="rounded-lg border border-ink/10 bg-white p-3">
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-ink/42">
-                  Branch Office
-                </p>
-                <p className="mt-1 flex gap-2">
-                  <MapPin className="mt-1 shrink-0 text-ink/42" size={16} aria-hidden="true" />
-                  <span>{contact.branchOffice}</span>
-                </p>
-              </div>
-              <div className="rounded-lg border border-ink/10 bg-white p-3">
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-ink/42">
-                  Corporate Office
-                </p>
-                <p className="mt-1 flex gap-2">
-                  <MapPin className="mt-1 shrink-0 text-ink/42" size={16} aria-hidden="true" />
-                  <span>{contact.corporateOffice}</span>
-                </p>
-              </div>
+            <div className={`grid gap-2 ${officeCards.length > 1 ? "sm:grid-cols-2" : ""}`}>
+              {officeCards.map((office) => (
+                <div key={office.label} className="rounded-lg border border-ink/10 bg-white p-3">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-ink/42">
+                    {office.label}
+                  </p>
+                  <p className="mt-1 flex gap-2">
+                    <MapPin className="mt-1 shrink-0 text-ink/42" size={16} aria-hidden="true" />
+                    <span>{office.address}</span>
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
           <iframe
             title={`Milton ${division} office map`}
             className="mt-5 h-64 w-full rounded-lg border border-ink/10 sm:mt-8 sm:h-auto sm:aspect-[4/3]"
             loading="lazy"
-            src={`https://www.google.com/maps?q=${encodeURIComponent(mapAddress)}&output=embed`}
+            src={mapSrc}
           />
         </div>
       </div>

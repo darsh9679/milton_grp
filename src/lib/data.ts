@@ -177,7 +177,6 @@ export const divisionRoutes = {
     { href: "/", label: "Group Home" },
     { href: "/solar-home", label: "Solar Home" },
     { href: "/solar-about", label: "About" },
-    { href: "/solar-franchise", label: "Franchise" },
     {
       href: "/solar-solutions",
       label: "Solutions",
@@ -209,6 +208,8 @@ const sharedContactDetails = {
   phoneHref: "tel:+919876543210",
   email: "info@realestate.com",
   emailHref: "mailto:info@realestate.com",
+  mapQuery: "",
+  mapEmbedSrc: "",
   branchOffice:
     "Aman Chambers, 4th Floor, Office No 3, Next to HDFC Bank, Opera House, Opp Charni Road Station, Mumbai 400004",
   corporateOffice:
@@ -234,6 +235,15 @@ export const contactConfig = {
   },
   solar: {
     ...sharedContactDetails,
+    mapQuery:
+      "Maker Chambers 5, Jamnalal Bajaj Marg, Nariman Point, Mumbai, Maharashtra 400021",
+    mapEmbedSrc:
+      "https://www.google.com/maps?cid=14892793696462729135&z=17&output=embed",
+    branchOffice:
+      "Maker Chambers 5, Jamnalal Bajaj Marg, Nariman Point, Mumbai, Maharashtra 400021",
+    corporateOffice: "",
+    address:
+      "Maker Chambers 5, Jamnalal Bajaj Marg, Nariman Point, Mumbai, Maharashtra 400021",
     whatsapp:
       process.env.NEXT_PUBLIC_MILTON_SOLAR_WHATSAPP_NUMBER || "919876543210",
     contactHref: "/solar-contact",
