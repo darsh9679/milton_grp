@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { type FormEvent, useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -14,7 +14,6 @@ import {
   Menu,
   Phone,
   Send,
-  Twitter,
   X,
   Youtube
 } from "lucide-react";
@@ -38,6 +37,18 @@ function WhatsAppIcon({ size = 18 }: { size?: number }) {
     >
       <path d="M12.01 2C6.48 2 2 6.48 2 12.01c0 1.87.5 3.65 1.45 5.23L2 22l4.9-1.42a9.94 9.94 0 0 0 5.11 1.4h.01c5.53 0 10.01-4.48 10.01-10.01C22.02 6.48 17.54 2 12.01 2Zm5.86 14.29c-.25.7-1.23 1.28-2 1.44-.55.11-1.26.2-3.65-.78-2.86-1.18-4.7-4.08-4.85-4.27-.14-.19-1.16-1.54-1.16-2.94s.72-2.08.98-2.37c.25-.28.54-.35.72-.35.18 0 .36 0 .52.01.17.01.39-.06.6.47.25.6.83 2.06.9 2.21.07.15.11.32.02.51-.09.19-.14.31-.28.47-.14.16-.29.36-.42.48-.14.13-.28.28-.13.55.16.28.7 1.17 1.51 1.9 1.04.94 1.9 1.24 2.18 1.38.28.14.44.12.61-.07.16-.19.7-.82.89-1.1.19-.28.37-.23.62-.14.25.09 1.61.77 1.89.91.28.14.46.21.53.33.07.12.07.68-.18 1.38Z" />
     </svg>
+  );
+}
+
+function XSocialIcon({ size = 18 }: { size?: number; "aria-hidden"?: boolean }) {
+  return (
+    <span
+      aria-hidden="true"
+      className="font-sans font-bold leading-none"
+      style={{ fontSize: `${size}px` }}
+    >
+      X
+    </span>
   );
 }
 
@@ -235,19 +246,13 @@ function SiteHeader({ division }: { division: Division }) {
 
 function SiteFooter({ division }: { division: Division }) {
   const contact = contactConfig[division];
-  const officeCards =
-    division === "solar"
-      ? [{ label: "Solar Office", address: contact.branchOffice }]
-      : [
-          { label: "Branch Office", address: contact.branchOffice },
-          { label: "Corporate Office", address: contact.corporateOffice }
-        ];
+  const officeCards = contact.footerOffices;
   const socialLinks = [
-    { href: "#", label: "Facebook", Icon: Facebook },
-    { href: "#", label: "Instagram", Icon: Instagram },
-    { href: "#", label: "LinkedIn", Icon: Linkedin },
-    { href: "#", label: "YouTube", Icon: Youtube },
-    { href: "#", label: "X / Twitter", Icon: Twitter }
+    { href: "https://www.facebook.com/share/1Bh5QYD322/", label: "Facebook", Icon: Facebook },
+    { href: "https://www.instagram.com/milton.real_estate/", label: "Instagram", Icon: Instagram },
+    { href: "https://www.linkedin.com/company/milton-real-estates/", label: "LinkedIn", Icon: Linkedin },
+    { href: "https://www.youtube.com/@MarketingMilton-l9n", label: "YouTube", Icon: Youtube },
+    { href: "https://x.com/Milton_groups", label: "X", Icon: XSocialIcon }
   ];
   const realtyQuick = [
     ["Realty Home", "/realty-home"],
@@ -266,7 +271,7 @@ function SiteFooter({ division }: { division: Division }) {
   return (
     <footer className={`footer-surface relative overflow-hidden text-white ${division === "solar" ? "footer-surface-solar" : "footer-surface-realty"}`}>
       <div className="relative mx-auto max-w-7xl px-4 pb-16 pt-8 sm:px-6 sm:pb-12 sm:pt-10 xl:px-8 xl:py-12">
-        <div className="grid gap-6 lg:grid-cols-[0.86fr_1.34fr_0.9fr] xl:gap-10">
+        <div className="grid gap-6 lg:grid-cols-[0.78fr_1.5fr_0.82fr] xl:gap-10">
           <div className="max-w-md">
             <p className="text-xs font-semibold uppercase tracking-[0.28em] text-white/58">
               Milton Group
@@ -295,20 +300,22 @@ function SiteFooter({ division }: { division: Division }) {
             Contact
           </h3>
           <div className="mt-3 space-y-3 break-words text-[13px] leading-5 text-white/72 sm:mt-4">
-            <div className="grid gap-2 sm:grid-cols-2">
+            <div className="grid gap-2 md:grid-cols-[0.78fr_1.22fr] lg:grid-cols-1 xl:grid-cols-[0.78fr_1.22fr]">
               <Link
                 href={contact.phoneHref}
-                className="inline-flex min-h-10 items-center gap-2 rounded-lg border border-white/14 px-3 py-2 font-semibold text-white/86 transition hover:bg-white/10 hover:text-white"
+                className="inline-flex min-h-10 min-w-0 items-center gap-2 rounded-lg border border-white/14 px-3 py-2 font-semibold text-white/86 transition hover:bg-white/10 hover:text-white"
               >
-                <Phone size={16} aria-hidden="true" />
-                {contact.phone}
+                <Phone className="shrink-0" size={16} aria-hidden="true" />
+                <span className="min-w-0 whitespace-nowrap">{contact.phone}</span>
               </Link>
               <Link
                 href={contact.emailHref}
-                className="inline-flex min-h-10 items-center gap-2 rounded-lg border border-white/14 px-3 py-2 font-semibold text-white/86 transition hover:bg-white/10 hover:text-white"
+                className="inline-flex min-h-10 min-w-0 items-center gap-2 rounded-lg border border-white/14 px-3 py-2 font-semibold text-white/86 transition hover:bg-white/10 hover:text-white"
               >
-                <Mail size={16} aria-hidden="true" />
-                {contact.email}
+                <Mail className="shrink-0" size={16} aria-hidden="true" />
+                <span className="min-w-0 break-all text-[12px] leading-5 sm:text-[13px]">
+                  {contact.email}
+                </span>
               </Link>
             </div>
             <div
@@ -334,38 +341,23 @@ function SiteFooter({ division }: { division: Division }) {
           <h3 className="text-xs font-semibold uppercase tracking-[0.22em] text-white/52">
             Newsletter
           </h3>
-          <form className="mt-3 flex max-w-sm gap-2 sm:mt-5">
-            <label className="sr-only" htmlFor="newsletter-email">
-              Email address
-            </label>
-            <input
-              id="newsletter-email"
-              type="email"
-              placeholder="Email address"
-              className="min-w-0 flex-1 rounded-lg border border-white/16 bg-white/10 px-3 py-2.5 text-sm text-white placeholder:text-white/42 sm:py-3"
-            />
-            <button
-              type="submit"
-              className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-white text-ink transition hover:bg-solar-100 sm:h-12 sm:w-12"
-              aria-label="Subscribe"
-            >
-              <Send size={18} aria-hidden="true" />
-            </button>
-          </form>
+          <NewsletterForm division={division} />
           <div className="mt-4">
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/52">
               Social
             </p>
             <div className="mt-3 flex flex-wrap gap-2 text-white/72">
               {socialLinks.map(({ href, label, Icon }) => (
-                <Link
+                <a
                   key={label}
                   href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/14 bg-white/8 transition hover:bg-white/14 hover:text-white"
                   aria-label={`Milton Group on ${label}`}
                 >
-                  <Icon size={18} aria-hidden="true" />
-                </Link>
+                  <Icon size={18} aria-hidden={true} />
+                </a>
               ))}
               <Link
                 href={`https://wa.me/${contact.whatsapp}`}
@@ -394,6 +386,93 @@ function SiteFooter({ division }: { division: Division }) {
     </footer>
   );
 }
+
+function NewsletterForm({ division }: { division: Division }) {
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
+    "idle"
+  );
+  const [message, setMessage] = useState("");
+  const inputId = `${division}-newsletter-email`;
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setStatus("sending");
+    setMessage("");
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("/api/newsletter", {
+        method: "POST",
+        body: formData
+      });
+      const result = (await response.json()) as {
+        ok: boolean;
+        message?: string;
+      };
+
+      if (!response.ok || !result.ok) {
+        throw new Error(result.message || "Unable to subscribe.");
+      }
+
+      setStatus("sent");
+      setMessage(result.message || "Subscribed.");
+      form.reset();
+    } catch (error) {
+      setStatus("error");
+      setMessage(
+        error instanceof Error
+          ? error.message
+          : "Unable to subscribe. Please try again."
+      );
+    }
+  }
+
+  return (
+    <form
+      action="/api/newsletter"
+      method="post"
+      onSubmit={handleSubmit}
+      className="mt-3 max-w-sm sm:mt-5"
+    >
+      <input type="hidden" name="division" value={division} />
+      <div className="flex gap-2">
+        <label className="sr-only" htmlFor={inputId}>
+          Email address
+        </label>
+        <input
+          id={inputId}
+          name="email"
+          type="email"
+          required
+          autoComplete="email"
+          placeholder="Email address"
+          className="min-w-0 flex-1 rounded-lg border border-white/16 bg-white/10 px-3 py-2.5 text-sm text-white placeholder:text-white/42 sm:py-3"
+        />
+        <button
+          type="submit"
+          disabled={status === "sending"}
+          className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-white text-ink transition hover:bg-solar-100 disabled:cursor-wait disabled:opacity-70 sm:h-12 sm:w-12"
+          aria-label="Subscribe"
+        >
+          <Send size={18} aria-hidden="true" />
+        </button>
+      </div>
+      {message ? (
+        <p
+          className={`mt-2 text-xs leading-5 ${
+            status === "error" ? "text-red-200" : "text-white/68"
+          }`}
+          role="status"
+        >
+          {message}
+        </p>
+      ) : null}
+    </form>
+  );
+}
+
 function FloatingActions({ division }: { division: Division }) {
   const contact = contactConfig[division];
   const text =
@@ -423,5 +502,3 @@ function FloatingActions({ division }: { division: Division }) {
     </div>
   );
 }
-
-

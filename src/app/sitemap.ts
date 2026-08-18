@@ -15,6 +15,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...realtyArticles.map((article) => ({
       url: `${baseUrl}/realty-blog/${article.slug}`,
       lastModified: new Date()
-    }))
+    })),
+    {
+      url: `${baseUrl}/chiranjiv-vaghani`,
+      lastModified: new Date()
+    }
   ];
 }

@@ -177,45 +177,41 @@ export const divisionRoutes = {
     { href: "/", label: "Group Home" },
     { href: "/solar-home", label: "Solar Home" },
     { href: "/solar-about", label: "About" },
-    {
-      href: "/solar-solutions",
-      label: "Solutions",
-      children: [
-        { href: "/solar-solutions#residential", label: "Residential" },
-        { href: "/solar-solutions#commercial", label: "Commercial" },
-        { href: "/solar-solutions#industrial", label: "Industrial" },
-        { href: "/solar-solutions#amc", label: "AMC" }
-      ]
-    },
+    { href: "/solar-solutions", label: "Solutions" },
     { href: "/solar-shop", label: "Shop" },
-    {
-      href: "/solar-resources",
-      label: "Resources",
-      children: [
-        { href: "/solar-resources#blog", label: "Blog" },
-        { href: "/solar-resources#solar-smart", label: "Solar Smart" },
-        { href: "/solar-resources#subsidy", label: "Avail Subsidy" },
-        { href: "/solar-resources#faqs", label: "FAQs" }
-      ]
-    },
+    { href: "/solar-resources", label: "Resources" },
     { href: "/solar-contact", label: "Contact" },
     { href: "/realty-home", label: "Milton Realty" }
   ]
 };
 
+const sharedFooterOffices = [
+  {
+    label: "Branch Office",
+    address:
+      "Aman Chambers, 4th Floor, Office Nos. 3, 4 & 5, Next to HDFC Bank, Opera House, Opp Charni Road Station, Mumbai 400004"
+  },
+  {
+    label: "Corporate Office",
+    address:
+      "Maker Chamber V, 705, 7th Floor, Jamnalal Bajaj Marg, Nariman Point, Mumbai 400021"
+  }
+];
+
 const sharedContactDetails = {
-  phone: "+91 98765 43210",
-  phoneHref: "tel:+919876543210",
-  email: "info@realestate.com",
-  emailHref: "mailto:info@realestate.com",
+  phone: "8104418614",
+  phoneHref: "tel:+918104418614",
+  email: "miltonrealty.marketing@gmail.com",
+  emailHref: "mailto:miltonrealty.marketing@gmail.com",
   mapQuery: "",
   mapEmbedSrc: "",
   branchOffice:
-    "Aman Chambers, 4th Floor, Office No 3, Next to HDFC Bank, Opera House, Opp Charni Road Station, Mumbai 400004",
+    "Aman Chambers, 4th Floor, Office Nos. 3, 4 & 5, Next to HDFC Bank, Opera House, Opp Charni Road Station, Mumbai 400004",
   corporateOffice:
     "Maker Chamber V, 705, 7th Floor, Jamnalal Bajaj Marg, Nariman Point, Mumbai 400021",
   address:
-    "Branch Office: Aman Chambers, 4th Floor, Office No 3, Next to HDFC Bank, Opera House, Opp Charni Road Station, Mumbai 400004. Corporate Office: Maker Chamber V, 705, 7th Floor, Jamnalal Bajaj Marg, Nariman Point, Mumbai 400021."
+    "Branch Office: Aman Chambers, 4th Floor, Office Nos. 3, 4 & 5, Next to HDFC Bank, Opera House, Opp Charni Road Station, Mumbai 400004. Corporate Office: Maker Chamber V, 705, 7th Floor, Jamnalal Bajaj Marg, Nariman Point, Mumbai 400021.",
+  footerOffices: sharedFooterOffices
 };
 
 export const contactConfig = {
@@ -235,6 +231,10 @@ export const contactConfig = {
   },
   solar: {
     ...sharedContactDetails,
+    phone: "8104417820",
+    phoneHref: "tel:+918104417820",
+    email: "support.miltonsolar@gmail.com",
+    emailHref: "mailto:support.miltonsolar@gmail.com",
     mapQuery:
       "Maker Chambers 5, Jamnalal Bajaj Marg, Nariman Point, Mumbai, Maharashtra 400021",
     mapEmbedSrc:
@@ -286,13 +286,14 @@ const realtyListingImages = {
 export const realtyListings = [
   {
     id: "versova-sea-view",
-    name: "Versova Sea-View Apartment",
+    name: "Anthea Sea-View Apartment",
     city: "Mumbai",
     locality: "Versova",
     type: "Flat",
     budgetBand: "Premium",
     budget: "Rs. 3.2 Cr onwards",
-    specs: ["2 and 3 BHK", "Beach-side micro-market", "Metro-linked suburb"],
+    progress: "Ongoing",
+    specs: ["Versova Beach", "Metro-linked suburb", "Sea Front"],
     image: realtyListingImages.versova,
     gallery: realtyListingGallery("versova-sea-view"),
     description:
@@ -300,13 +301,14 @@ export const realtyListings = [
   },
   {
     id: "tardeo-heritage",
-    name: "Tardeo Heritage Residence",
+    name: "Stardeous Heritage Residence",
     city: "Mumbai",
     locality: "Tardeo",
     type: "Flat",
     budgetBand: "Luxury",
     budget: "Price on request",
-    specs: ["Low-density tower", "South Mumbai address", "Large-format homes"],
+    progress: "Ongoing",
+    specs: ["Haji Ali Sea Side", "Multi-Modal transit connectivity", "Upscale Residential"],
     image: realtyListingImages.tardeo,
     gallery: realtyListingGallery("tardeo-heritage"),
     description:
@@ -314,13 +316,14 @@ export const realtyListings = [
   },
   {
     id: "satara-eco-plots",
-    name: "Satara Eco Plot Community",
+    name: "Shri Dharmaveer Chhatrapati Sambhaji Maharaj.",
     city: "Satara",
-    locality: "Near Pandharpur and Bengaluru Highway access",
-    type: "Land",
+    locality: "Pandharpur Mhaswad Highway",
+    type: "Bungalow",
     budgetBand: "Value",
     budget: "Rs. 18 L onwards",
-    specs: ["NA plots", "Eco-home ready", "Highway access"],
+    progress: "Ongoing",
+    specs: ["Pilgrimage Hub Pandharpur", "Mumbai - Pune Bangalore highway", "Township project"],
     image: realtyListingImages.satara,
     gallery: realtyListingGallery("satara-eco-plots"),
     description:
@@ -328,13 +331,14 @@ export const realtyListings = [
   },
   {
     id: "guhagar-coastal",
-    name: "Guhagar Coastal Bungalow Land",
+    name: "Guhagar Coastal Bungalows",
     city: "Ratnagiri",
-    locality: "Guhagar",
+    locality: "Asgoli Beach",
     type: "Bungalow",
     budgetBand: "Mid",
     budget: "Rs. 42 L onwards",
-    specs: ["Konkan coast", "Villa footprint", "Weekend-home potential"],
+    progress: "Upcoming",
+    specs: ["Pristine Coastal Town", "Agro-Tourism Potential", "Growing Tourism appeal"],
     image: realtyListingImages.guhagar,
     gallery: realtyListingGallery("guhagar-coastal"),
     description:
@@ -342,27 +346,29 @@ export const realtyListings = [
   },
   {
     id: "shirdi-hospitality",
-    name: "Shirdi Hospitality Plot",
+    name: "Shirdi Multi-Purpose Plots",
     city: "Shirdi",
-    locality: "Pilgrim corridor",
+    locality: "Ahilyanagar",
     type: "Land",
     budgetBand: "Mid",
     budget: "Rs. 55 L onwards",
-    specs: ["Commercial potential", "Tourism catchment", "Flexible frontage"],
+    progress: "Ongoing",
+    specs: ["Global spiritual destination", "Booming Tourism & economy", "Safe & peaceful city"],
     image: realtyListingImages.shirdi,
     gallery: realtyListingGallery("shirdi-hospitality"),
     description:
-      "A land opportunity suited to operators and investors exploring hospitality, short-stay, or service-led development near Shirdi."
+      "Prime farmland near Shirdi, offering investors a strategic opportunity for agricultural use and long-term appreciation"
   },
   {
     id: "mahabaleshwar-retreat",
-    name: "Hill Retreat near Mahabaleshwar",
+    name: "Mini Mahabaleshwar",
     city: "Satara",
-    locality: "Near Mahabaleshwar",
-    type: "Bungalow",
+    locality: "Patan",
+    type: "Land",
     budgetBand: "Premium",
     budget: "Rs. 95 L onwards",
-    specs: ["Hill-town access", "Low-density living", "Second-home plan"],
+    progress: "Upcoming",
+    specs: ["Sahyadri Advantage", "Religious & Heritage", "Tourism Destination"],
     image: realtyListingImages.mahabaleshwar,
     gallery: realtyListingGallery("mahabaleshwar-retreat"),
     description:
@@ -370,13 +376,14 @@ export const realtyListings = [
   },
   {
     id: "kalyan-compact",
-    name: "Kalyan Connected Flats",
+    name: "Kalyan Connected Bungalows",
     city: "Kalyan",
     locality: "Kalyan West",
-    type: "Flat",
+    type: "Bungalow",
     budgetBand: "Value",
     budget: "Rs. 48 L onwards",
-    specs: ["1 and 2 BHK", "MMR growth corridor", "Transit-oriented demand"],
+    progress: "Upcoming",
+    specs: ["MMR advantage", "Infrastructure expansion", "Residential Demand"],
     image: realtyListingImages.kalyan,
     gallery: realtyListingGallery("kalyan-compact"),
     description:
@@ -386,76 +393,54 @@ export const realtyListings = [
 
 export const solarProducts = [
   {
-    id: "solar-power-5kw",
-    category: "Solar Systems",
-    name: "On-Grid Solar Plant 5kW",
-    spec: "Rooftop on-grid package with inverter, net-metering support, and optional AMC.",
-    price: "Quote based on site survey",
-    image: solarProductImage("solar-power-5kw"),
-    gallery: solarProductGallery("solar-power-5kw")
+    id: "panels",
+    category: "Panels",
+    name: "Solar Panels",
+    spec: "High-performance photovoltaic modules selected for dependable generation and long system life.",
+    brands: ["Rayzon", "Novasys", "Navitas", "Vikram", "Waaree", "Adani"],
+    price: "Quote based on system size",
+    image: solarProductImage("panels"),
+    gallery: solarProductGallery("panels")
   },
   {
-    id: "hybrid-home-system",
-    category: "Solar Systems",
-    name: "Hybrid Home Solar System",
-    spec: "Battery-ready residential system for backup-sensitive homes.",
-    price: "Request estimate",
-    image: solarProductImage("hybrid-home-system"),
-    gallery: solarProductGallery("hybrid-home-system")
+    id: "inverter",
+    category: "Inverter",
+    name: "Solar Inverter",
+    spec: "Grid-ready inverter options matched to the roof design, load profile, and performance expectations.",
+    brands: ["Polycab", "Growatt", "Ksolare", "Solis", "Sungrow"],
+    price: "Quote after site survey",
+    image: solarProductImage("inverter"),
+    gallery: solarProductGallery("inverter")
   },
   {
-    id: "solar-water-pump",
-    category: "Solar Water Pumps",
-    name: "Solar Water Pump Set",
-    spec: "Agriculture and bungalow pumping package with controller and panel sizing.",
-    price: "Request quote",
-    image: solarProductImage("solar-water-pump"),
-    gallery: solarProductGallery("solar-water-pump")
+    id: "acdb-dcdb",
+    category: "Protection",
+    name: "ACDB & DCDB",
+    spec: "Electrical protection boxes that keep solar DC and AC routing safer, organized, and serviceable.",
+    brands: ["Polycab"],
+    price: "Included as per system design",
+    image: solarProductImage("acdb-dcdb"),
+    gallery: solarProductGallery("acdb-dcdb")
   },
   {
-    id: "semi-integrated-street-light",
-    category: "Solar Lights",
-    name: "Semi Integrated Solar Street Light 200W",
-    spec: "Street and society pathway lighting with panel, battery, and dusk sensor.",
-    price: "Rs. 5,041 indicative",
-    image: solarProductImage("semi-integrated-street-light"),
-    gallery: solarProductGallery("semi-integrated-street-light")
+    id: "cables",
+    category: "Cables",
+    name: "Solar Cables",
+    spec: "Durable DC and AC cabling selected for clean routing, weather exposure, and long-term reliability.",
+    brands: ["Polycab"],
+    price: "Included as per system design",
+    image: solarProductImage("cables"),
+    gallery: solarProductGallery("cables")
   },
   {
-    id: "solar-flood-200",
-    category: "Solar Lights",
-    name: "Solar Flood Light 200W",
-    spec: "Outdoor security and yard lighting with remote control and IP-rated body.",
-    price: "Rs. 4,200 indicative",
-    image: solarProductImage("solar-flood-200"),
-    gallery: solarProductGallery("solar-flood-200")
-  },
-  {
-    id: "solar-garden-flame",
-    category: "Solar Lights",
-    name: "Solar Flame Garden Lamp",
-    spec: "Decorative garden lighting with automatic dusk operation.",
-    price: "Rs. 820 indicative",
-    image: solarProductImage("solar-garden-flame"),
-    gallery: solarProductGallery("solar-garden-flame")
-  },
-  {
-    id: "bubble-string-light",
-    category: "Solar Lights",
-    name: "Bubble Crystal Solar String Light",
-    spec: "Decorative warm LED string light for terraces and outdoor seating.",
-    price: "Rs. 877 indicative",
-    image: solarProductImage("bubble-string-light"),
-    gallery: solarProductGallery("bubble-string-light")
-  },
-  {
-    id: "solar-inverter",
-    category: "Solar Inverters",
-    name: "Grid-Tied Solar Inverter",
-    spec: "Single and three-phase inverter options matched to residential or C&I load.",
-    price: "Request quote",
-    image: solarProductImage("solar-inverter"),
-    gallery: solarProductGallery("solar-inverter")
+    id: "structure",
+    category: "Structure",
+    name: "Mounting Structure",
+    spec: "Engineered support structure for stable installation, clean panel alignment, and lasting roof performance.",
+    brands: ["Nespro Pvt Ltd"],
+    price: "Quote after structural review",
+    image: solarProductImage("structure"),
+    gallery: solarProductGallery("structure")
   }
 ];
 
@@ -611,18 +596,18 @@ export const realtyWhy: Array<{
 }> = [
   {
     icon: Home,
-    title: "Buying",
-    text: "Shortlisted homes and land options are compared by locality, paperwork, lifestyle, and resale logic."
+    title: "Purchase",
+    text: "Find the right property with expert insights, legal clarity, market intelligence, and long-term value."
   },
   {
     icon: BadgeIndianRupee,
-    title: "Selling",
-    text: "Owners get pricing clarity, sharper positioning, and buyer handling that protects negotiation quality."
+    title: "Strategic Selling",
+    text: "Expert strategies that elevate your property's market appeal. Helping you secure the best value with complete confidence."
   },
   {
     icon: Users,
-    title: "Renting",
-    text: "Families and investors get practical guidance on tenant profiles, commute, furnishing, and lease fit."
+    title: "Property Advisory",
+    text: "Expert guidance backed by market insights, legal clarity, and informed decision-making."
   }
 ];
 
@@ -650,9 +635,9 @@ export const solarWhy: Array<{
 
 export const processSteps = {
   realty: [
-    "Define intent, budget, location preference, and decision timeline.",
-    "Shortlist verified options and compare them against practical living or investment criteria.",
-    "Coordinate site visits, documentation checks, negotiations, and closure support."
+    "Start with your needs, preferences, budget, and timeline.",
+    "Explore verified options aligned with your lifestyle and investment goals.",
+    "Evaluate verified options through lifestyle, value, and investment potential."
   ],
   solar: [
     "Read the electricity bill, load profile, roof structure, and shade pattern.",
@@ -664,14 +649,12 @@ export const processSteps = {
 export const testimonials = {
   realty: [
     {
-      quote:
-        "Milton gave us a shortlist that felt edited, not dumped. Every visit had a reason behind it.",
-      name: "A western suburbs homebuyer"
+      quote: "Every visit felt closer to 'This is the one.'",
+      name: "Homebuyer, Western Mumbai"
     },
     {
-      quote:
-        "The team helped us position our land parcel for the right buyer profile instead of chasing noise.",
-      name: "Land owner, Satara"
+      quote: "The right strategy brought the right buyer at the right value.",
+      name: "Landowner, Satara"
     }
   ],
   solar: [
@@ -691,16 +674,16 @@ export const testimonials = {
 export const faqs = {
   realty: [
     {
-      q: "Can Milton Realty help with both city flats and non-city land?",
-      a: "Yes. The current focus spans Mumbai flats, MMR growth locations, Satara, Ratnagiri, Shirdi, and hill-town second-home opportunities."
+      q: "What property opportunities can I explore?",
+      a: "From elegant residences to select land, bungalows, and villas curated opportunities chosen for quality, character, and lasting value."
     },
     {
-      q: "Do listings have verified paperwork?",
-      a: "Every serious enquiry should move through document review before commitment. Milton Realty coordinates that verification step before closure."
+      q: "What sets Milton Realty's properties apart?",
+      a: "A discerning approach to quality, where every opportunity is evaluated for its character, fundamentals, and long-term value."
     },
     {
-      q: "Can owners list a property with Milton Realty?",
-      a: "Yes. Owners can use the contact or channel-partner path and share location, property type, expected value, and documents available."
+      q: "What should I consider before investing in property?",
+      a: "We help you look beyond the purchase - considering the opportunity, its fundamentals, market context, and potential for long-term value."
     }
   ],
   solar: [
@@ -757,13 +740,13 @@ export const solarSolutions = [
 export const valueCards = [
   {
     icon: ShieldCheck,
-    title: "Two divisions, clean routing",
-    text: "Realty and Solar keep their own enquiry paths while staying visibly part of Milton Group."
+    title: "Built on Quality",
+    text: "Where quality, precision, and thoughtful execution define everything we do."
   },
   {
     icon: MapPin,
-    title: "Maharashtra-grounded",
-    text: "The site anchors itself in Mumbai, MMR, Satara, Konkan, Shirdi, and western India energy demand."
+    title: "Locally Rooted. Broadly Connected.",
+    text: "Deep local insight across evolving markets and opportunities."
   },
   {
     icon: Leaf,
@@ -777,12 +760,12 @@ export const valueCards = [
   },
   {
     icon: Lightbulb,
-    title: "Useful interactions",
-    text: "Calculators, filters, reveal states, and enquiry context support decision-making instead of decorating it."
+    title: "Purposeful Interactions",
+    text: "Every interaction adds clarity, context, and value to the experience."
   },
   {
     icon: Trees,
-    title: "Growth without sprawl",
+    title: "Growth, Guided by Clarity",
     text: "The parent identity gives both divisions room to expand without siloed navigation or duplicated content."
   }
 ];

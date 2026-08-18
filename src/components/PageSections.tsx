@@ -44,8 +44,8 @@ export function GroupHome() {
       <Hero
         division="group"
         kicker="Milton Group"
-        title="Property, energy, and the long life of built assets."
-        text="Milton Group brings together two independently operating divisions: Milton Realty for property decisions and Milton Solar for rooftop energy, EPC, products, and maintenance."
+        title="Building value. Powering sustainable futures."
+        text="Milton Realty shapes where we live, Milton Solar powers how we move forward. Where spaces grow, energy flows, & futures take shape."
         image={heroImages.group}
         primary={{ href: "/realty-home", label: "Enter Realty" }}
         secondary={{ href: "/solar-home", label: "Enter Solar" }}
@@ -60,9 +60,8 @@ export function GroupHome() {
               A shared Milton identity, without blurring the work.
             </h2>
             <p className="mt-5 text-base leading-7 text-ink/64">
-              Realty and Solar need different rhythms, proof points, and conversion
-              paths. This hub keeps both divisions connected while preserving the
-              visual and operational clarity each one needs.
+              Distinct in expertise, united by one standard of quality. Each division
+              retains its own identity while reflecting the values that define Milton.
             </p>
           </div>
           <div className="mt-8 grid gap-4 sm:mt-10 sm:gap-5 lg:grid-cols-2">
@@ -70,30 +69,31 @@ export function GroupHome() {
               title="Milton Realty"
               href="/realty-home"
               image={heroImages.realty}
-              text="Mumbai flats, MMR value corridors, Satara land, Ratnagiri coast, Shirdi plots, and hill-town second homes."
+              text="Curated property opportunities across India, shaped by local insight, market understanding, and long-term value."
               tone="realty"
             />
             <DivisionRouteCard
               title="Milton Solar"
               href="/solar-home"
               image={heroImages.solar}
-              text="Residential rooftop, commercial EPC, industrial systems, AMC, solar products, franchise, and subsidy guidance."
+              text="Power Your Home with Quality, Slash Your Bills with Savings, Own Your Energy with Pride."
               tone="solar"
             />
           </div>
         </div>
       </section>
       <FeatureGrid
-        kicker="System"
-        title="The site is designed around routing, context, and conversion discipline."
+        kicker="The Milton Way"
+        title="Clear paths. Better context. Stronger decisions."
         cards={valueCards}
         division="group"
       />
       <SplitBand
         division="group"
-        kicker="Parent brand"
-        title="Every path returns to Milton Group."
-        text="The architecture keeps the two divisions cross-linked from header, footer, floating actions, and conversion flows. A visitor can move from property to solar without losing the parent identity or being forced through a generic enquiry path."
+        kicker="The Milton Identity"
+        title="Every Path Leads to Milton."
+        text="Every journey stays connected to Milton, while each division retains its distinct expertise and quality."
+        highlight="Defined by Quality. Driven by Milton."
         image={heroImages.interior}
         cta={{ href: "/realty-listings", label: "Browse Realty Listings" }}
         secondary={{ href: "/solar-shop", label: "View Solar Shop" }}
@@ -119,15 +119,15 @@ function RealtyPage({ kind }: { kind: string }) {
         <Hero
           division="realty"
           kicker="Milton Realty"
-          title="Real estate decisions, edited with care."
-          text="Property advisory across Mumbai, MMR, Satara, Ratnagiri, Shirdi, and hill-town second-home belts, built around clarity before commitment."
+          title="Real estate decisions, curated with distinction."
+          text="Trusted property advisory where expertise meets clarity, empowering every real estate decision with confidence."
           image={heroImages.realty}
           primary={{ href: "/realty-listings", label: "View Listings" }}
           secondary={{ href: "/realty-contact", label: "Talk to an Advisor" }}
         />
         <FeatureGrid
           kicker="Why Milton Realty"
-          title="Buying, selling, and renting handled as three different decisions."
+          title="Where expertise, trust, and strategy come together to create exceptional real estate experiences."
           cards={realtyWhy}
           division="realty"
         />
@@ -135,9 +135,9 @@ function RealtyPage({ kind }: { kind: string }) {
         <StatsBand
           division="realty"
           stats={[
-            ["148", "Properties in active review", ""],
-            ["7", "Cities and corridors covered", ""],
-            ["12", "Years of advisory memory", "+"]
+            ["111", "Properties in active review", ""],
+            ["7", "Presence Across States & Countries", "+"],
+            ["40", "Years of advisory memory", "+"]
           ]}
         />
         <ProcessBand division="realty" />
@@ -145,8 +145,9 @@ function RealtyPage({ kind }: { kind: string }) {
         <FaqBand division="realty" />
         <ClosingCta
           division="realty"
-          title="Bring us the decision, not just the budget."
-          text="Milton Realty can start from a property name, a locality, a resale target, or a family brief."
+          kicker="Let's Build Your Next Chapter"
+          title="Because every great investment begins with trusted advice."
+          text="Every successful property decision starts with understanding your goals. Let's begin with yours."
           href="/realty-contact"
           label="Start a Realty Enquiry"
         />
@@ -250,7 +251,7 @@ function SolarPage({ kind }: { kind: string }) {
             ["1200", "Panels planned and installed", "+"],
             ["2.4", "MW portfolio capacity", " MW"],
             ["94", "Client satisfaction", "%"],
-            ["68", "Average bill reduction", "%"]
+            ["80", "Monthly bill saving", "%"]
           ]}
         />
         <ProcessBand division="solar" />
@@ -315,8 +316,8 @@ function SolarPage({ kind }: { kind: string }) {
       <>
         <SubHero
           division="solar"
-          title="Solar Shop without ecommerce noise."
-          text="Systems, pumps, lights, and inverters are shown as quote-ready products. No cart, no checkout, no account flow."
+          title="Detailed solar system components."
+          text="Panels, inverters, protection boxes, cables, and mounting structures are presented with the reliable brands used in Milton Solar installations."
           image={heroImages.solar}
         />
         <ProductCatalog />
@@ -495,59 +496,56 @@ function RealtyAboutExperience() {
     {
       title: "Vision",
       paragraphs: [
-        "To become the inspiring leaders and growth catalyst of the nation. We, the Milton Group, are admired for sustainability practices, innovative solutions, and superior business performance. We aim to maximize the potential for your investments.",
-        "Through new residential projects, we envision a future of luxury and vertical living that will transform urban life. We promote creative, eco-friendly, and supportive high-rise communities that make better use of available space and improve the quality of urban and rural life."
+        "To shape the future through innovative, sustainable, and thoughtfully planned spaces that elevate the way people live. We aspire to build lasting value through excellence, while making quality and trust the foundation of every Milton development."
       ]
     },
     {
       title: "Mission",
       paragraphs: [
-        "We aim for societal development and upliftment in co-operation with the government. Under our CSR initiative, Milton Group is looking forward to coming up with better housing plans targeting both the privileged and underprivileged sectors of society.",
-        "Our seasoned team draws up plans that fit the affordability and housing needs of the nation, as per individual requirements. We, the Milton Group, take the honour of raising a complete world that brings fulfillment to life, and will continue creating a better experience in every aspect of life.",
-        "We will continue to be a brand that people trust - a brand of commitment, care, and faith."
+        "To create thoughtfully planned, quality spaces that meet diverse needs and deliver lasting value. We are committed to transparency, care, and excellence in every development, while building enduring relationships founded on trust."
       ]
     }
   ];
   const founder = {
     name: "Chiranjiv Vaghani",
-    role: "Founder and Chairman, Milton Realty",
+    role: "Founder, Chairman & Visionary Leader",
     image: "/images/realty-about/html-reference-04.jpg",
     paragraphs: [
-      "Mr. Chiranjiv Vaghani is a distinguished entrepreneur, investor, and real estate visionary based in Mumbai, India, with over four decades of experience in real estate development, strategic investments, and business leadership.",
-      "He graduated from Bombay University in 1976, majoring in Statistics and Economics, and further enhanced his leadership expertise by completing the Advanced Management Program at Harvard Business School.",
-      "Having successfully led landmark residential, commercial, hospitality, and mixed-use projects across India, he is widely recognized for his expertise in investment structuring, project execution, and value creation.",
-      "His vision, integrity, and commitment to excellence continue to drive Milton Realty's growth, innovation, and reputation as a trusted name in the real estate industry."
+      "Mr. Chiranjiv Vaghani is a distinguished entrepreneur and visionary business leader with over four decades of experience, known for building trusted brands, creating lasting value, and identifying opportunities across industries.",
+      "A graduate of Bombay University in Statistics and Economics and an alumnus of the Advanced Management Program at Harvard Business School, he brings a unique blend of strategic insight, business acumen, and disciplined execution.",
+      "As Managing Director & CEO of Milton Plastics, Mr. Vaghani played a pivotal role in building it into a trusted household name - and now brings that same philosophy of quality, integrity, innovation, and trust to real estate.",
+      "As the driving force behind Milton Realty, his vision is to create thoughtfully planned developments that offer not just exceptional spaces, but lasting value and a legacy built on trust."
     ]
   };
   const milestones = [
     {
       label: "Foundations",
       title: "Where the name was built",
-      text: "Baroda, Bangalore, and Matunga shaped the early development memory behind the Milton Realty name.",
+      text: "Strategically positioned in a high-visibility location. Designed to capture attention and strengthen market presence.",
       image: "/images/realty-about/html-reference-14.jpg"
     },
     {
       label: "Tardeo, South Mumbai",
       title: "Stardeous",
-      text: "A South Mumbai residential address positioned around privacy, address value, and long-horizon confidence.",
+      text: "A refined residential setting shaped by privacy and address value. An opportunity designed with a long-term perspective.",
       image: "/images/realty-about/html-reference-09.jpg"
     },
     {
       label: "Versova, Mumbai",
       title: "Anthea",
-      text: "A western-suburb story shaped by beach proximity, social infrastructure, and elevated urban living.",
+      text: "Coastal proximity. Elevated urban living. Connected to lifestyle, convenience, and opportunity.",
       image: "/images/realty-about/html-reference-01.jpg"
     },
     {
-      label: "Satara, Mahabaleshwar, Shirdi",
-      title: "Expanding footprint",
-      text: "Purpose-planned townships, second homes, and land opportunities expand the footprint beyond Mumbai.",
+      label: "Expanding Horizons",
+      title: "A growing presence",
+      text: "Across destinations where lifestyle, growth, and opportunity converge.",
       image: "/images/realty-about/html-reference-13.jpg"
     },
     {
       label: "Today",
-      title: "A lasting name",
-      text: "Two generations of leadership continue the work across homes, land, advisory, and investment conversations.",
+      title: "A Legacy That Continues",
+      text: "An established presence in Satara. A local presence built on experience, relationships, and an informed understanding of property.",
       image: "/images/milton-group-hero-desktop.webp"
     }
   ];
@@ -601,11 +599,11 @@ function RealtyAboutExperience() {
             data-hero-reveal
             className="mt-4 max-w-5xl text-balance font-display text-4xl font-semibold leading-[1.02] sm:mt-5 sm:text-6xl lg:text-8xl"
           >
-            Over 40 years of building trust.
+            Over 40+ Years of Excellence, Quality & Trust
           </h1>
           <div className="mt-7 flex max-w-5xl flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <p data-hero-reveal className="max-w-2xl text-base leading-7 text-white/76 sm:text-lg">
-              Quality living for every budget, from landmark Mumbai residences to planned townships, plots, and second-home opportunities across Maharashtra.
+              From landmark Mumbai residences to serene second homes across Maharashtra, we create quality spaces designed for living, investing, and lasting value.
             </p>
             <div data-hero-reveal className="flex flex-wrap gap-3">
               <Link
@@ -660,14 +658,11 @@ function RealtyAboutExperience() {
               The profile
             </p>
             <h2 className="mt-3 max-w-3xl font-display text-3xl leading-tight text-ink sm:text-5xl">
-              A real estate desk with memory, restraint, and local reading.
+              Decades of Experience, Quality & Trust.
             </h2>
             <div className="mt-5 space-y-4 text-base leading-8 text-ink/66 sm:text-lg sm:leading-9">
               <p>
-                Milton Realty has built a distinguished legacy spanning over 40 years, with experience across premium real estate, value housing, land, second homes, and long-term property relationships.
-              </p>
-              <p>
-                The work is intentionally grounded: understand the family or investor brief, read the locality, verify the asset, and move only when the decision has enough clarity.
+                Milton Realty brings the trusted Milton legacy into real estate, backed by decades of business experience, market knowledge, and a commitment to quality. We create thoughtfully planned residences, townships, plots, and second-home opportunities designed to deliver lasting value, transparent experiences, and the confidence that comes with a trusted name.
               </p>
             </div>
             <div className="mt-7 grid gap-3 sm:grid-cols-3">
@@ -682,36 +677,7 @@ function RealtyAboutExperience() {
         </div>
       </section>
 
-      <section className="bg-paper px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
-        <div className="mx-auto max-w-7xl">
-          <div data-about-panel="left" className="max-w-3xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-realty-500">
-              What drives us
-            </p>
-            <h2 className="mt-3 font-sans text-4xl font-black uppercase leading-none text-ink sm:text-6xl">
-              Mission & Vision
-            </h2>
-          </div>
-          <div className="mt-9 grid gap-8 lg:grid-cols-2 lg:gap-14">
-            {pillars.map((pillar, index) => (
-              <article
-                key={pillar.title}
-                data-about-panel={index === 0 ? "left" : "right"}
-                className="border-t-2 border-realty-500/28 pt-5"
-              >
-                <p className="text-xs font-bold uppercase tracking-[0.22em] text-realty-700">
-                  {pillar.title}
-                </p>
-                <div className="mt-5 space-y-4 text-sm leading-7 text-ink/68 sm:text-base sm:leading-8">
-                  {pillar.paragraphs.map((paragraph) => (
-                    <p key={paragraph}>{paragraph}</p>
-                  ))}
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+      <MissionVisionEditorial division="realty" pillars={pillars} />
 
       <section className="scroll-mt-24 bg-paper px-4 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-12">
         <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[0.42fr_0.58fr] lg:items-stretch lg:gap-12">
@@ -912,73 +878,38 @@ function SolarAboutExperience() {
   const legacyStats = [
     ["1", "Solar desk", "", "Residential, commercial, product, subsidy, and AMC conversations routed through one team."],
     ["4", "Core paths", "", "Rooftop EPC, commercial systems, solar products, and long-term maintenance."],
-    ["68", "Avg. bill reduction", "%", "Planning starts with practical savings assumptions before system selection."],
+    ["80", "Monthly bill saving", "%", "Planning starts with practical savings assumptions before system selection."],
     ["24", "Support mindset", "x7", "Every enquiry is handled with installation, service, and after-care context."]
   ];
   const pillars = [
     {
       title: "Vision",
       paragraphs: [
-        "To make clean energy adoption practical, transparent, and financially useful for homes, businesses, institutions, and future-ready communities.",
-        "Milton Solar envisions rooftops and operating buildings as energy assets, where every panel installed is supported by clear calculation, responsible engineering, and dependable service."
+        "To shape the future through innovative, sustainable, and thoughtfully planned spaces that elevate the way people live. We aspire to build lasting value through excellence, while making quality and trust the foundation of every Milton development."
       ]
     },
     {
       title: "Mission",
       paragraphs: [
-        "We simplify solar decisions by connecting electricity bills, roof conditions, subsidy eligibility, product choice, installation planning, and maintenance into one guided process.",
-        "Our mission is to help customers reduce electricity costs, improve energy independence, and invest in systems that are sized honestly for their actual usage.",
-        "We continue to build a solar brand defined by practical advice, accountable delivery, and long-term support after commissioning."
+        "To create thoughtfully planned, quality spaces that meet diverse needs and deliver lasting value. We are committed to transparency, care, and excellence in every development, while building enduring relationships founded on trust."
       ]
     }
   ];
   const founder = {
     name: "Chiranjiv Vaghani",
-    role: "Founder and Chairman, Milton Realty",
+    role: "Founder, Chairman & Visionary Leader",
     image: "/images/solar-about/html-reference-04.jpg",
     paragraphs: [
-      "Mr. Chiranjiv Vaghani is a distinguished entrepreneur, investor, and real estate visionary based in Mumbai, India, with over four decades of experience in real estate development, strategic investments, and business leadership.",
-      "He graduated from Bombay University in 1976, majoring in Statistics and Economics, and further enhanced his leadership expertise by completing the Advanced Management Program at Harvard Business School.",
-      "Having successfully led landmark residential, commercial, hospitality, and mixed-use projects across India, he is widely recognized for his expertise in investment structuring, project execution, and value creation.",
-      "His vision, integrity, and commitment to excellence continue to drive Milton Realty's growth, innovation, and reputation as a trusted name in the real estate industry."
+      "Mr. Chiranjiv Vaghani is a distinguished entrepreneur and visionary business leader with over four decades of experience, known for building trusted brands, creating lasting value, and identifying opportunities across industries.",
+      "A graduate of Bombay University in Statistics and Economics and an alumnus of the Advanced Management Program at Harvard Business School, he brings a unique blend of strategic insight, business acumen, and disciplined execution.",
+      "As Managing Director & CEO of Milton Plastics, Mr. Vaghani played a pivotal role in building it into a trusted household name - and now brings that same philosophy of quality, integrity, innovation, and trust to real estate.",
+      "As the driving force behind Milton Realty, his vision is to create thoughtfully planned developments that offer not just exceptional spaces, but lasting value and a legacy built on trust."
     ]
   };
   const solarDirectors = realtyDirectors.map((director) => ({
     ...director,
     image: director.image.replace("/images/realty-about/", "/images/solar-about/")
   }));
-  const milestones = [
-    {
-      label: "Assessment",
-      title: "Bill-led feasibility",
-      text: "Solar planning begins with the monthly bill, roof area, load profile, and realistic generation assumptions.",
-      image: heroImages.roof
-    },
-    {
-      label: "Engineering",
-      title: "System sizing",
-      text: "Panels, inverter, mounting, wiring, safety, subsidy path, and payback are brought into one proposal.",
-      image: "/images/solar-shop/solar-power-5kw/02.jpg"
-    },
-    {
-      label: "Execution",
-      title: "Clean installation",
-      text: "Site work is coordinated around roof safety, operation continuity, metering, commissioning, and handover.",
-      image: heroImages.solar
-    },
-    {
-      label: "After-care",
-      title: "AMC support",
-      text: "Generation checks, cleaning rhythm, inverter review, and fault response protect the system after commissioning.",
-      image: "/images/solar-shop/solar-inverter/02.jpg"
-    },
-    {
-      label: "Growth",
-      title: "Local solar adoption",
-      text: "Franchise and product paths help local demand move from enquiry to informed quote conversations.",
-      image: "/images/solar-shop/solar-water-pump/01.jpg"
-    }
-  ];
   const projects = [
     {
       title: "Residential Rooftop",
@@ -996,12 +927,11 @@ function SolarAboutExperience() {
     }
   ];
   const gallery = [
-    { category: "EPC", title: "On-grid solar plant", image: "/images/solar-shop/solar-power-5kw/01.jpg" },
-    { category: "Residential", title: "Hybrid home system", image: "/images/solar-shop/hybrid-home-system/01.jpg" },
-    { category: "Agriculture", title: "Solar water pump", image: "/images/solar-shop/solar-water-pump/01.jpg" },
-    { category: "Lighting", title: "Solar street light", image: "/images/solar-shop/semi-integrated-street-light/01.jpg" },
-    { category: "Security", title: "Solar flood light", image: "/images/solar-shop/solar-flood-200/01.jpg" },
-    { category: "Products", title: "Grid-tied inverter", image: "/images/solar-shop/solar-inverter/01.jpg" }
+    { category: "Panels", title: "Solar Panels", image: "/images/solar-shop/panels/01.jpg" },
+    { category: "Inverter", title: "Solar Inverter", image: "/images/solar-shop/inverter/01.jpg" },
+    { category: "Protection", title: "ACDB & DCDB", image: "/images/solar-shop/acdb-dcdb/01.jpg" },
+    { category: "Cables", title: "Solar Cables", image: "/images/solar-shop/cables/01.jpg" },
+    { category: "Structure", title: "Mounting Structure", image: "/images/solar-shop/structure/01.jpg" }
   ];
   const values = [
     ["Calculation", "Every proposal begins with real usage, practical sizing, and savings logic."],
@@ -1110,36 +1040,7 @@ function SolarAboutExperience() {
         </div>
       </section>
 
-      <section className="bg-paper px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
-        <div className="mx-auto max-w-7xl">
-          <div data-about-panel="left" className="max-w-3xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-solar-700">
-              What drives us
-            </p>
-            <h2 className="mt-3 font-sans text-4xl font-black uppercase leading-none text-ink sm:text-6xl">
-              Mission & Vision
-            </h2>
-          </div>
-          <div className="mt-9 grid gap-8 lg:grid-cols-2 lg:gap-14">
-            {pillars.map((pillar, index) => (
-              <article
-                key={pillar.title}
-                data-about-panel={index === 0 ? "left" : "right"}
-                className="border-t-2 border-solar-500/35 pt-5"
-              >
-                <p className="text-xs font-bold uppercase tracking-[0.22em] text-solar-700">
-                  {pillar.title}
-                </p>
-                <div className="mt-5 space-y-4 text-sm leading-7 text-ink/68 sm:text-base sm:leading-8">
-                  {pillar.paragraphs.map((paragraph) => (
-                    <p key={paragraph}>{paragraph}</p>
-                  ))}
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+      <MissionVisionEditorial division="solar" pillars={pillars} />
 
       <section className="scroll-mt-24 bg-paper px-4 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-12">
         <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[0.42fr_0.58fr] lg:items-stretch lg:gap-12">
@@ -1242,20 +1143,6 @@ function SolarAboutExperience() {
         </div>
       </section>
 
-      <section className="bg-ink px-4 py-12 text-white sm:px-6 sm:py-16 lg:px-8 lg:py-20">
-        <div className="mx-auto max-w-7xl">
-          <div data-about-panel="left" className="max-w-3xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-white/50">
-              The journey
-            </p>
-            <h2 className="mt-3 font-display text-3xl leading-tight sm:text-5xl">
-              From enquiry to energy asset.
-            </h2>
-          </div>
-          <MilestoneScroller milestones={milestones} />
-        </div>
-      </section>
-
       <section className="bg-paper px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <div data-about-panel="left" className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
@@ -1336,6 +1223,75 @@ function SolarAboutExperience() {
   );
 }
 
+type MissionVisionPillar = {
+  title: string;
+  paragraphs: string[];
+};
+
+function MissionVisionEditorial({
+  division,
+  pillars
+}: {
+  division: Exclude<Division, "group">;
+  pillars: MissionVisionPillar[];
+}) {
+  const accent = division === "solar" ? "text-solar-700" : "text-[#8a5f28]";
+  const mission = pillars.find((pillar) => pillar.title === "Mission") ?? pillars[1];
+  const vision = pillars.find((pillar) => pillar.title === "Vision") ?? pillars[0];
+
+  return (
+    <section className="bg-paper px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-28">
+      <div className="mx-auto max-w-7xl">
+        <div data-about-panel="up" className="mx-auto max-w-3xl text-center">
+          <p className={`text-xs font-semibold uppercase tracking-[0.32em] ${accent}`}>
+            What drives us
+          </p>
+          <h2 className="mt-5 font-display text-5xl leading-tight text-[#33271c] sm:text-6xl">
+            Mission &amp; Vision
+          </h2>
+          <div className="mx-auto mt-8 h-px w-14 bg-[#b08d57]/45" />
+        </div>
+
+        <div className="mx-auto mt-16 grid max-w-[1180px] items-center justify-center gap-8 text-center lg:mt-20 lg:grid-cols-[minmax(0,440px)_auto_minmax(0,440px)] lg:gap-14 lg:text-left">
+          <div data-about-panel="left" className="mx-auto w-full max-w-[440px]">
+            <p className="font-display text-2xl italic leading-tight text-[#8a5f28]">
+              Mission
+            </p>
+            <div className="mt-5 space-y-4">
+              {mission.paragraphs.map((paragraph) => (
+                <p key={paragraph} className="text-lg leading-9 text-[#5c4c3c] sm:text-xl sm:leading-10">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+          </div>
+
+          <div
+            data-about-panel="up"
+            className="font-display text-7xl leading-none text-[#b08d57] sm:text-8xl lg:px-2"
+            aria-hidden="true"
+          >
+            &amp;
+          </div>
+
+          <div data-about-panel="right" className="mx-auto w-full max-w-[440px]">
+            <p className="font-display text-2xl italic leading-tight text-[#1f3049]">
+              Vision
+            </p>
+            <div className="mt-5 space-y-4">
+              {vision.paragraphs.map((paragraph) => (
+                <p key={paragraph} className="text-lg leading-9 text-[#5c4c3c] sm:text-xl sm:leading-10">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function FeatureGrid({
   kicker,
   title,
@@ -1397,7 +1353,7 @@ function ListingPreview() {
               Featured listings
             </p>
             <h2 className="mt-3 max-w-3xl font-display text-3xl leading-tight sm:text-5xl">
-              One listing, one scene, one reason to enquire.
+              Discover opportunities worth your attention.
             </h2>
           </div>
           <Link
@@ -1471,6 +1427,12 @@ function StatsBand({
 }
 
 function ProcessBand({ division }: { division: Exclude<Division, "group"> }) {
+  const kicker = division === "realty" ? "The Milton Way" : "Process";
+  const title =
+    division === "realty"
+      ? "A seamless journey, thoughtfully designed to guide every property decision with clarity & confidence."
+      : "A short sequence because the work is actually sequential.";
+
   return (
     <section className="bg-paper px-4 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-20">
       <div className="mx-auto max-w-7xl">
@@ -1480,10 +1442,10 @@ function ProcessBand({ division }: { division: Exclude<Division, "group"> }) {
               division === "solar" ? "text-solar-700" : "text-realty-500"
             }`}
           >
-            Process
+            {kicker}
           </p>
           <h2 className="mt-3 font-display text-3xl leading-tight text-ink sm:text-5xl">
-            A short sequence because the work is actually sequential.
+            {title}
           </h2>
         </div>
         <div className="mt-6 grid grid-cols-2 gap-3 sm:mt-10 sm:gap-5 md:grid-cols-3">
@@ -1534,6 +1496,8 @@ function TestimonialsBand({ division }: { division: Exclude<Division, "group"> }
 }
 
 function FaqBand({ division }: { division: Exclude<Division, "group"> }) {
+  const title = division === "realty" ? "Everything Worth Knowing." : "Questions worth answering before the form.";
+
   return (
     <section className="bg-paper px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-20" id="faqs">
       <div className="mx-auto max-w-4xl">
@@ -1546,7 +1510,7 @@ function FaqBand({ division }: { division: Exclude<Division, "group"> }) {
             FAQ
           </p>
           <h2 className="mt-3 font-display text-3xl leading-tight text-ink sm:text-5xl">
-            Questions worth answering before the form.
+            {title}
           </h2>
         </div>
         <div className="mt-8 divide-y divide-ink/10 rounded-lg border border-ink/10 bg-white">
@@ -1571,12 +1535,14 @@ function FaqBand({ division }: { division: Exclude<Division, "group"> }) {
 
 function ClosingCta({
   division,
+  kicker = "Next step",
   title,
   text,
   href,
   label
 }: {
   division: Exclude<Division, "group">;
+  kicker?: string;
   title: string;
   text: string;
   href: string;
@@ -1591,7 +1557,7 @@ function ClosingCta({
       <div className="reveal mx-auto flex max-w-7xl flex-col gap-6 md:flex-row md:items-end md:justify-between">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.28em] text-ink/42">
-            Next step
+            {kicker}
           </p>
           <h2 className="mt-3 max-w-3xl font-display text-3xl leading-tight text-ink sm:text-5xl">
             {title}
@@ -1848,6 +1814,7 @@ function SplitBand({
   kicker,
   title,
   text,
+  highlight,
   image,
   cta,
   secondary
@@ -1856,6 +1823,7 @@ function SplitBand({
   kicker: string;
   title: string;
   text: string;
+  highlight?: string;
   image: string;
   cta: { href: string; label: string };
   secondary: { href: string; label: string };
@@ -1876,6 +1844,15 @@ function SplitBand({
           </p>
           <h2 className="mt-3 font-display text-3xl leading-tight text-ink sm:text-5xl">{title}</h2>
           <p className="mt-5 text-base leading-7 text-ink/64">{text}</p>
+          {highlight ? (
+            <p
+              className={`mt-4 border-l-2 pl-4 text-base font-semibold leading-7 text-ink sm:text-lg ${
+                division === "solar" ? "border-solar-500/60" : "border-realty-500/60"
+              }`}
+            >
+              {highlight}
+            </p>
+          ) : null}
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               href={cta.href}

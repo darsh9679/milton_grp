@@ -87,21 +87,18 @@ function useSwipeNavigation(onSwipe: (direction: 1 | -1) => void) {
 export function ListingsExplorer() {
   const [city, setCity] = useState(all);
   const [type, setType] = useState(all);
-  const [budget, setBudget] = useState(all);
+  const [progress, setProgress] = useState(all);
   const [selected, setSelected] = useState<Listing | null>(null);
 
   const cities = [all, ...Array.from(new Set(realtyListings.map((item) => item.city)))];
   const types = [all, ...Array.from(new Set(realtyListings.map((item) => item.type)))];
-  const budgets = [
-    all,
-    ...Array.from(new Set(realtyListings.map((item) => item.budgetBand)))
-  ];
+  const progressOptions = [all, "Ongoing", "Upcoming", "Complete"];
 
   const filtered = realtyListings.filter(
     (item) =>
       (city === all || item.city === city) &&
       (type === all || item.type === type) &&
-      (budget === all || item.budgetBand === budget)
+      (progress === all || item.progress === progress)
   );
 
   return (
@@ -120,10 +117,10 @@ export function ListingsExplorer() {
             <FilterSelect label="City" value={city} options={cities} onChange={setCity} />
             <FilterSelect label="Type" value={type} options={types} onChange={setType} />
             <FilterSelect
-              label="Budget"
-              value={budget}
-              options={budgets}
-              onChange={setBudget}
+              label="Progress"
+              value={progress}
+              options={progressOptions}
+              onChange={setProgress}
             />
           </div>
         </div>
@@ -159,7 +156,7 @@ export function ListingsExplorer() {
                   {listing.description}
                 </span>
                 <span className="mt-3 flex items-center justify-between gap-3 border-t border-ink/10 pt-3 text-xs font-semibold text-ink sm:mt-5 sm:gap-4 sm:pt-4 sm:text-sm">
-                  {listing.budget}
+                  {listing.progress}
                   <span className="inline-flex items-center gap-1 text-realty-700">
                     View <ArrowRight size={15} aria-hidden="true" />
                   </span>
@@ -312,9 +309,9 @@ function ListingModal({
           <dl className="mt-3 grid gap-3 sm:grid-cols-2 xl:mt-4">
             <div className="rounded-lg border border-ink/10 bg-white/68 p-3">
               <dt className="text-xs font-semibold uppercase tracking-[0.2em] text-ink/42">
-                Budget
+                Progress
               </dt>
-              <dd className="mt-2 text-sm font-semibold text-ink">{listing.budget}</dd>
+              <dd className="mt-2 text-sm font-semibold text-ink">{listing.progress}</dd>
             </div>
             <div className="rounded-lg border border-ink/10 bg-white/68 p-3">
               <dt className="text-xs font-semibold uppercase tracking-[0.2em] text-ink/42">
@@ -369,8 +366,12 @@ export function ProductCatalog() {
               Solar Shop
             </p>
             <h2 className="mt-3 max-w-3xl font-display text-3xl leading-tight text-ink sm:text-5xl">
-              A product catalogue built for enquiries, not checkout.
+              Detailed system components with trusted brands.
             </h2>
+            <p className="mt-4 max-w-2xl text-sm leading-6 text-ink/62 sm:text-base sm:leading-7">
+              Every quote starts with the core parts of the system: modules,
+              inverter, protection, cabling, and structure.
+            </p>
           </div>
           <div className="flex max-w-full flex-wrap gap-2 rounded-lg border border-ink/10 bg-white/70 p-2">
             {categories.map((item) => (
@@ -391,21 +392,22 @@ export function ProductCatalog() {
         </div>
 
         <div className="mt-8 grid gap-4 sm:grid-cols-2 sm:gap-5 xl:grid-cols-4">
-          {products.map((product) => (
+          {products.map((product, index) => (
             <article
               key={product.id}
-              className="grid grid-cols-[0.72fr_1.28fr] overflow-hidden rounded-lg border border-ink/10 bg-white shadow-sm sm:block"
+              className="flex h-full flex-col overflow-hidden rounded-lg border border-ink/10 bg-white shadow-sm"
             >
-              <div className="relative min-h-[140px] overflow-hidden sm:aspect-[16/10] sm:min-h-0 lg:aspect-[4/3]">
+              <div className="relative aspect-[4/3] w-full overflow-hidden bg-white">
                 <Image
                   src={product.image}
                   alt={product.name}
                   fill
-                  sizes="(min-width: 1280px) 25vw, (min-width: 640px) 50vw, 38vw"
-                  className="object-cover"
+                  sizes="(min-width: 1280px) 23vw, (min-width: 640px) 48vw, calc(100vw - 32px)"
+                  className="object-contain"
+                  priority={index === 0}
                 />
               </div>
-              <div className="p-3 sm:p-5">
+              <div className="flex flex-1 flex-col p-3 sm:p-5">
                 <p className="text-xs font-semibold uppercase tracking-[0.22em] text-solar-700">
                   {product.category}
                 </p>
@@ -415,11 +417,17 @@ export function ProductCatalog() {
                 <p className="compact-copy mt-2 text-[12px] leading-5 text-ink/62 sm:mt-3 sm:min-h-[48px] sm:text-sm sm:leading-6 lg:min-h-[72px]">
                   {product.spec}
                 </p>
+                <p className="mt-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-ink/38">
+                  Brands
+                </p>
+                <p className="compact-copy mt-1 text-[12px] leading-5 text-ink/68">
+                  {product.brands.join(", ")}
+                </p>
                 <p className="mt-3 text-sm font-semibold text-ink sm:mt-4">{product.price}</p>
                 <button
                   type="button"
                   onClick={() => setSelected(product)}
-                  className="mt-4 inline-flex min-h-10 w-full items-center justify-center gap-2 rounded-lg bg-ink px-3 text-sm font-semibold text-white transition hover:bg-solar-700 sm:mt-5 sm:min-h-11 sm:px-4"
+                  className="mt-auto inline-flex min-h-10 w-full items-center justify-center gap-2 rounded-lg bg-ink px-3 text-sm font-semibold text-white transition hover:bg-solar-700 sm:min-h-11 sm:px-4"
                 >
                   Request quote
                   <ArrowRight size={16} aria-hidden="true" />
@@ -442,7 +450,6 @@ function ProductModal({
   onClose: () => void;
 }) {
   const [activeImage, setActiveImage] = useState(0);
-  const [galleryPanelRef, galleryWidth] = useMeasuredWidth<HTMLDivElement>();
   const galleryImages = product.gallery?.length ? product.gallery : [product.image];
 
   function scrollToImage(index: number) {
@@ -455,18 +462,17 @@ function ProductModal({
   return (
     <div className="fixed inset-0 z-[70] grid place-items-center overflow-y-auto bg-ink/72 p-3 backdrop-blur-sm sm:p-4 lg:p-5">
       <div
-        className="my-auto grid max-h-[calc(100svh-1.5rem)] w-full max-w-7xl overflow-x-hidden overflow-y-auto overscroll-contain rounded-lg bg-[#fffaf0] shadow-soft sm:max-h-[calc(100svh-2rem)] lg:max-h-none lg:overflow-hidden lg:grid-cols-[0.78fr_1fr] xl:grid-cols-[0.86fr_1fr]"
+        className="my-auto grid max-h-[calc(100svh-1.5rem)] w-full max-w-7xl overflow-x-hidden overflow-y-auto overscroll-contain rounded-lg bg-[#fffaf0] shadow-soft sm:max-h-[calc(100svh-2rem)] lg:max-h-[calc(100svh-2.5rem)] lg:grid-cols-[minmax(0,1.35fr)_minmax(420px,1fr)] lg:overflow-hidden xl:grid-cols-[minmax(0,1.45fr)_minmax(460px,1fr)]"
         role="dialog"
         aria-modal="true"
         aria-label={`${product.name} quote enquiry`}
       >
-        <div ref={galleryPanelRef} className="relative h-[42svh] min-h-[260px] max-h-[390px] overflow-hidden bg-ink sm:h-auto sm:min-h-[320px] sm:max-h-none lg:min-h-full">
+        <div className="relative h-[clamp(235px,68vw,320px)] w-full overflow-hidden bg-white sm:h-[clamp(300px,48vw,420px)] lg:h-full lg:min-h-[480px]">
           <div
             data-product-gallery
             data-active-image={activeImage}
-            data-slide-width={galleryWidth}
             className="grid h-full grid-flow-col auto-cols-[100%] touch-pan-y transition-transform duration-500 ease-out will-change-transform"
-            style={{ transform: `translate3d(-${activeImage * galleryWidth}px, 0, 0)` }}
+            style={{ transform: `translate3d(-${activeImage * 100}%, 0, 0)` }}
             onTouchStart={swipeHandlers.onTouchStart}
             onTouchEnd={swipeHandlers.onTouchEnd}
           >
@@ -480,8 +486,9 @@ function ProductModal({
                   src={image}
                   alt={`${product.name} photo ${index + 1}`}
                   fill
-                  sizes="(min-width: 1280px) 48vw, (min-width: 1024px) 44vw, 100vw"
-                  className="object-cover"
+                  sizes="(min-width: 1280px) 43vw, (min-width: 1024px) 40vw, 100vw"
+                  className="object-contain"
+                  loading={index === activeImage ? "eager" : "lazy"}
                 />
               </div>
             ))}
@@ -522,7 +529,7 @@ function ProductModal({
             </>
           ) : null}
         </div>
-        <div className="p-4 sm:p-5 xl:p-6">
+        <div className="p-4 sm:p-5 lg:overflow-y-auto xl:p-6">
           <div className="flex items-start justify-between gap-4">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-solar-700">
@@ -542,6 +549,21 @@ function ProductModal({
             </button>
           </div>
           <p className="mt-2 text-sm leading-6 text-ink/66 xl:mt-3">{product.spec}</p>
+          <div className="mt-4 rounded-lg border border-ink/10 bg-white/70 p-3">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-ink/42">
+              Brands
+            </p>
+            <div className="mt-2 flex flex-wrap gap-2">
+              {product.brands.map((brand) => (
+                <span
+                  key={brand}
+                  className="rounded-full bg-solar-100 px-3 py-1.5 text-xs font-semibold text-ink"
+                >
+                  {brand}
+                </span>
+              ))}
+            </div>
+          </div>
           <p className="mt-3 rounded-lg border border-ink/10 bg-white/70 p-3 text-sm font-semibold text-ink xl:mt-4">
             {product.price}
           </p>
@@ -569,7 +591,7 @@ export function SolarSavingsCalculator() {
     const grossCost = systemSize * 65000;
     const subsidy =
       systemSize <= 1 ? 30000 : systemSize <= 2 ? 60000 : systemSize <= 3 ? 78000 : 78000;
-    const monthlySavings = Math.min(bill * 0.82, generation * tariff * 0.86);
+    const monthlySavings = bill * 0.8;
     const effectiveCost = Math.max(0, grossCost - subsidy);
     const payback = effectiveCost / Math.max(1, monthlySavings * 12);
 
@@ -629,7 +651,7 @@ export function SolarSavingsCalculator() {
               value={`Rs. ${result.subsidy.toLocaleString("en-IN")}`}
             />
             <CalcResult
-              label="Monthly savings"
+              label="80% monthly bill saving"
               value={`Rs. ${result.monthlySavings.toLocaleString("en-IN")}`}
             />
           </div>
@@ -938,6 +960,85 @@ type Milestone = {
 
 export function MilestoneScroller({ milestones }: { milestones: Milestone[] }) {
   const trackRef = useRef<HTMLDivElement>(null);
+  const scrollFrameRef = useRef<number | null>(null);
+  const [activeMilestone, setActiveMilestone] = useState(0);
+  const [imageOffsets, setImageOffsets] = useState<number[]>(() => milestones.map(() => 0));
+  const progress = milestones.length > 1 ? ((activeMilestone + 1) / milestones.length) * 100 : 100;
+
+  useEffect(() => {
+    const track = trackRef.current;
+
+    if (!track) {
+      return;
+    }
+
+    const updateMobileCarousel = () => {
+      const cards = Array.from(track.querySelectorAll<HTMLElement>("[data-about-mobile-milestone]"));
+
+      if (!cards.length) {
+        return;
+      }
+
+      const trackRect = track.getBoundingClientRect();
+      const trackCenter = trackRect.left + trackRect.width / 2;
+      let nextActive = 0;
+      let closestDistance = Number.POSITIVE_INFINITY;
+      const nextOffsets = cards.map((card, index) => {
+        const cardRect = card.getBoundingClientRect();
+        const cardCenter = cardRect.left + cardRect.width / 2;
+        const distance = cardCenter - trackCenter;
+        const absoluteDistance = Math.abs(distance);
+
+        if (absoluteDistance < closestDistance) {
+          closestDistance = absoluteDistance;
+          nextActive = index;
+        }
+
+        const normalizedDistance = Math.max(-1, Math.min(1, distance / cardRect.width));
+        return Math.round(normalizedDistance * -18);
+      });
+
+      setActiveMilestone((current) => (current === nextActive ? current : nextActive));
+      setImageOffsets((current) =>
+        current.length === nextOffsets.length &&
+        current.every((value, index) => value === nextOffsets[index])
+          ? current
+          : nextOffsets
+      );
+    };
+
+    const requestUpdate = () => {
+      if (scrollFrameRef.current !== null) {
+        return;
+      }
+
+      scrollFrameRef.current = window.requestAnimationFrame(() => {
+        scrollFrameRef.current = null;
+        updateMobileCarousel();
+      });
+    };
+
+    requestUpdate();
+    track.addEventListener("scroll", requestUpdate, { passive: true });
+    window.addEventListener("resize", requestUpdate);
+
+    let observer: ResizeObserver | null = null;
+    if ("ResizeObserver" in window) {
+      observer = new ResizeObserver(requestUpdate);
+      observer.observe(track);
+    }
+
+    return () => {
+      track.removeEventListener("scroll", requestUpdate);
+      window.removeEventListener("resize", requestUpdate);
+      observer?.disconnect();
+
+      if (scrollFrameRef.current !== null) {
+        window.cancelAnimationFrame(scrollFrameRef.current);
+        scrollFrameRef.current = null;
+      }
+    };
+  }, [milestones]);
 
   function scrollByCard(direction: 1 | -1) {
     const track = trackRef.current;
@@ -958,48 +1059,88 @@ export function MilestoneScroller({ milestones }: { milestones: Milestone[] }) {
           ref={trackRef}
           className="flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
-          {milestones.map((milestone) => (
-            <article
-              key={milestone.title}
-              data-about-milestone
-              className="w-[82vw] shrink-0 snap-start rounded-lg border border-white/12 bg-white/7 p-4 backdrop-blur-sm sm:w-[360px] sm:p-5"
-            >
-              <div className="relative aspect-[16/10] overflow-hidden rounded-lg bg-white/10">
-                <Image
-                  src={milestone.image}
-                  alt=""
-                  fill
-                  sizes="(min-width: 640px) 360px, 82vw"
-                  className="object-cover transition duration-700 hover:scale-105"
-                />
-              </div>
-              <div className="mt-4">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-white/45">
-                  {milestone.label}
-                </p>
-                <h3 className="mt-2 font-display text-2xl leading-tight sm:text-3xl">{milestone.title}</h3>
-                <p className="mt-3 text-sm leading-6 text-white/62">{milestone.text}</p>
-              </div>
-            </article>
-          ))}
+          {milestones.map((milestone, index) => {
+            const isActive = activeMilestone === index;
+
+            return (
+              <article
+                key={milestone.title}
+                data-about-milestone
+                data-about-mobile-milestone
+                aria-current={isActive ? "step" : undefined}
+                className="w-[82vw] shrink-0 snap-start sm:w-[360px]"
+              >
+                <div
+                  className={`h-full rounded-lg border p-4 backdrop-blur-sm transition duration-300 ease-out sm:p-5 ${
+                    isActive
+                      ? "scale-100 border-white/24 bg-white/10 opacity-100 shadow-[0_24px_70px_rgba(0,0,0,0.28)]"
+                      : "scale-[0.94] border-white/10 bg-white/[0.055] opacity-[0.68]"
+                  }`}
+                >
+                  <div className="relative aspect-[16/10] overflow-hidden rounded-lg bg-white/10">
+                    <Image
+                      src={milestone.image}
+                      alt=""
+                      fill
+                      sizes="(min-width: 640px) 360px, 82vw"
+                      className="object-cover transition-transform duration-300 ease-out"
+                      style={{
+                        transform: `translateX(${imageOffsets[index] ?? 0}px) scale(${
+                          isActive ? 1.08 : 1.04
+                        })`
+                      }}
+                    />
+                  </div>
+                  <div className="mt-4">
+                    <p
+                      className={`text-[11px] font-semibold uppercase tracking-[0.22em] transition-colors duration-300 ${
+                        isActive ? "text-white/58" : "text-white/38"
+                      }`}
+                    >
+                      {milestone.label}
+                    </p>
+                    <h3 className="mt-2 font-display text-2xl leading-tight sm:text-3xl">
+                      {milestone.title}
+                    </h3>
+                    <p className="mt-3 text-sm leading-6 text-white/62">{milestone.text}</p>
+                  </div>
+                </div>
+              </article>
+            );
+          })}
         </div>
-        <div className="mt-5 flex justify-end gap-2">
-          <button
-            type="button"
-            onClick={() => scrollByCard(-1)}
-            aria-label="Previous milestone"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/16 text-white transition hover:bg-white hover:text-ink"
+        <div className="mt-5 flex items-center justify-between gap-4">
+          <div
+            className="h-px flex-1 overflow-hidden rounded-full bg-white/14"
+            role="progressbar"
+            aria-label="Journey milestone progress"
+            aria-valuemin={1}
+            aria-valuemax={milestones.length}
+            aria-valuenow={activeMilestone + 1}
           >
-            <ChevronLeft size={18} aria-hidden="true" />
-          </button>
-          <button
-            type="button"
-            onClick={() => scrollByCard(1)}
-            aria-label="Next milestone"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/16 text-white transition hover:bg-white hover:text-ink"
-          >
-            <ChevronRight size={18} aria-hidden="true" />
-          </button>
+            <div
+              className="h-full rounded-full bg-white transition-[width] duration-300 ease-out"
+              style={{ width: `${progress}%` }}
+            />
+          </div>
+          <div className="flex shrink-0 gap-2">
+            <button
+              type="button"
+              onClick={() => scrollByCard(-1)}
+              aria-label="Previous milestone"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/16 text-white transition hover:bg-white hover:text-ink"
+            >
+              <ChevronLeft size={18} aria-hidden="true" />
+            </button>
+            <button
+              type="button"
+              onClick={() => scrollByCard(1)}
+              aria-label="Next milestone"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/16 text-white transition hover:bg-white hover:text-ink"
+            >
+              <ChevronRight size={18} aria-hidden="true" />
+            </button>
+          </div>
         </div>
       </div>
 
