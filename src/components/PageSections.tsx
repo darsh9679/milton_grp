@@ -1368,9 +1368,9 @@ function ListingPreview() {
           {realtyListings.slice(0, 3).map((listing) => (
             <article
               key={listing.id}
-              className="reveal grid grid-cols-[0.76fr_1.24fr] overflow-hidden rounded-lg border border-white/12 bg-white/8 sm:block"
+              className="reveal grid grid-cols-[0.76fr_1.24fr] overflow-hidden rounded-lg border border-white/12 bg-white/8 sm:flex sm:flex-col"
             >
-              <div className="relative min-h-[140px] overflow-hidden sm:aspect-[5/3] sm:min-h-0 lg:aspect-[4/3]">
+              <div className="relative min-h-[140px] overflow-hidden sm:aspect-[5/3] sm:min-h-0 sm:shrink-0 lg:aspect-[4/3]">
                 <Image
                   src={listing.image}
                   alt={listing.name}
@@ -1378,8 +1378,26 @@ function ListingPreview() {
                   sizes="(min-width: 1024px) 33vw, (min-width: 768px) 33vw, 38vw"
                   className="object-cover"
                 />
+                {listing.soldOut ? (
+                  <>
+                    <span
+                      aria-label="Sold out"
+                      className="absolute right-2 top-2 rounded-md bg-ink px-1.5 py-1 text-[8px] font-bold uppercase leading-none tracking-[0.1em] text-paper shadow-md sm:hidden"
+                    >
+                      Sold
+                      <br />
+                      Out
+                    </span>
+                    <span
+                      aria-label="Sold out"
+                      className="absolute right-[-42px] top-[18px] hidden w-[160px] rotate-45 bg-ink py-1 text-center text-[10px] font-bold uppercase tracking-[0.24em] text-paper shadow-md ring-1 ring-white/20 sm:block"
+                    >
+                      Sold Out
+                    </span>
+                  </>
+                ) : null}
               </div>
-              <div className="p-4 sm:p-5">
+              <div className="p-4 sm:flex sm:flex-1 sm:flex-col sm:p-5">
                 <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/48">
                   {listing.city} / {listing.type}
                 </p>

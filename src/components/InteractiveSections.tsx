@@ -131,9 +131,9 @@ export function ListingsExplorer() {
               key={listing.id}
               type="button"
               onClick={() => setSelected(listing)}
-              className="group grid grid-cols-[0.72fr_1.28fr] overflow-hidden rounded-lg border border-ink/10 bg-white text-left shadow-sm transition hover:-translate-y-1 hover:shadow-soft sm:block"
+              className="group grid grid-cols-[0.72fr_1.28fr] overflow-hidden rounded-lg border border-ink/10 bg-white text-left shadow-sm transition hover:-translate-y-1 hover:shadow-soft sm:flex sm:flex-col"
             >
-              <span className="relative block min-h-[140px] overflow-hidden sm:aspect-[16/10] sm:min-h-0 lg:aspect-[4/3]">
+              <span className="relative block min-h-[140px] overflow-hidden sm:aspect-[16/10] sm:min-h-0 sm:shrink-0 lg:aspect-[4/3]">
                 <Image
                   src={listing.image}
                   alt={listing.name}
@@ -144,8 +144,26 @@ export function ListingsExplorer() {
                 <span className="absolute left-4 top-4 rounded-lg bg-white/90 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-ink">
                   {listing.type}
                 </span>
+                {listing.soldOut ? (
+                  <>
+                    <span
+                      aria-label="Sold out"
+                      className="absolute right-2 top-2 rounded-md bg-ink px-1.5 py-1 text-[8px] font-bold uppercase leading-none tracking-[0.1em] text-paper shadow-md sm:hidden"
+                    >
+                      Sold
+                      <br />
+                      Out
+                    </span>
+                    <span
+                      aria-label="Sold out"
+                      className="absolute right-[-42px] top-[18px] hidden w-[160px] rotate-45 bg-ink py-1 text-center text-[10px] font-bold uppercase tracking-[0.24em] text-paper shadow-md ring-1 ring-white/20 sm:block"
+                    >
+                      Sold Out
+                    </span>
+                  </>
+                ) : null}
               </span>
-              <span className="block p-3 sm:p-5">
+              <span className="block p-3 sm:flex sm:flex-1 sm:flex-col sm:p-5">
                 <span className="text-xs font-semibold uppercase tracking-[0.24em] text-realty-500">
                   {listing.city} / {listing.locality}
                 </span>
@@ -155,7 +173,7 @@ export function ListingsExplorer() {
                 <span className="compact-copy mt-2 block text-[12px] leading-5 text-ink/62 sm:mt-3 sm:text-sm sm:leading-6">
                   {listing.description}
                 </span>
-                <span className="mt-3 flex items-center justify-between gap-3 border-t border-ink/10 pt-3 text-xs font-semibold text-ink sm:mt-5 sm:gap-4 sm:pt-4 sm:text-sm">
+                <span className="mt-3 flex items-center justify-between gap-3 border-t border-ink/10 pt-3 text-xs font-semibold text-ink sm:mt-auto sm:gap-4 sm:pt-4 sm:text-sm">
                   {listing.progress}
                   <span className="inline-flex items-center gap-1 text-realty-700">
                     View <ArrowRight size={15} aria-hidden="true" />
@@ -225,6 +243,14 @@ function ListingModal({
         aria-label={`${listing.name} property enquiry`}
       >
         <div ref={galleryPanelRef} className="relative h-[42svh] min-h-[260px] max-h-[390px] overflow-hidden bg-ink sm:h-auto sm:min-h-[320px] sm:max-h-none lg:min-h-full">
+          {listing.soldOut ? (
+            <span
+              aria-label="Sold out"
+              className="absolute right-[-46px] top-[22px] z-10 w-[180px] rotate-45 bg-ink py-1.5 text-center text-xs font-bold uppercase tracking-[0.28em] text-paper shadow-md ring-1 ring-white/20"
+            >
+              Sold Out
+            </span>
+          ) : null}
           <div
             data-listing-gallery
             data-active-image={activeImage}

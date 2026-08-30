@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter, Space_Grotesk } from "next/font/google";
+import { ConsoleIdentity } from "@/components/ConsoleIdentity";
 import "./globals.css";
 
 const display = Cormorant_Garamond({
@@ -40,6 +41,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${display.variable} ${sans.variable} ${solarAlt.variable}`}>
+        <ConsoleIdentity />
         {children}
       </body>
     </html>

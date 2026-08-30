@@ -75,11 +75,11 @@ export function MotionLayer() {
       .toArray<HTMLElement>("[data-about-panel]")
       .map((element) => {
         const isDesktop = window.matchMedia("(min-width: 768px)").matches;
-        const direction = element.dataset.aboutPanel === "left" ? -1 : 1;
-        const fromVars =
-          element.dataset.aboutPanel === "up" || !isDesktop
-            ? { opacity: 0, x: 0, y: 34 }
-            : { opacity: 0, x: direction * 56, y: 18 };
+        const fromVars = {
+          opacity: 0,
+          x: 0,
+          y: element.dataset.aboutPanel === "up" || !isDesktop ? 34 : 28
+        };
 
         return gsap.fromTo(element, fromVars, {
           opacity: 1,

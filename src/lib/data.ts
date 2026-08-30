@@ -289,7 +289,7 @@ export const realtyListings = [
     name: "Anthea Sea-View Apartment",
     city: "Mumbai",
     locality: "Versova",
-    type: "Flat",
+    type: "Flats",
     budgetBand: "Premium",
     budget: "Rs. 3.2 Cr onwards",
     progress: "Ongoing",
@@ -297,14 +297,15 @@ export const realtyListings = [
     image: realtyListingImages.versova,
     gallery: realtyListingGallery("versova-sea-view"),
     description:
-      "A composed coastal apartment opportunity for end-users who want social infrastructure, beach proximity, and stronger western-suburb connectivity."
+      "A composed coastal apartment opportunity for end-users who want social infrastructure, beach proximity, and stronger western-suburb connectivity.",
+    soldOut: false
   },
   {
     id: "tardeo-heritage",
     name: "Stardeous Heritage Residence",
     city: "Mumbai",
     locality: "Tardeo",
-    type: "Flat",
+    type: "Flats",
     budgetBand: "Luxury",
     budget: "Price on request",
     progress: "Ongoing",
@@ -312,7 +313,8 @@ export const realtyListings = [
     image: realtyListingImages.tardeo,
     gallery: realtyListingGallery("tardeo-heritage"),
     description:
-      "A discreet South Mumbai residence positioned for buyers prioritising address value, privacy, and long-horizon capital preservation."
+      "A discreet South Mumbai residence positioned for buyers prioritising address value, privacy, and long-horizon capital preservation.",
+    soldOut: true
   },
   {
     id: "satara-eco-plots",
@@ -327,7 +329,8 @@ export const realtyListings = [
     image: realtyListingImages.satara,
     gallery: realtyListingGallery("satara-eco-plots"),
     description:
-      "Grounded in Milton's existing Satara presence, this land-led opportunity is suited to second homes, compact villas, and patient investors."
+      "Grounded in Milton's existing Satara presence, this land-led opportunity is suited to second homes, compact villas, and patient investors.",
+    soldOut: false
   },
   {
     id: "guhagar-coastal",
@@ -342,7 +345,8 @@ export const realtyListings = [
     image: realtyListingImages.guhagar,
     gallery: realtyListingGallery("guhagar-coastal"),
     description:
-      "A coastal bungalow canvas for buyers seeking open air, local character, and a slower investment rhythm beyond the city."
+      "A coastal bungalow canvas for buyers seeking open air, local character, and a slower investment rhythm beyond the city.",
+    soldOut: false
   },
   {
     id: "shirdi-hospitality",
@@ -357,7 +361,8 @@ export const realtyListings = [
     image: realtyListingImages.shirdi,
     gallery: realtyListingGallery("shirdi-hospitality"),
     description:
-      "Prime farmland near Shirdi, offering investors a strategic opportunity for agricultural use and long-term appreciation"
+      "Prime farmland near Shirdi, offering investors a strategic opportunity for agricultural use and long-term appreciation",
+    soldOut: false
   },
   {
     id: "mahabaleshwar-retreat",
@@ -372,7 +377,8 @@ export const realtyListings = [
     image: realtyListingImages.mahabaleshwar,
     gallery: realtyListingGallery("mahabaleshwar-retreat"),
     description:
-      "A second-home proposition for families who want climate, quiet, and a future-ready retreat close to established hill-town demand."
+      "A second-home proposition for families who want climate, quiet, and a future-ready retreat close to established hill-town demand.",
+    soldOut: false
   },
   {
     id: "kalyan-compact",
@@ -387,7 +393,8 @@ export const realtyListings = [
     image: realtyListingImages.kalyan,
     gallery: realtyListingGallery("kalyan-compact"),
     description:
-      "A practical MMR option for first-time buyers, rental investors, and families upgrading within a defined budget."
+      "A practical MMR option for first-time buyers, rental investors, and families upgrading within a defined budget.",
+    soldOut: false
   }
 ];
 
