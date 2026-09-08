@@ -300,7 +300,7 @@ function SiteFooter({ division }: { division: Division }) {
             Contact
           </h3>
           <div className="mt-3 space-y-3 break-words text-[13px] leading-5 text-white/72 sm:mt-4">
-            <div className="grid gap-2 md:grid-cols-[0.78fr_1.22fr] lg:grid-cols-1 xl:grid-cols-[0.78fr_1.22fr]">
+            <div className="grid gap-2 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
               <Link
                 href={contact.phoneHref}
                 className="inline-flex min-h-10 min-w-0 items-center gap-2 rounded-lg border border-white/14 px-3 py-2 font-semibold text-white/86 transition hover:bg-white/10 hover:text-white"
@@ -309,8 +309,15 @@ function SiteFooter({ division }: { division: Division }) {
                 <span className="min-w-0 whitespace-nowrap">{contact.phone}</span>
               </Link>
               <Link
-                href={contact.emailHref}
+                href={contact.landlineHref}
                 className="inline-flex min-h-10 min-w-0 items-center gap-2 rounded-lg border border-white/14 px-3 py-2 font-semibold text-white/86 transition hover:bg-white/10 hover:text-white"
+              >
+                <Phone className="shrink-0" size={16} aria-hidden="true" />
+                <span className="min-w-0 whitespace-nowrap">{contact.landline}</span>
+              </Link>
+              <Link
+                href={contact.emailHref}
+                className="inline-flex min-h-10 min-w-0 items-center gap-2 rounded-lg border border-white/14 px-3 py-2 font-semibold text-white/86 transition hover:bg-white/10 hover:text-white md:col-span-2 lg:col-span-1 xl:col-span-2"
               >
                 <Mail className="shrink-0" size={16} aria-hidden="true" />
                 <span className="min-w-0 break-all text-[12px] leading-5 sm:text-[13px]">

@@ -521,6 +521,12 @@ function RealtyAboutExperience() {
     {
       label: "Foundations",
       title: "Where the name was built",
+      text: "Gujarat, Baroda. Bespoke Bungalows, Unmatched Architectural Brilliance.",
+      image: "/images/realty-about/html-reference-15.jpg"
+    },
+    {
+      label: "Baroda, Gujarat",
+      title: "Cine Mall",
       text: "Strategically positioned in a high-visibility location. Designed to capture attention and strengthen market presence.",
       image: "/images/realty-about/html-reference-14.jpg"
     },
@@ -535,12 +541,6 @@ function RealtyAboutExperience() {
       title: "Anthea",
       text: "Coastal proximity. Elevated urban living. Connected to lifestyle, convenience, and opportunity.",
       image: "/images/realty-about/html-reference-01.jpg"
-    },
-    {
-      label: "Expanding Horizons",
-      title: "A growing presence",
-      text: "Across destinations where lifestyle, growth, and opportunity converge.",
-      image: "/images/realty-about/html-reference-13.jpg"
     },
     {
       label: "Today",
@@ -914,7 +914,7 @@ function SolarAboutExperience() {
     {
       title: "Residential Rooftop",
       place: "Homes and societies",
-      image: heroImages.roof,
+      image: "/images/solar-about/solar-profile.jpg",
       text:
         "Bill-led rooftop planning with subsidy guidance, net-metering support, inverter selection, and clean handover."
     },
@@ -999,7 +999,7 @@ function SolarAboutExperience() {
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
           <div data-about-image className="relative min-h-[340px] overflow-hidden rounded-lg bg-ink shadow-soft sm:min-h-[520px]">
             <Image
-              src={heroImages.roof}
+              src="/images/solar-about/solar-profile.jpg"
               alt="Milton Solar rooftop installation"
               fill
               sizes="(min-width: 1024px) 44vw, 100vw"
@@ -1664,6 +1664,13 @@ function ContactBand({ division }: { division: Exclude<Division, "group"> }) {
               >
                 <Phone size={16} aria-hidden="true" />
                 {contact.phone}
+              </Link>
+              <Link
+                href={contact.landlineHref}
+                className="inline-flex min-h-10 items-center gap-2 rounded-lg border border-ink/10 bg-white px-3 py-2 font-semibold text-ink shadow-sm transition hover:bg-ink hover:text-white"
+              >
+                <Phone size={16} aria-hidden="true" />
+                {contact.landline}
               </Link>
               <Link
                 href={contact.emailHref}
