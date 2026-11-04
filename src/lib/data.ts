@@ -203,8 +203,8 @@ const sharedContactDetails = {
   phoneHref: "tel:+918104418614",
   landline: "022-35082485",
   landlineHref: "tel:+912235082485",
-  email: "milton.realestatemarketing@gmail.com",
-  emailHref: "mailto:milton.realestatemarketing@gmail.com",
+  email: "info@miltonhomespace.com",
+  emailHref: "mailto:info@miltonhomespace.com",
   mapQuery: "",
   mapEmbedSrc: "",
   branchOffice:
@@ -235,8 +235,8 @@ export const contactConfig = {
     ...sharedContactDetails,
     phone: "8104417820",
     phoneHref: "tel:+918104417820",
-    email: "support.miltonsolar@gmail.com",
-    emailHref: "mailto:support.miltonsolar@gmail.com",
+    email: "info@miltonhomespace.com",
+    emailHref: "mailto:info@miltonhomespace.com",
     whatsapp:
       process.env.NEXT_PUBLIC_MILTON_SOLAR_WHATSAPP_NUMBER || "919876543210",
     contactHref: "/solar-contact",
@@ -521,9 +521,9 @@ export const realtyDirectors = [
     name: "Mubarak Shaikh",
     role: "Honarary Board Member | Milton Realty",
     cardRole: "Honarary Board Member, Milton Realty",
-    image: "/images/realty-about/html-reference-06.jpg",
-    imageAlt: "Mr. Mubarak Shaikh, Director of Milton Realty",
-    position: "center center",
+    image: "/images/directors/mubarak-shaikh.png",
+    imageAlt: "Mr. Mubarak Shaikh, Honorary Board Member of Milton Realty",
+    position: "center top",
     summary:
       "A real estate professional shaped by perseverance, land investment expertise, and a deep belief in transparent long-term value creation.",
     quote:

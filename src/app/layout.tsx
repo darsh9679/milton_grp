@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter, Space_Grotesk } from "next/font/google";
 import { ConsoleIdentity } from "@/components/ConsoleIdentity";
+import { siteUrl } from "@/lib/site";
 import "./globals.css";
 
 const display = Cormorant_Garamond({
@@ -22,9 +23,7 @@ const solarAlt = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "https://milton-grp.vercel.app"
-  ),
+  metadataBase: new URL(siteUrl),
   title: {
     default: "Milton Group | Realty and Solar",
     template: "%s | Milton Group"
